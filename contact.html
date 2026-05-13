@@ -56,9 +56,22 @@
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.02em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--green); }
+    .nav-cta { background: var(--green) !important; color: #fff !important; padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.88; }
     .nav-back { font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; }
     .nav-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
     .nav-back:hover { color: var(--green); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.02em; cursor: pointer; display: flex; align-items: center; gap: 5px; background: none; border: none; font-family: var(--sans); padding: 0; }
+    .nav-dropdown-trigger:hover { color: var(--green); }
+    .nav-dropdown-trigger svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-trigger svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 14px); right: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 8px; min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,0.09); z-index: 200; }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: flex; flex-direction: column; padding: 10px 14px; border-radius: 6px; transition: background 0.15s; text-decoration: none; }
+    .nav-dropdown-menu a:hover { background: var(--bg-secondary); }
+    .nav-dropdown-menu a span { font-size: 13px; color: var(--text); font-weight: 500; }
+    .nav-dropdown-menu a small { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
 
     /* PAGE LAYOUT */
     .page-wrap {
@@ -366,8 +379,24 @@
       <ul class="nav-links">
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#faq">FAQs</a></li>
         <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li class="nav-dropdown" id="nav-dropdown">
+          <button class="nav-dropdown-trigger" id="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            More
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="index.html#faq" role="menuitem">
+              <span>FAQs</span>
+              <small>Common questions answered</small>
+            </a>
+            <a href="professionals.html" role="menuitem">
+              <span>For Professionals</span>
+              <small>Practice consulting &amp; case consultation</small>
+            </a>
+          </div>
+        </li>
       </ul>
       <a href="index.html" class="nav-back">
         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -383,8 +412,10 @@
     <a href="index.html">Home</a>
     <a href="index.html#services">Services</a>
     <a href="index.html#about">About</a>
-    <a href="index.html#faq">FAQs</a>
     <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#blog">Blog</a>
+    <a href="index.html#faq">FAQs</a>
+    <a href="professionals.html">For Professionals</a>
     <a href="contact.html" class="mobile-cta">Book an appointment</a>
   </div>
 
@@ -474,11 +505,11 @@
             <label for="service">Service interested in <span class="required">*</span></label>
             <select id="service" name="service">
               <option value="" disabled selected>Select a service...</option>
-              <option value="individual">Individual counseling &mdash; $245</option>
-              <option value="family">Family counseling &mdash; $245</option>
-              <option value="parent">Parent counseling &mdash; $245</option>
-              <option value="consultation">Case consultation (professionals) &mdash; $225</option>
-              <option value="esa">ESA letter &mdash; $125</option>
+              <option value="individual">Individual counseling ($245)</option>
+              <option value="family">Family counseling ($245)</option>
+              <option value="parent">Parent counseling ($245)</option>
+              <option value="consultation">Case consultation - professionals ($225)</option>
+              <option value="esa">ESA letter ($125)</option>
             </select>
             <div class="field-error" id="service-error">Please select a service.</div>
           </div>
@@ -523,7 +554,7 @@
 
           <div class="form-group">
             <label for="message">What brings you here? <span class="required">*</span></label>
-            <textarea id="message" name="message" placeholder="Share a bit about what you&apos;re looking for help with. There&apos;s no wrong answer &mdash; whatever feels comfortable."></textarea>
+            <textarea id="message" name="message" placeholder="Share a bit about what you&apos;re looking for help with. There&apos;s no wrong answer, whatever feels comfortable."></textarea>
             <div class="field-error" id="message-error">Please share a brief message.</div>
           </div>
 
@@ -689,12 +720,26 @@
       hamburger.setAttribute('aria-expanded', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
+    const dropdown = document.getElementById('nav-dropdown');
+    const dropdownTrigger = document.getElementById('dropdown-trigger');
+    if (dropdown && dropdownTrigger) {
+      dropdownTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('open');
+        dropdownTrigger.setAttribute('aria-expanded', isOpen);
+      });
+      document.addEventListener('click', () => {
+        dropdown.classList.remove('open');
+        dropdownTrigger.setAttribute('aria-expanded', 'false');
+      });
+    }
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         hamburger.classList.remove('open');
         mobileMenu.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+        if (dropdown) dropdown.classList.remove('open');
       }
     });
   </script>

@@ -57,6 +57,19 @@
     .nav-cta { background: var(--green) !important; color: #fff !important; padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; transition: opacity 0.2s; }
     .nav-cta:hover { opacity: 0.88; }
 
+    /* Dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.02em; cursor: pointer; display: flex; align-items: center; gap: 5px; background: none; border: none; font-family: var(--sans); padding: 0; }
+    .nav-dropdown-trigger:hover { color: var(--green); }
+    .nav-dropdown-trigger svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-trigger svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 14px); right: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 8px; min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,0.09); z-index: 200; }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: flex; flex-direction: column; padding: 10px 14px; border-radius: 6px; transition: background 0.15s; text-decoration: none; }
+    .nav-dropdown-menu a:hover { background: var(--bg-secondary); }
+    .nav-dropdown-menu a span { font-size: 13px; color: var(--text); font-weight: 500; }
+    .nav-dropdown-menu a small { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
     .hero { display: grid; grid-template-columns: 1fr 1fr; height: calc(100vh - 61px); max-height: 780px; min-height: 480px; }
     .hero-left { padding: 44px 48px; display: flex; flex-direction: column; justify-content: center; }
     .eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); font-weight: 500; margin-bottom: 14px; }
@@ -325,9 +338,24 @@
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#blog">Blog</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li class="nav-dropdown" id="nav-dropdown">
+          <button class="nav-dropdown-trigger" id="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            More
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="#faq" role="menuitem">
+              <span>FAQs</span>
+              <small>Common questions answered</small>
+            </a>
+            <a href="professionals.html" role="menuitem">
+              <span>For Professionals</span>
+              <small>Practice consulting &amp; case consultation</small>
+            </a>
+          </div>
+        </li>
         <li><a href="contact.html" class="nav-cta">Book Now &rarr;</a></li>
       </ul>
       <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -340,9 +368,10 @@
   <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <a href="#services"   onclick="closeMenu()">Services</a>
     <a href="#about"      onclick="closeMenu()">About</a>
-    <a href="#blog"       onclick="closeMenu()">Blog</a>
     <a href="#reviews"    onclick="closeMenu()">Reviews</a>
+    <a href="#blog"       onclick="closeMenu()">Blog</a>
     <a href="#faq"        onclick="closeMenu()">FAQs</a>
+    <a href="professionals.html" onclick="closeMenu()">For Professionals</a>
     <a href="contact.html" class="mobile-cta">Book an appointment</a>
   </div>
 
@@ -351,7 +380,7 @@
       <div class="hero-left">
         <p class="eyebrow">West Chester, PA &middot; In Person &amp; Virtual</p>
         <h1 class="hero-h1">Counseling for <em>athletes,</em><br>ADHD &amp; life&rsquo;s big moments</h1>
-        <p class="hero-sub">Bill Reichle is a licensed professional counselor specializing in the mental performance of athletes, ADHD, anxiety, and life transitions &mdash; for youth, adults, and families in Chester County and beyond.</p>
+        <p class="hero-sub">Bill Reichle is a licensed professional counselor specializing in the mental performance of athletes, ADHD, anxiety, and life transitions. Serving youth, adults, and families in Chester County and beyond.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn-primary">Book an appointment</a>
           <a href="#services" class="btn-ghost">View services &amp; pricing</a>
@@ -408,6 +437,26 @@
           <div class="trust-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <div><div class="trust-card-name">Greater West Chester Chamber</div><div class="trust-card-type">Member business</div></div>
         </a>
+        <a href="https://nextdoor.com/pages/main-line-therapeutics-wellness-chadds-ford-pa/" target="_blank" rel="noopener" class="trust-card">
+          <div class="trust-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div><div class="trust-card-name">Nextdoor</div><div class="trust-card-type">Local community listing</div></div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=Hjq3_nxn3fE" target="_blank" rel="noopener" class="trust-card">
+          <div class="trust-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          <div><div class="trust-card-name">YouTube</div><div class="trust-card-type">Featured interview</div></div>
+        </a>
+        <a href="https://miresource.com/provider/william-reichle-DE3P" target="_blank" rel="noopener" class="trust-card">
+          <div class="trust-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><div class="trust-card-name">MiResource</div><div class="trust-card-type">Verified provider network</div></div>
+        </a>
+        <a href="https://thrivingcampus.com/providers/bill-reichle" target="_blank" rel="noopener" class="trust-card">
+          <div class="trust-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <div><div class="trust-card-name">ThrivingCampus</div><div class="trust-card-type">College wellness network</div></div>
+        </a>
+        <a href="https://www.specialneedscollective.com/business/bill-reichle-avanti-consulting" target="_blank" rel="noopener" class="trust-card">
+          <div class="trust-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div class="trust-card-name">Special Needs Collective</div><div class="trust-card-type">Specialist directory</div></div>
+        </a>
       </div>
     </div>
 
@@ -415,7 +464,7 @@
       <div class="section-header">
         <p class="eyebrow">Areas of focus</p>
         <h2 class="section-title" id="specialties-title">What brings people to Bill</h2>
-        <p class="section-sub">From the field to the family table &mdash; every specialty reflects real experience, not just credentials.</p>
+        <p class="section-sub">From the field to the family table, every specialty reflects real experience, not just credentials.</p>
       </div>
       <div class="specialties-grid">
         <div class="specialty-card">
@@ -446,17 +495,17 @@
         <div class="specialty-card">
           <div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
           <h3 class="specialty-name">Relationships</h3>
-          <p class="specialty-copy">Communication isn&rsquo;t just talking &mdash; it&rsquo;s being understood. Let&rsquo;s bridge the gap between &ldquo;living together&rdquo; and &ldquo;growing together.&rdquo;</p>
+          <p class="specialty-copy">Communication isn&rsquo;t just talking, it&rsquo;s being understood. Let&rsquo;s bridge the gap between &ldquo;living together&rdquo; and &ldquo;growing together.&rdquo;</p>
         </div>
         <div class="specialty-card">
           <div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
           <h3 class="specialty-name">IEP / 504 support</h3>
-          <p class="specialty-copy">I&rsquo;ve sat on both sides of the school desk. Don&rsquo;t navigate the bureaucracy alone &mdash; let&rsquo;s get your child the map they deserve.</p>
+          <p class="specialty-copy">I&rsquo;ve sat on both sides of the school desk. Don&rsquo;t navigate the bureaucracy alone. Let&rsquo;s get your child the map they deserve.</p>
         </div>
         <div class="specialty-card">
           <div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M9 11.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zm6 0a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.29.02-.58.05-.86 2.36-1.05 4.23-2.98 5.21-5.37A9.959 9.959 0 0 0 20 12c0 4.41-3.59 8-8 8z"/></svg></div>
           <h3 class="specialty-name">Autism</h3>
-          <p class="specialty-copy">Autism isn&rsquo;t a barrier to a fulfilling life &mdash; it&rsquo;s the unique lens through which you&rsquo;ll build one.</p>
+          <p class="specialty-copy">Autism isn&rsquo;t a barrier to a fulfilling life. It&rsquo;s the unique lens through which you&rsquo;ll build one.</p>
         </div>
       </div>
     </section>
@@ -464,8 +513,8 @@
     <section class="about-strip" id="about" aria-labelledby="about-title">
       <div class="about-left">
         <p class="about-eyebrow">About Bill</p>
-        <h2 class="about-h2" id="about-title">Former school counselor, athlete &amp; youth coach &mdash; now LPC</h2>
-        <p class="about-body">I&rsquo;ve sat on both sides of the desk in Chester County schools. I know firsthand the hardships facing youth, young adults, and parents. My goal is simple: help you find the silver linings that are hard to see when life clouds your view. Every client leaves each session with new goals, new perspective, and a clear next step. I look forward to talking with you soon &mdash; be well!</p>
+        <h2 class="about-h2" id="about-title">Former school counselor, athlete &amp; youth coach, now LPC</h2>
+        <p class="about-body">I&rsquo;ve sat on both sides of the desk in Chester County schools. I know firsthand the hardships facing youth, young adults, and parents. My goal is simple: help you find the silver linings that are hard to see when life clouds your view. Every client leaves each session with new goals, new perspective, and a clear next step. I look forward to talking with you soon. Be well!</p>
         <div class="creds">
           <span class="cred-badge">LPC</span>
           <span class="cred-badge">NCC</span>
@@ -661,22 +710,43 @@
       <div class="reviews-grid">
         <div class="review-card">
           <div class="review-stars">5 / 5</div>
-          <p class="review-text">&ldquo;Bill has a rare ability to make you feel genuinely heard. He doesn&rsquo;t just listen &mdash; he asks the right questions that help you find your own answers.&rdquo;</p>
-          <div class="review-author">Parent, West Chester</div>
-          <div class="review-type">Individual counseling</div>
+          <p class="review-text">&ldquo;As a psychiatrist in the community, I&rsquo;ve had the opportunity and pleasure to collaborate with Bill in some of my case work, and am very impressed. He has a broad knowledge base, does great work, connects well with his clientele, and is compassionate. I highly recommend him.&rdquo;</p>
+          <div class="review-author">Jeffrey Naser</div>
+          <div class="review-type">Google review</div>
         </div>
         <div class="review-card">
           <div class="review-stars">5 / 5</div>
-          <p class="review-text">&ldquo;As an athlete, I was skeptical about therapy. Bill gets the sports mindset. He gave me tools I actually use on the field and off it.&rdquo;</p>
-          <div class="review-author">College athlete, PA</div>
-          <div class="review-type">Athlete counseling</div>
+          <p class="review-text">&ldquo;What a caring and empathic person! Bill Reichle is a consummate professional and it is evident he cares about his clients. As a fellow healthcare provider, I choose to work with individuals who put clients first and commit themselves to excellent care. Bill is that person!&rdquo;</p>
+          <div class="review-author">Kristen Wilson</div>
+          <div class="review-type">Google review</div>
         </div>
         <div class="review-card">
           <div class="review-stars">5 / 5</div>
-          <p class="review-text">&ldquo;Our family was in a rough spot. Bill helped us actually communicate again. The kids look forward to their sessions, which says everything.&rdquo;</p>
-          <div class="review-author">Family, Chester County</div>
+          <p class="review-text">&ldquo;Bill&rsquo;s natural ability to connect and engage in a warm, genuine way is immediately apparent. His passion for helping people is both evident and inspiring. What truly stands out is his capacity to deeply listen, not just to words, but to meaning and emotion. I&rsquo;m truly grateful to have him as a trusted referral source.&rdquo;</p>
+          <div class="review-author">Stella Barry</div>
+          <div class="review-type">Google review</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">5 / 5</div>
+          <p class="review-text">&ldquo;Cannot recommend Bill Reichle enough. Bill is top of my list for all my referrals! He will go above and beyond to tailor his approach to meet each individual&rsquo;s needs, ensuring that every session feels meaningful and productive. Bill is a rare gem in the field.&rdquo;</p>
+          <div class="review-author">Summer Pierson</div>
+          <div class="review-type">Google review</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">5 / 5</div>
+          <p class="review-text">&ldquo;Bill Reichle has an incredible ability to connect with adolescents, making our son feel comfortable and understood from their very first session. His deep understanding of the school system provided our family with invaluable guidance. We wholeheartedly recommend him to any parent seeking a truly dedicated therapist.&rdquo;</p>
+          <div class="review-author">Current Client</div>
           <div class="review-type">Family counseling</div>
         </div>
+        <div class="review-card">
+          <div class="review-stars">5 / 5</div>
+          <p class="review-text">&ldquo;From the very first session, Bill&rsquo;s approach was different. He used his background as a former coach and athlete to build immediate rapport. My son actually looked forward to their sessions because they felt like a collaborative team working toward a goal rather than a clinical evaluation.&rdquo;</p>
+          <div class="review-author">Current Client</div>
+          <div class="review-type">Athlete counseling</div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top: 28px;">
+        <a href="https://share.google/7j9pzg8LXY5fZPm4o" target="_blank" rel="noopener" class="btn-outline">4.9 stars on Google &rarr; See all reviews</a>
       </div>
     </section>
 
@@ -700,7 +770,7 @@
 
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-q">What does a session typically look like?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">Sessions vary in structure and scope. They consist of exploring thoughts, ideas, feelings, and experiences &mdash; along with setting goals and benchmarks to measure your growth.</div>
+          <div class="faq-a">Sessions vary in structure and scope. They consist of exploring thoughts, ideas, feelings, and experiences, along with setting goals and benchmarks to measure your growth.</div>
         </div>
 
         <div class="faq-item" onclick="toggleFaq(this)">
@@ -725,7 +795,7 @@
 
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-q">What does ADHD counseling look like?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">The approach focuses on practical strategies for executive functioning, time management, and emotional regulation. Sessions are action-oriented and build systems that work with your unique brain &mdash; whether you&rsquo;re a student struggling with deadlines or an adult navigating workplace challenges.</div>
+          <div class="faq-a">The approach focuses on practical strategies for executive functioning, time management, and emotional regulation. Sessions are action-oriented and build systems that work with your unique brain, whether you&rsquo;re a student struggling with deadlines or an adult navigating workplace challenges.</div>
         </div>
 
         <div class="faq-item" onclick="toggleFaq(this)">
@@ -735,7 +805,7 @@
 
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-q">Do you help student-athletes with burnout and recruiting stress?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">Absolutely. The pressure of being a student-athlete is immense. Bill helps students balance academics, intense practice schedules, and the emotional toll of the college recruiting process &mdash; keeping sports a source of joy rather than just another stressor.</div>
+          <div class="faq-a">Absolutely. The pressure of being a student-athlete is immense. Bill helps students balance academics, intense practice schedules, and the emotional toll of the college recruiting process, keeping sports a source of joy rather than just another stressor.</div>
         </div>
 
       </div>
@@ -744,7 +814,7 @@
     <section class="cta-banner" id="contact" aria-labelledby="cta-title">
       <p class="eyebrow">Ready to start?</p>
       <h2 class="section-title" id="cta-title">Take the first step today</h2>
-      <p class="cta-body">Reaching out is the hardest part. Bill makes the rest easy &mdash; submit a request and he&rsquo;ll be in touch to find a time that works for you.</p>
+      <p class="cta-body">Reaching out is the hardest part. Bill makes the rest easy. Submit a request and he&rsquo;ll be in touch to find a time that works for you.</p>
       <div class="cta-actions">
         <a href="contact.html" class="btn-lg">Request an appointment</a>
         <span class="cta-phone">or call <a href="tel:6108907951">(610) 890-7951</a></span>
@@ -762,9 +832,9 @@
     </div>
     <div>
       <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Accessibility</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="accessibility.html">Accessibility</a>
       </div>
       <div style="font-size:12px; color: var(--text-muted); margin-top: 8px;">&copy; Avanti Consulting LLC 2026. All rights reserved.</div>
     </div>
@@ -798,8 +868,27 @@
       hamburger.classList.contains('open') ? closeMenu() : openMenu();
     });
 
+    // Dropdown
+    const dropdown = document.getElementById('nav-dropdown');
+    const dropdownTrigger = document.getElementById('dropdown-trigger');
+    dropdownTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.toggle('open');
+      dropdownTrigger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', () => {
+      dropdown.classList.remove('open');
+      dropdownTrigger.setAttribute('aria-expanded', 'false');
+    });
+
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeMenu();
+      if (e.key === 'Escape') {
+        closeMenu();
+        dropdown.classList.remove('open');
+        dropdownTrigger.setAttribute('aria-expanded', 'false');
+      }
     });
   </script>
 </body>
