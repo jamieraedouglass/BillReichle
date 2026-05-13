@@ -170,27 +170,110 @@
     .footer-links a { font-size: 12px; color: var(--text-muted); transition: color 0.2s; }
     .footer-links a:hover { color: var(--green); }
 
-    @media (max-width: 900px) {
-      .nav { padding: 14px 24px; }
+    /* ── HAMBURGER MENU ── */
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; flex-direction: column; padding: 80px 32px 40px; gap: 0; overflow-y: auto; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 22px; font-family: var(--serif); font-weight: 400; color: var(--text); padding: 18px 0; border-bottom: 1px solid var(--border); display: block; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .mobile-cta { margin-top: 32px; display: block; text-align: center; background: var(--green); color: #fff; padding: 16px 24px; border-radius: 6px; font-size: 15px; font-family: var(--sans); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: none; }
+
+    @media (max-width: 768px) {
+      .nav { padding: 14px 20px; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
       .hero { grid-template-columns: 1fr; }
-      .hero-right { min-height: 280px; }
-      .hero-left { padding: 48px 24px; }
-      .hero-h1 { font-size: 32px; }
-      .specialties-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-right { display: none; }
+      .hero-left { padding: 40px 20px 44px; }
+      .hero-h1 { font-size: 30px; }
+      .hero-sub { font-size: 14px; max-width: 100%; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .btn-primary { width: 100%; text-align: center; padding: 14px 20px; font-size: 14px; }
+      .btn-ghost { font-size: 13px; }
+      .hero-badge { width: 100%; justify-content: center; }
+
+      .trust-section { padding: 32px 20px; }
+      .trust-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .trust-card { padding: 14px 14px; gap: 10px; }
+      .trust-card-name { font-size: 12px; }
+      .trust-card-type { font-size: 10px; }
+
+      .section { padding: 44px 20px; }
+      .section-title { font-size: 26px; }
+      .section-sub { font-size: 14px; }
+
+      .specialties-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .specialty-card { padding: 16px 14px; }
+      .specialty-name { font-size: 13px; }
+      .specialty-copy { font-size: 12px; }
+
       .about-strip { grid-template-columns: 1fr; }
       .about-right { display: none; }
-      .services-grid { grid-template-columns: 1fr; }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .section { padding: 48px 24px; }
-      .trust-bar { padding: 14px 24px; }
-      .cta-banner { padding: 48px 24px; }
-      .footer { padding: 32px 24px; }
+      .about-left { padding: 44px 20px; }
+      .about-h2 { font-size: 26px; }
+      .about-body { font-size: 14px; }
+
+      .services-grid { grid-template-columns: 1fr; gap: 14px; }
+      .service-card { padding: 22px 20px; }
+      .service-price { font-size: 22px; }
+      .service-name { font-size: 15px; }
+
+      .blog-grid { grid-template-columns: 1fr; gap: 16px; }
+      .blog-card-img { height: 160px; }
+      .blog-card-body { padding: 16px 18px; }
+      .blog-card-title { font-size: 15px; }
+
+      .reviews-grid { grid-template-columns: 1fr; gap: 14px; }
+      .review-card { padding: 18px; }
+
+      .faq-grid { grid-template-columns: 1fr; border-radius: 10px; }
+      .faq-item { border-right: none !important; }
+      .faq-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border) !important; }
+      .faq-item:last-child { border-bottom: none !important; }
+      .faq-q { font-size: 13px; }
+      .faq-a { font-size: 13px; }
+
+      .cta-banner { padding: 44px 20px; }
+      .cta-banner .section-title { font-size: 26px; }
+      .cta-body { font-size: 14px; }
+      .cta-actions { flex-direction: column; gap: 14px; }
+      .btn-lg { width: 100%; text-align: center; padding: 15px 20px; }
+
+      .footer { padding: 32px 20px; flex-direction: column; gap: 20px; }
+      .footer-links { gap: 14px; }
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 420px) {
       .specialties-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .hero-h1 { font-size: 26px; }
     }
+
+    .blog-section { background: var(--bg); border-top: 1px solid var(--border); }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .blog-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg); transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+    .blog-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.07); transform: translateY(-2px); }
+    .blog-card-img { height: 180px; background: var(--green-light); overflow: hidden; }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .blog-card:hover .blog-card-img img { transform: scale(1.04); }
+    .blog-card-img-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, var(--green-light), var(--green-mid)); display: flex; align-items: center; justify-content: center; }
+    .blog-card-img-placeholder svg { width: 32px; height: 32px; stroke: var(--green); fill: none; stroke-width: 1.5; opacity: 0.5; }
+    .blog-card-body { padding: 20px 22px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-meta { font-size: 11px; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+    .blog-card-tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; margin-right: 8px; }
+    .blog-card-title { font-family: var(--serif); font-size: 16px; font-weight: 500; line-height: 1.35; margin-bottom: 10px; color: var(--text); }
+    .blog-card-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--green); font-weight: 500; letter-spacing: 0.04em; margin-top: auto; padding-top: 12px; transition: gap 0.2s; }
+    .blog-card-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .blog-card:hover .blog-card-link { gap: 8px; }
+    .blog-footer { display: flex; justify-content: center; margin-top: 36px; }
+    .btn-outline { display: inline-block; border: 1px solid var(--green); color: var(--green); padding: 12px 28px; border-radius: 4px; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, color 0.2s; }
+    .btn-outline:hover { background: var(--green); color: #fff; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
@@ -215,12 +298,26 @@
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">FAQs</a></li>
-        <li><a href="#contact" class="nav-cta">Book Now &rarr;</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a href="contact.html" class="nav-cta">Book Now &rarr;</a></li>
       </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <a href="#services"   onclick="closeMenu()">Services</a>
+    <a href="#about"      onclick="closeMenu()">About</a>
+    <a href="#blog"       onclick="closeMenu()">Blog</a>
+    <a href="#reviews"    onclick="closeMenu()">Reviews</a>
+    <a href="#faq"        onclick="closeMenu()">FAQs</a>
+    <a href="contact.html" class="mobile-cta">Book an appointment</a>
+  </div>
 
   <main>
     <section class="hero" aria-label="Introduction">
@@ -426,6 +523,86 @@
       </div>
     </section>
 
+    <section class="blog-section section" id="blog" aria-labelledby="blog-title">
+      <div class="section-header">
+        <p class="eyebrow">Insights &amp; resources</p>
+        <h2 class="section-title" id="blog-title">From Bill&rsquo;s desk</h2>
+        <p class="section-sub">Practical mental health guidance for athletes, parents, students, and anyone navigating life&rsquo;s harder chapters.</p>
+      </div>
+      <div class="blog-grid">
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1777465870072-OFF3Z3G8B7ISSDAHG5KY/unsplash-image-8-s5QuUBtyM.jpg" alt="ADHD Sports Coaching" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span class="blog-card-tag">ADHD</span> Apr 29, 2026</div>
+            <div class="blog-card-title">ADHD Sports Coaching: Helping Kennett Square Athletes Find Their Edge</div>
+            <a href="https://www.billreichle.com/insights-bill-reichle/adhd-sports-coaching-helping-kennett-square-athletes-find-their-edge" target="_blank" rel="noopener" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1771117720064-XC18FPZJIJ759JFVZ0S5/unsplash-image-9e9PD9blAto.jpg" alt="AI Comparison Trap" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span class="blog-card-tag">Youth</span> Apr 1, 2026</div>
+            <div class="blog-card-title">The AI Comparison Trap: How Generative Media is Distorting Teen Body Image</div>
+            <a href="https://www.billreichle.com/insights-bill-reichle/the-ai-comparison-trap-how-generative-media-is-distorting-teen-body-image" target="_blank" rel="noopener" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1773747811977-9T6DU6I0U9OHA53VZHDK/dante.jpg" alt="Dante Moore mental health" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span class="blog-card-tag">Athletes</span> Mar 17, 2026</div>
+            <div class="blog-card-title">Strength Beyond the Field: What Dante Moore Teaches Us About Mental Health</div>
+            <a href="https://www.billreichle.com/insights-bill-reichle/dante-moore-teaches-us" target="_blank" rel="noopener" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1770498720187-JPGJMCSZTU64U49CG44W/unsplash-image-hTlKLqlwvs8.jpg" alt="Car coaching" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span class="blog-card-tag">Parenting</span> Mar 4, 2026</div>
+            <div class="blog-card-title">The Drive Home: Why You Should Stop &ldquo;Car-Coaching&rdquo; Your Child</div>
+            <a href="https://www.billreichle.com/insights-bill-reichle/the-drive-home-why-you-should-stop-car-coaching-your-child" target="_blank" rel="noopener" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1770498294076-Q5TX31CH06T6V6IA9ZIH/unsplash-image-u6AmsbOozQI.jpg" alt="Mental toughness athletes" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span class="blog-card-tag">Athletes</span> Feb 7, 2026</div>
+            <div class="blog-card-title">Beyond the Finish Line: Why Mental Toughness is the Ultimate Competitive Edge for High School Athletes</div>
+            <a href="https://www.billreichle.com/insights-bill-reichle/beyond-the-finish-line-why-mental-toughness-is-the-ultimate-competitive-edge-for-high-school-athletes" target="_blank" rel="noopener" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1766759216154-XZBW35726TV8XHVV9C2A/unsplash-image-Wu3pkvOIMJk.jpg" alt="New Year resolutions" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span class="blog-card-tag">Wellness</span> Jan 1, 2026</div>
+            <div class="blog-card-title">The Untapped Power of New Year&rsquo;s Resolutions: Why They Really Work (and How to Make Them Stick)</div>
+            <a href="https://www.billreichle.com/insights-bill-reichle/the-untapped-power-of-new-years-resolutions-why-they-really-work-and-how-to-make-them-stick" target="_blank" rel="noopener" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+      </div>
+      <div class="blog-footer">
+        <a href="https://www.billreichle.com/insights-bill-reichle" target="_blank" rel="noopener" class="btn-outline">View all articles &rarr;</a>
+      </div>
+    </section>
+
     <section class="reviews-section section" id="reviews" aria-labelledby="reviews-title">
       <div class="section-header">
         <p class="eyebrow">Client reviews</p>
@@ -549,6 +726,31 @@
       document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
       if (!isOpen) el.classList.add('open');
     }
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function openMenu() {
+      hamburger.classList.add('open');
+      mobileMenu.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
   </script>
 </body>
 </html>

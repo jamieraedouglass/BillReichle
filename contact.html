@@ -320,14 +320,33 @@
     .form-status { font-size: 13px; margin-top: 12px; text-align: center; min-height: 20px; }
     .form-status.error { color: var(--error); }
 
+    /* HAMBURGER */
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; flex-direction: column; padding: 80px 32px 40px; overflow-y: auto; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 22px; font-family: var(--serif); font-weight: 400; color: var(--text); padding: 18px 0; border-bottom: 1px solid var(--border); display: block; text-decoration: none; }
+    .mobile-menu .mobile-cta { margin-top: 32px; display: block; text-align: center; background: var(--green); color: #fff; padding: 16px 24px; border-radius: 6px; font-size: 15px; font-family: var(--sans); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: none; }
+
     /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .nav { padding: 14px 24px; }
+    @media (max-width: 768px) {
+      .nav { padding: 14px 20px; }
       .nav-links { display: none; }
+      .nav-back { display: none; }
+      .nav-hamburger { display: flex; }
       .page-wrap { grid-template-columns: 1fr; }
-      .contact-left { padding: 48px 24px; }
-      .contact-right { padding: 48px 24px; }
-      .form-row { grid-template-columns: 1fr; }
+      .contact-left { padding: 36px 20px; }
+      .contact-h1 { font-size: 28px; }
+      .contact-desc { font-size: 14px; }
+      .contact-right { padding: 36px 20px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-heading { font-size: 22px; }
+      .radio-group { gap: 8px; }
+      .radio-option { padding: 8px 13px; font-size: 13px; }
+      .submit-btn { padding: 15px 20px; font-size: 14px; }
     }
   </style>
 </head>
@@ -349,8 +368,20 @@
         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
         Back to home
       </a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#faq">FAQs</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="contact.html" class="mobile-cta">Book an appointment</a>
+  </div>
 
   <div class="page-wrap">
 
@@ -636,6 +667,25 @@
         // status.className = 'form-status error';
         // btn.disabled = false;
         // btn.textContent = 'Send appointment request';
+      }
+    });
+  </script>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       }
     });
   </script>
