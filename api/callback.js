@@ -13,15 +13,27 @@ export default async function handler(req, res) {
     });
     const data = await response.json();
     if (data.error) return res.status(400).send(`OAuth error: ${data.error_description}`);
-    const script = `<!DOCTYPE html><html><body><script>
-      window.opener.postMessage(
-        'authorization:github:success:${JSON.stringify({ token: data.access_token, provider: 'github' })}',
-        '*'
-      );
-      window.close();
-    <\/script></body></html>`;
+    const token = data.access_token;
+    const html = `<!DOCTYPE html>
+<html>
+<body>
+<script>
+(function() {
+  function receiveMessage(e) {
+    console.log("receiveMessage %o", e);
+    window.opener.postMessage(
+      'authorization:github:success:{"token":"${token}","provider":"github"}',
+      e.origin
+    );
+  }
+  window.addEventListener("message", receiveMessage, false);
+  window.opener.postMessage("authorizing:github", "*");
+})();
+</script>
+</body>
+</html>`;
     res.setHeader('Content-Type', 'text/html');
-    return res.status(200).send(script);
+    return res.status(200).send(html);
   } catch (err) {
     return res.status(500).send('Authentication failed');
   }
