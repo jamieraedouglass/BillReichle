@@ -1,12 +1,15 @@
 {
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
       "source": "/admin/config.yml",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/yaml"
-        }
+        { "key": "Content-Type", "value": "text/yaml; charset=utf-8" }
       ]
     }
   ]
