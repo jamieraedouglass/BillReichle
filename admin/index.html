@@ -7,6 +7,55 @@
   <title>Blog Admin | Bill Reichle Counseling</title>
 </head>
 <body>
+  <script>
+    window.CMS_MANUAL_INIT = true;
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.1.3/dist/decap-cms.js"></script>
+  <script>
+    CMS.init({
+      config: {
+        load_config_file: false,
+        backend: {
+          name: 'github',
+          repo: 'jamieraedouglass/BillReichle',
+          branch: 'main',
+          base_url: 'https://bill-reichle.vercel.app',
+          auth_endpoint: 'api/auth'
+        },
+        media_folder: 'images/blog',
+        public_folder: '/images/blog',
+        collections: [
+          {
+            name: 'posts',
+            label: 'Blog Posts',
+            folder: '_posts',
+            create: true,
+            slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
+            fields: [
+              { label: 'Title', name: 'title', widget: 'string' },
+              { label: 'Date', name: 'date', widget: 'datetime' },
+              { label: 'Author', name: 'author', widget: 'string', default: 'Bill Reichle' },
+              {
+                label: 'Category', name: 'category', widget: 'select',
+                options: [
+                  { label: 'ADHD', value: 'adhd' },
+                  { label: 'Athletes', value: 'athletes' },
+                  { label: 'Anxiety', value: 'anxiety' },
+                  { label: 'Parenting', value: 'parenting' },
+                  { label: 'Youth', value: 'youth' },
+                  { label: 'Wellness', value: 'wellness' },
+                  { label: 'Relationships', value: 'relationships' },
+                  { label: 'Life Transitions', value: 'life-transitions' }
+                ]
+              },
+              { label: 'Featured Image', name: 'image', widget: 'image', required: false },
+              { label: 'Summary', name: 'summary', widget: 'text', hint: 'A short 1-2 sentence summary shown on the blog listing page' },
+              { label: 'Body', name: 'body', widget: 'markdown' }
+            ]
+          }
+        ]
+      }
+    });
+  </script>
 </body>
 </html>
