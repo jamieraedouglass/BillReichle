@@ -3,7 +3,7 @@ title: "The AI Comparison Trap: How Generative Media is Distorting Teen Body Ima
 date: "2026-04-01"
 author: "Bill Reichle"
 category: "youth"
-image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80"
+image: "https://images.unsplash.com/photo-1596558450268-9c27524ba856?w=800&q=80"
 summary: "In 2026, teenagers are being bombarded with hyper-realistic AI-generated 'people' who don't actually exist. This creates a new kind of comparison trap where the competition isn't even human."
 ---
 
