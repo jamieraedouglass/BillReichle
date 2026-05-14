@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Bill Reichle | Book an Appointment</title>
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-  <link rel="alternate icon" href="images/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" href="favicon.svg" />
   <meta name="description" content="Request an appointment with Bill Reichle, LPC — licensed counselor in West Chester, PA. In person and virtual sessions available." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -367,6 +367,14 @@
       .submit-btn { padding: 15px 20px; font-size: 14px; }
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J238TCV390"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J238TCV390');
+  </script>
 </head>
 <body>
 
@@ -678,7 +686,6 @@
       const payload = { firstName, lastName, email, phone, service, format, referral, message };
 
       try {
-        // TODO: replace with your Resend backend endpoint
         const ENDPOINT = '/api/contact';
 
         const res = await fetch(ENDPOINT, {
@@ -694,19 +701,10 @@
           throw new Error('Server error');
         }
       } catch (err) {
-        // ── DEVELOPMENT FALLBACK ──────────────────────────────────────────
-        // Remove this block once your endpoint is live.
-        // It simulates a successful submission so you can test the UI.
-        console.log('Form payload (dev mode):', payload);
-        document.getElementById('form-wrap').style.display = 'none';
-        document.getElementById('form-success').style.display = 'block';
-        // ─────────────────────────────────────────────────────────────────
-
-        // Uncomment these lines (and remove the dev fallback above) when live:
-        // status.textContent = 'Something went wrong. Please try emailing Bill@BillReichle.com directly.';
-        // status.className = 'form-status error';
-        // btn.disabled = false;
-        // btn.textContent = 'Send appointment request';
+        status.textContent = 'Something went wrong. Please try emailing Bill@BillReichle.com directly.';
+        status.className = 'form-status error';
+        btn.disabled = false;
+        btn.textContent = 'Send appointment request';
       }
     });
   </script>
