@@ -1,753 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Bill Reichle | Book an Appointment</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="alternate icon" href="favicon.svg" />
-  <meta name="description" content="Request an appointment with Bill Reichle, LPC — licensed counselor in West Chester, PA. In person and virtual sessions available." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Lake Effect Architects</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --green: #2C5F4A;
-      --green-light: #e8f0eb;
-      --green-mid: #d4e8dd;
-      --text: #1a1a1a;
-      --text-secondary: #5a5a5a;
-      --text-muted: #888;
-      --border: rgba(0,0,0,0.1);
-      --border-focus: #2C5F4A;
-      --bg: #ffffff;
-      --bg-secondary: #f7f6f3;
-      --error: #c0392b;
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
+    /* ── CONTACT LAYOUT ── */
+    .contact-main {
+      display: grid; grid-template-columns: 5fr 4fr;
+      min-height: calc(100vh - 72px);
+    }
+    .contact-form-side {
+      padding: 80px 60px 80px 48px;
+      border-right: 0.5px solid var(--border);
+    }
+    .contact-info-side {
+      padding: 80px 48px 80px 56px;
+      background: var(--cream-dark);
+      display: flex; flex-direction: column;
     }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      color: var(--text);
-      background: var(--bg);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+    .contact-form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 300; color: var(--charcoal);
+      line-height: 1.08; margin-bottom: 12px;
+    }
+    .contact-form-sub {
+      font-size: 12px; line-height: 1.9;
+      color: var(--muted); margin-bottom: 56px;
+      max-width: 440px;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    /* NAV */
-    .nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 48px;
+    /* Form */
+    .form-row { display: flex; flex-direction: column; gap: 8px; margin-bottom: 36px; }
+    .form-label {
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted);
     }
-    .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; }
-    .nav-logo span { display: block; font-family: var(--sans); font-size: 11px; font-weight: 400; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1px; }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.02em; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--green); }
-    .nav-cta { background: var(--green) !important; color: #fff !important; padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; transition: opacity 0.2s; }
-    .nav-cta:hover { opacity: 0.88; }
-    .nav-back { font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; }
-    .nav-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
-    .nav-back:hover { color: var(--green); }
-    .nav-dropdown { position: relative; }
-    .nav-dropdown-trigger { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.02em; cursor: pointer; display: flex; align-items: center; gap: 5px; background: none; border: none; font-family: var(--sans); padding: 0; }
-    .nav-dropdown-trigger:hover { color: var(--green); }
-    .nav-dropdown-trigger svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
-    .nav-dropdown.open .nav-dropdown-trigger svg { transform: rotate(180deg); }
-    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 14px); right: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 8px; min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,0.09); z-index: 200; }
-    .nav-dropdown.open .nav-dropdown-menu { display: block; }
-    .nav-dropdown-menu a { display: flex; flex-direction: column; padding: 10px 14px; border-radius: 6px; transition: background 0.15s; text-decoration: none; }
-    .nav-dropdown-menu a:hover { background: var(--bg-secondary); }
-    .nav-dropdown-menu a span { font-size: 13px; color: var(--text); font-weight: 500; }
-    .nav-dropdown-menu a small { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
-
-    /* PAGE LAYOUT */
-    .page-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: calc(100vh - 60px);
-    }
-
-    /* LEFT PANEL */
-    .contact-left {
-      background: var(--green);
-      padding: 64px 56px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: #fff;
-    }
-
-    .contact-eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 18px;
-    }
-
-    .contact-h1 {
-      font-family: var(--serif);
-      font-size: 36px;
-      font-weight: 500;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-
-    .contact-h1 em { font-style: italic; }
-
-    .contact-desc {
-      font-size: 15px;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 40px;
-      max-width: 360px;
-    }
-
-    .contact-details { display: flex; flex-direction: column; gap: 20px; }
-
-    .contact-detail {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-
-    .detail-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .detail-icon svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 1.8; }
-
-    .detail-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
-    .detail-value { font-size: 14px; color: #fff; font-weight: 400; }
-    .detail-value a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
-
-    .contact-note {
-      margin-top: 40px;
-      padding: 18px 20px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 8px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.6;
-    }
-
-    /* RIGHT PANEL / FORM */
-    .contact-right {
-      padding: 64px 56px;
-      background: var(--bg);
-    }
-
-    .form-heading {
-      font-family: var(--serif);
-      font-size: 24px;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-
-    .form-subheading {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 36px;
-      line-height: 1.6;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      margin-bottom: 7px;
-    }
-
-    label .required { color: var(--green); margin-left: 2px; }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select,
-    textarea {
-      width: 100%;
-      font-family: var(--sans);
-      font-size: 14px;
-      color: var(--text);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 11px 14px;
-      outline: none;
+    .form-input {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px; color: var(--charcoal);
+      background: transparent; border: none;
+      border-bottom: 0.5px solid var(--border-strong);
+      padding: 13px 0; outline: none;
+      letter-spacing: 0.02em;
       transition: border-color 0.2s;
-      appearance: none;
-      -webkit-appearance: none;
+      width: 100%;
+    }
+    .form-input::placeholder { color: rgba(28,28,26,0.3); }
+    .form-input:focus { border-color: var(--accent-dark); }
+    select.form-input { appearance: none; cursor: pointer; background-image: none; }
+    .form-textarea { resize: none; min-height: 120px; }
+    .form-two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px;
+    }
+    .form-submit-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 12px;
+    }
+    .form-submit {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--white); background: var(--charcoal);
+      border: none; cursor: pointer;
+      padding: 16px 40px;
+      display: flex; align-items: center; gap: 14px;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--accent-dark); }
+    .form-note {
+      font-size: 10px; color: var(--muted);
+      letter-spacing: 0.04em; max-width: 200px; line-height: 1.6;
     }
 
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--border-focus);
+    /* Info side */
+    .info-block { margin-bottom: 52px; }
+    .info-label {
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--accent-dark); margin-bottom: 12px;
     }
-
-    input::placeholder, textarea::placeholder { color: var(--text-muted); }
-
-    select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 36px;
-      cursor: pointer;
+    .info-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400;
+      color: var(--charcoal); line-height: 1.3;
     }
-
-    textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
-
-    .radio-group { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    .radio-option {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 16px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 13px;
-      color: var(--text-secondary);
-      transition: border-color 0.15s, color 0.15s;
-      user-select: none;
+    .info-value a {
+      color: inherit; text-decoration: none;
+      border-bottom: 0.5px solid transparent;
+      transition: border-color 0.2s;
     }
-
-    .radio-option input[type="radio"] { display: none; }
-
-    .radio-option.selected {
-      border-color: var(--green);
-      color: var(--green);
-      background: var(--green-light);
+    .info-value a:hover { border-color: var(--accent-dark); }
+    .info-sub {
+      font-size: 11px; color: var(--muted);
+      margin-top: 6px; line-height: 1.7;
     }
+    .divider-thin { height: 0.5px; background: var(--border); margin-bottom: 52px; }
 
-    .radio-dot {
-      width: 14px; height: 14px; border-radius: 50%;
-      border: 1.5px solid currentColor;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+    .faq-section { margin-top: auto; }
+    .faq-item {
+      padding: 20px 0;
+      border-top: 0.5px solid var(--border);
     }
-
-    .radio-dot::after {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--green);
+    .faq-item:last-child { border-bottom: 0.5px solid var(--border); }
+    .faq-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px; font-weight: 400;
+      color: var(--charcoal); margin-bottom: 8px;
+      cursor: pointer; display: flex; justify-content: space-between;
+    }
+    .faq-q-toggle { color: var(--accent-dark); font-size: 14px; }
+    .faq-a {
+      font-size: 11px; line-height: 1.9; color: var(--muted);
       display: none;
     }
+    .faq-item.open .faq-a { display: block; }
 
-    .radio-option.selected .radio-dot::after { display: block; }
-
-    .form-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 28px 0;
-    }
-
-    .submit-btn {
-      width: 100%;
-      background: var(--green);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 14px 24px;
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .submit-btn:hover { opacity: 0.88; }
-    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-    .form-disclaimer {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 14px;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    /* SUCCESS STATE */
+    /* Success state */
     .form-success {
       display: none;
-      text-align: center;
-      padding: 40px 0;
+      text-align: center; padding: 60px 40px;
     }
-
+    .form-success.show { display: block; }
     .success-icon {
       width: 56px; height: 56px;
+      border: 0.5px solid var(--accent-dark);
       border-radius: 50%;
-      background: var(--green-light);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
+      margin: 0 auto 28px;
+      font-size: 20px; color: var(--accent-dark);
     }
-
-    .success-icon svg { width: 24px; height: 24px; stroke: var(--green); fill: none; stroke-width: 2; }
-
-    .success-h { font-family: var(--serif); font-size: 24px; font-weight: 500; margin-bottom: 10px; }
-    .success-p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; max-width: 340px; margin: 0 auto; }
-
-    /* ERROR */
-    .field-error { font-size: 12px; color: var(--error); margin-top: 5px; display: none; }
-    .field-error.visible { display: block; }
-    input.invalid, select.invalid, textarea.invalid { border-color: var(--error); }
-
-    /* FORM STATUS */
-    .form-status { font-size: 13px; margin-top: 12px; text-align: center; min-height: 20px; }
-    .form-status.error { color: var(--error); }
-
-    .contact-photo { margin-top: 28px; border-radius: 10px; overflow: hidden; height: 220px; }
-    .contact-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
-
-    /* HAMBURGER */
-    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; flex-direction: column; padding: 80px 32px 40px; overflow-y: auto; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 22px; font-family: var(--serif); font-weight: 400; color: var(--text); padding: 18px 0; border-bottom: 1px solid var(--border); display: block; text-decoration: none; }
-    .mobile-menu .mobile-cta { margin-top: 32px; display: block; text-align: center; background: var(--green); color: #fff; padding: 16px 24px; border-radius: 6px; font-size: 15px; font-family: var(--sans); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: none; }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .nav { padding: 14px 20px; }
-      .nav-links { display: none; }
-      .nav-back { display: none; }
-      .nav-hamburger { display: flex; }
-      .page-wrap { grid-template-columns: 1fr; }
-      .contact-left { padding: 36px 20px; }
-      .contact-h1 { font-size: 28px; }
-      .contact-desc { font-size: 14px; }
-      .contact-right { padding: 36px 20px; }
-      .form-row { grid-template-columns: 1fr; gap: 0; }
-      .form-heading { font-size: 22px; }
-      .radio-group { gap: 8px; }
-      .radio-option { padding: 8px 13px; font-size: 13px; }
-      .submit-btn { padding: 15px 20px; font-size: 14px; }
+    .success-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px; font-weight: 300;
+      color: var(--charcoal); margin-bottom: 16px;
     }
+    .success-body { font-size: 12px; line-height: 1.9; color: var(--muted); }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J238TCV390"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-J238TCV390');
-  </script>
 </head>
 <body>
 
-  <header>
-    <nav class="nav">
-      <a href="index.html" class="nav-logo">
-        Bill Reichle Counseling
-        <span>LPC &middot; NCC &middot; M.S.Ed</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#reviews">Reviews</a></li>
-        <li><a href="index.html#blog">Blog</a>
-    <a href="expertise.html">Expertise</a></li>
-        <li><a href="expertise.html">Expertise</a></li>
-        <li class="nav-dropdown" id="nav-dropdown">
-          <button class="nav-dropdown-trigger" id="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-            More
-            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="nav-dropdown-menu" role="menu">
-            <a href="index.html#faq" role="menuitem">
-              <span>FAQs</span>
-              <small>Common questions answered</small>
-            </a>
-            <a href="professionals.html" role="menuitem">
-              <span>For Professionals</span>
-              <small>Practice consulting &amp; case consultation</small>
-            </a>
-            <a href="community.html" role="menuitem">
-              <span>Community Impact</span>
-              <small>Nonprofits &amp; giving back</small>
-            </a>
-          </div>
-        </li>
-      </ul>
-      <a href="index.html" class="nav-back">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        Back to home
-      </a>
-      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-  </header>
+<div class="contact-main">
 
-  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <a href="index.html">Home</a>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#reviews">Reviews</a>
-    <a href="index.html#blog">Blog</a>
-    <a href="expertise.html">Expertise</a>
-    <a href="index.html#faq">FAQs</a>
-    <a href="professionals.html">For Professionals</a>
-    <a href="contact.html" class="mobile-cta">Book an appointment</a>
+  <!-- FORM SIDE -->
+  <div class="contact-form-side">
+    <div class="section-eyebrow" style="margin-bottom:20px;">New Projects</div>
+    <h1 class="contact-form-title">Start a<br>conversation</h1>
+    <p class="contact-form-sub">We'd love to hear about your project. Tell us a little about what you're envisioning, and we'll be in touch within one business day.</p>
+
+    <form id="contact-form">
+      <div class="form-two-col">
+        <div class="form-row">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="Jane" required>
+        </div>
+        <div class="form-row">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-two-col">
+        <div class="form-row">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="jane@email.com" required>
+        </div>
+        <div class="form-row">
+          <label class="form-label">Phone (optional)</label>
+          <input type="tel" class="form-input" placeholder="847 555 0100">
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Project Type</label>
+        <select class="form-input">
+          <option value="" disabled selected>Select a service area</option>
+          <option>Residential — New Construction</option>
+          <option>Residential — Renovation or Addition</option>
+          <option>Commercial Architecture</option>
+          <option>Furniture Design</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Project Location</label>
+        <input type="text" class="form-input" placeholder="City, State">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Approximate Budget (optional)</label>
+        <select class="form-input">
+          <option value="" disabled selected>Select a range</option>
+          <option>Under $250,000</option>
+          <option>$250,000 – $500,000</option>
+          <option>$500,000 – $1,000,000</option>
+          <option>$1,000,000 – $2,500,000</option>
+          <option>Over $2,500,000</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Tell us about your project</label>
+        <textarea class="form-input form-textarea" placeholder="A brief description of what you're envisioning..."></textarea>
+      </div>
+      <div class="form-submit-row">
+        <button type="submit" class="form-submit">Send inquiry <span>→</span></button>
+        <p class="form-note">We respond to all inquiries within one business day.</p>
+      </div>
+    </form>
+
+    <div class="form-success" id="form-success">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Thank you for reaching out</div>
+      <p class="success-body">We've received your inquiry and will be in touch within one business day. We look forward to learning more about your project.</p>
+    </div>
   </div>
 
-  <div class="page-wrap">
-
-    <!-- LEFT: Info panel -->
-    <div class="contact-left">
-      <div>
-        <p class="contact-eyebrow">Get in touch</p>
-        <h1 class="contact-h1">Let&rsquo;s start the <em>conversation</em></h1>
-        <p class="contact-desc">Fill out the form and Bill will respond within one business day to find a time that works for you. All sessions are available in person or virtually.</p>
-
-        <div class="contact-details">
-          <div class="contact-detail">
-            <div class="detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div class="detail-label">Office</div>
-              <div class="detail-value">1390 Birmingham Road, Suite 303<br>West Chester, PA 19382</div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <div class="detail-label">Phone</div>
-              <div class="detail-value"><a href="tel:6108907951">(610) 890-7951</a></div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <div class="detail-label">Email</div>
-              <div class="detail-value"><a href="mailto:Bill@BillReichle.com">Bill@BillReichle.com</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-note">
-          Bill typically responds within one business day. If you are experiencing a mental health emergency, please call 988 (Suicide &amp; Crisis Lifeline) or 911.
-        </div>
-
-        <div class="contact-photo">
-          <img src="images/DSC03179.jpg" alt="Bill Reichle, LPC in his West Chester office" />
-        </div>
-      </div>
+  <!-- INFO SIDE -->
+  <div class="contact-info-side">
+    <div class="info-block">
+      <div class="info-label">Phone</div>
+      <div class="info-value"><a href="tel:8472344688">847.234.4688</a></div>
+      <div class="info-sub">Monday – Friday, 9am – 5pm CT</div>
+    </div>
+    <div class="info-block">
+      <div class="info-label">Fax</div>
+      <div class="info-value">847.234.8911</div>
+    </div>
+    <div class="info-block">
+      <div class="info-label">Email</div>
+      <div class="info-value"><a href="mailto:rob@leffect.com">rob@leffect.com</a></div>
+      <div class="info-sub">For all project inquiries and general correspondence</div>
+    </div>
+    <div class="info-block">
+      <div class="info-label">Mailing Address</div>
+      <div class="info-value" style="font-size:18px;">P.O. Box 155<br>Lake Bluff, IL 60044</div>
     </div>
 
-    <!-- RIGHT: Form -->
-    <div class="contact-right">
-      <div id="form-wrap">
-        <h2 class="form-heading">Request an appointment</h2>
-        <p class="form-subheading">Tell Bill a bit about yourself and what you&rsquo;re looking for. All information is kept strictly confidential.</p>
+    <div class="divider-thin"></div>
 
-        <form id="contact-form" novalidate>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="first-name">First name <span class="required">*</span></label>
-              <input type="text" id="first-name" name="firstName" placeholder="Jane" autocomplete="given-name" />
-              <div class="field-error" id="first-name-error">Please enter your first name.</div>
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last name <span class="required">*</span></label>
-              <input type="text" id="last-name" name="lastName" placeholder="Smith" autocomplete="family-name" />
-              <div class="field-error" id="last-name-error">Please enter your last name.</div>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email address <span class="required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="jane@email.com" autocomplete="email" />
-              <div class="field-error" id="email-error">Please enter a valid email address.</div>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(610) 555-0100" autocomplete="tel" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="service">Service interested in <span class="required">*</span></label>
-            <select id="service" name="service">
-              <option value="" disabled selected>Select a service...</option>
-              <option value="individual">Individual counseling ($245)</option>
-              <option value="family">Family counseling ($245)</option>
-              <option value="parent">Parent counseling ($245)</option>
-              <option value="consultation">Case consultation - professionals ($225)</option>
-              <option value="esa">ESA letter ($125)</option>
-            </select>
-            <div class="field-error" id="service-error">Please select a service.</div>
-          </div>
-
-          <div class="form-group">
-            <label>Session format preference</label>
-            <div class="radio-group">
-              <label class="radio-option" onclick="selectRadio(this, 'format')">
-                <input type="radio" name="format" value="in-person" />
-                <span class="radio-dot"></span>
-                In person
-              </label>
-              <label class="radio-option" onclick="selectRadio(this, 'format')">
-                <input type="radio" name="format" value="virtual" />
-                <span class="radio-dot"></span>
-                Virtual
-              </label>
-              <label class="radio-option" onclick="selectRadio(this, 'format')">
-                <input type="radio" name="format" value="no-preference" />
-                <span class="radio-dot"></span>
-                No preference
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="referral">How did you hear about Bill?</label>
-            <select id="referral" name="referral">
-              <option value="" disabled selected>Select one...</option>
-              <option value="psychology-today">Psychology Today</option>
-              <option value="google">Google search</option>
-              <option value="zocdoc">Zocdoc</option>
-              <option value="therapyden">TherapyDen</option>
-              <option value="referral">Friend or family referral</option>
-              <option value="doctor">Doctor or provider referral</option>
-              <option value="school">School or district</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <hr class="form-divider" />
-
-          <div class="form-group">
-            <label for="message">What brings you here? <span class="required">*</span></label>
-            <textarea id="message" name="message" placeholder="Share a bit about what you&apos;re looking for help with. There&apos;s no wrong answer, whatever feels comfortable."></textarea>
-            <div class="field-error" id="message-error">Please share a brief message.</div>
-          </div>
-
-          <button type="submit" class="submit-btn" id="submit-btn">Send appointment request</button>
-          <div class="form-status" id="form-status"></div>
-          <p class="form-disclaimer">Your information is kept strictly confidential and will only be used to respond to your request. Bill does not sell or share personal information.</p>
-
-        </form>
+    <div class="faq-section">
+      <div class="section-eyebrow" style="margin-bottom:24px;">Common Questions</div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">Do you work outside of the North Shore? <span class="faq-q-toggle">+</span></div>
+        <p class="faq-a">Our primary practice area is the North Shore of Chicago—Lake County through Evanston. We consider projects beyond that area on a case-by-case basis. Reach out and let us know where you're located.</p>
       </div>
-
-      <!-- Success state (shown after submission) -->
-      <div class="form-success" id="form-success">
-        <div class="success-icon">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h2 class="success-h">Request sent!</h2>
-        <p class="success-p">Thanks for reaching out. Bill will be in touch within one business day to confirm your appointment.</p>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">How do architectural fees work? <span class="faq-q-toggle">+</span></div>
+        <p class="faq-a">We typically work on a percentage of construction cost for full-service commissions, and hourly for consulting or partial services. We're transparent about fees from the first conversation—no surprises.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">What's the first step? <span class="faq-q-toggle">+</span></div>
+        <p class="faq-a">Fill out the form on this page and we'll schedule a brief introductory call. We'll ask questions about your project, answer yours about our process, and determine whether we're a good fit.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFAQ(this)">How long does an architectural project take? <span class="faq-q-toggle">+</span></div>
+        <p class="faq-a">A new residential project typically takes 12–18 months from first meeting through permit issuance, with construction adding another 12–24 months. Renovations and furniture projects move faster. We'll give you a realistic timeline at our first meeting.</p>
       </div>
     </div>
-
   </div>
+</div>
 
-  <script>
-    // Radio button selection
-    function selectRadio(el, name) {
-      document.querySelectorAll(`.radio-option`).forEach(opt => {
-        if (opt.querySelector(`input[name="${name}"]`)) opt.classList.remove('selected');
-      });
-      el.classList.add('selected');
-      el.querySelector('input[type="radio"]').checked = true;
-    }
+<script src="components.js"></script>
+<script>
+  initPage(null);
 
-    // Validation helpers
-    function setError(fieldId, errorId, show) {
-      const field = document.getElementById(fieldId);
-      const error = document.getElementById(errorId);
-      if (show) {
-        field.classList.add('invalid');
-        error.classList.add('visible');
-      } else {
-        field.classList.remove('invalid');
-        error.classList.remove('visible');
-      }
-    }
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
+  });
 
-    function validateEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    // Clear errors on input
-    ['first-name','last-name','email','service','message'].forEach(id => {
-      document.getElementById(id).addEventListener('input', function() {
-        this.classList.remove('invalid');
-        const errEl = document.getElementById(id + '-error');
-        if (errEl) errEl.classList.remove('visible');
-        document.getElementById('form-status').textContent = '';
-      });
-    });
-
-    // Form submission
-    document.getElementById('contact-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      const firstName = document.getElementById('first-name').value.trim();
-      const lastName  = document.getElementById('last-name').value.trim();
-      const email     = document.getElementById('email').value.trim();
-      const service   = document.getElementById('service').value;
-      const message   = document.getElementById('message').value.trim();
-
-      let valid = true;
-      setError('first-name', 'first-name-error', !firstName);
-      if (!firstName) valid = false;
-      setError('last-name', 'last-name-error', !lastName);
-      if (!lastName) valid = false;
-      setError('email', 'email-error', !validateEmail(email));
-      if (!validateEmail(email)) valid = false;
-      setError('service', 'service-error', !service);
-      if (!service) valid = false;
-      setError('message', 'message-error', !message);
-      if (!message) valid = false;
-
-      if (!valid) return;
-
-      const btn = document.getElementById('submit-btn');
-      const status = document.getElementById('form-status');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-      status.textContent = '';
-      status.className = 'form-status';
-
-      // ── RESEND INTEGRATION ──────────────────────────────────────────────
-      // To connect Resend:
-      // 1. Create a free account at https://resend.com
-      // 2. Verify your domain (billreichle.com) in Resend dashboard
-      // 3. Create an API key under API Keys
-      // 4. Deploy a small backend endpoint (Vercel serverless fn, Express, etc.)
-      //    that accepts POST { firstName, lastName, email, phone, service,
-      //    format, referral, message } and calls the Resend API like:
-      //
-      //    const resend = new Resend(process.env.RESEND_API_KEY);
-      //    await resend.emails.send({
-      //      from: 'website@billreichle.com',
-      //      to:   'Bill@BillReichle.com',
-      //      subject: `New appointment request from ${firstName} ${lastName}`,
-      //      html: `<p><b>Name:</b> ${firstName} ${lastName}</p>
-      //             <p><b>Email:</b> ${email}</p>
-      //             <p><b>Phone:</b> ${phone}</p>
-      //             <p><b>Service:</b> ${service}</p>
-      //             <p><b>Format:</b> ${format}</p>
-      //             <p><b>Referral:</b> ${referral}</p>
-      //             <p><b>Message:</b><br>${message}</p>`
-      //    });
-      //
-      // 5. Replace the fetch URL below with your deployed endpoint URL.
-      // ────────────────────────────────────────────────────────────────────
-
-      const phone    = document.getElementById('phone').value.trim();
-      const format   = document.querySelector('input[name="format"]:checked')?.value || 'not specified';
-      const referral = document.getElementById('referral').value || 'not specified';
-
-      const payload = { firstName, lastName, email, phone, service, format, referral, message };
-
-      try {
-        const ENDPOINT = '/api/contact';
-
-        const res = await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-          document.getElementById('form-wrap').style.display = 'none';
-          document.getElementById('form-success').style.display = 'block';
-        } else {
-          throw new Error('Server error');
-        }
-      } catch (err) {
-        status.textContent = 'Something went wrong. Please try emailing Bill@BillReichle.com directly.';
-        status.className = 'form-status error';
-        btn.disabled = false;
-        btn.textContent = 'Send appointment request';
-      }
-    });
-  </script>
-
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    const dropdown = document.getElementById('nav-dropdown');
-    const dropdownTrigger = document.getElementById('dropdown-trigger');
-    if (dropdown && dropdownTrigger) {
-      dropdownTrigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = dropdown.classList.toggle('open');
-        dropdownTrigger.setAttribute('aria-expanded', isOpen);
-      });
-      document.addEventListener('click', () => {
-        dropdown.classList.remove('open');
-        dropdownTrigger.setAttribute('aria-expanded', 'false');
-      });
-    }
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        if (dropdown) dropdown.classList.remove('open');
-      }
-    });
-  </script>
-
+  function toggleFAQ(el) {
+    const item = el.closest('.faq-item');
+    const toggle = el.querySelector('.faq-q-toggle');
+    const isOpen = item.classList.toggle('open');
+    toggle.textContent = isOpen ? '−' : '+';
+  }
+</script>
 </body>
 </html>
