@@ -3,7 +3,7 @@ title: "Game On, Mood Up: How Sports Boost Mental Health and Happiness"
 date: "2025-05-01"
 author: "Bill Reichle"
 category: "athletes"
-image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80"
+image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&q=80"
 summary: "We all know that physical activity is good for the body, but the benefits of sports extend far beyond physical fitness. Sports can have a profound impact on mental health and overall happiness."
 ---
 

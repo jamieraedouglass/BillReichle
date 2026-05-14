@@ -3,7 +3,7 @@ title: "Rising Seniors, Prep for College Apps Now!"
 date: "2025-04-14"
 author: "Bill Reichle"
 category: "youth"
-image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80"
+image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&q=80"
 summary: "Summer is a crucial bridge between high school and the next big chapter for rising seniors. Here's your roadmap to a productive and less frantic senior year."
 ---
 
