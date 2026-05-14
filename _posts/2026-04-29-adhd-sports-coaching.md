@@ -3,7 +3,7 @@ title: "ADHD Sports Coaching: Helping Kennett Square Athletes Find Their Edge"
 date: "2026-04-29"
 author: "Bill Reichle"
 category: "adhd"
-image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80"
+image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&q=80"
 summary: "For athletes with ADHD, the challenge isn't just physical talent. It's managing a brain that thrives on high-intensity action but struggles with focus, emotional regulation, and the transition from the field back to the classroom."
 ---
 
