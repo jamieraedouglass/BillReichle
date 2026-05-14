@@ -3,6 +3,7 @@ title: "Empty Nest Prep: Helping Your Child (and Yourself!) Get Ready for Colleg
 date: "2025-04-15"
 author: "Bill Reichle"
 category: "parenting"
+image: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=800&q=80"
 summary: "The summer before your child heads off to college is a bittersweet symphony of excitement and a touch of anxiety. Here's how to navigate this transition smoothly for both your child and yourself."
 ---
 

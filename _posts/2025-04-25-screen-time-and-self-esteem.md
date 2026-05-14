@@ -3,6 +3,7 @@ title: "Screen Time and Self-Esteem: Navigating the Digital World as a Teenager"
 date: "2025-04-25"
 author: "Bill Reichle"
 category: "youth"
+image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80"
 summary: "Teenagers today are digital natives, constantly connected to technology and social media. While these tools offer opportunities, they also present unique challenges to mental and emotional well-being."
 ---
 

@@ -3,6 +3,7 @@ title: "Finding Joy Amidst Memories: Navigating the Holidays After Loss"
 date: "2025-12-16"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=800&q=80"
 summary: "The holiday season can be particularly challenging when you're grieving. It is possible to find moments of joy while still honoring and cherishing the memories of those who are no longer with us."
 ---
 

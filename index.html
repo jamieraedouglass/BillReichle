@@ -273,7 +273,8 @@
 
     .blog-section { background: var(--bg); border-top: 1px solid var(--border); }
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .blog-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg); transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+    .blog-card-skeleton { border: 1px solid var(--border); border-radius: 12px; height: 340px; background: linear-gradient(90deg, var(--bg-secondary) 25%, #efefef 50%, var(--bg-secondary) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } } background: var(--bg); transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; }
     .blog-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.07); transform: translateY(-2px); }
     .blog-card-img { height: 180px; background: var(--green-light); overflow: hidden; }
     .blog-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
@@ -636,74 +637,13 @@
         <h2 class="section-title" id="blog-title">From Bill&rsquo;s desk</h2>
         <p class="section-sub">Practical mental health guidance for athletes, parents, students, and anyone navigating life&rsquo;s harder chapters.</p>
       </div>
-      <div class="blog-grid">
-
-        <div class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1777465870072-OFF3Z3G8B7ISSDAHG5KY/unsplash-image-8-s5QuUBtyM.jpg" alt="ADHD Sports Coaching" loading="lazy" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-card-tag">ADHD</span> Apr 29, 2026</div>
-            <div class="blog-card-title">ADHD Sports Coaching: Helping Kennett Square Athletes Find Their Edge</div>
-            <a href="blog/post.html?slug=2026-04-29-adhd-sports-coaching" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1771117720064-XC18FPZJIJ759JFVZ0S5/unsplash-image-9e9PD9blAto.jpg" alt="AI Comparison Trap" loading="lazy" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-card-tag">Youth</span> Apr 1, 2026</div>
-            <div class="blog-card-title">The AI Comparison Trap: How Generative Media is Distorting Teen Body Image</div>
-            <a href="blog/post.html?slug=2026-04-01-the-ai-comparison-trap" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1773747811977-9T6DU6I0U9OHA53VZHDK/dante.jpg" alt="Dante Moore mental health" loading="lazy" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-card-tag">Athletes</span> Mar 17, 2026</div>
-            <div class="blog-card-title">Strength Beyond the Field: What Dante Moore Teaches Us About Mental Health</div>
-            <a href="blog/post.html?slug=2026-03-17-dante-moore-teaches-us" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1770498720187-JPGJMCSZTU64U49CG44W/unsplash-image-hTlKLqlwvs8.jpg" alt="Car coaching" loading="lazy" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-card-tag">Parenting</span> Mar 4, 2026</div>
-            <div class="blog-card-title">The Drive Home: Why You Should Stop &ldquo;Car-Coaching&rdquo; Your Child</div>
-            <a href="blog/post.html?slug=2026-03-04-the-drive-home" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1770498294076-Q5TX31CH06T6V6IA9ZIH/unsplash-image-u6AmsbOozQI.jpg" alt="Mental toughness athletes" loading="lazy" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-card-tag">Athletes</span> Feb 7, 2026</div>
-            <div class="blog-card-title">Beyond the Finish Line: Why Mental Toughness is the Ultimate Competitive Edge for High School Athletes</div>
-            <a href="blog/post.html?slug=2026-02-07-beyond-the-finish-line" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://images.squarespace-cdn.com/content/v1/67f6ac611c419e1c49242277/1766759216154-XZBW35726TV8XHVV9C2A/unsplash-image-Wu3pkvOIMJk.jpg" alt="New Year resolutions" loading="lazy" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-card-tag">Wellness</span> Jan 1, 2026</div>
-            <div class="blog-card-title">The Untapped Power of New Year&rsquo;s Resolutions: Why They Really Work (and How to Make Them Stick)</div>
-            <a href="blog/post.html?slug=2026-01-01-new-years-resolutions" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-
+      <div class="blog-grid" id="homepage-blog-grid">
+        <div class="blog-card-skeleton"></div>
+        <div class="blog-card-skeleton"></div>
+        <div class="blog-card-skeleton"></div>
+        <div class="blog-card-skeleton"></div>
+        <div class="blog-card-skeleton"></div>
+        <div class="blog-card-skeleton"></div>
       </div>
       <div class="blog-footer">
         <a href="blog/index.html" rel="noopener" class="btn-outline">View all articles &rarr;</a>
@@ -898,6 +838,64 @@
         dropdownTrigger.setAttribute('aria-expanded', 'false');
       }
     });
+
+    // Dynamic blog posts
+    const categoryLabels = {
+      'adhd': 'ADHD', 'athletes': 'Athletes', 'anxiety': 'Anxiety',
+      'parenting': 'Parenting', 'youth': 'Youth', 'wellness': 'Wellness',
+      'relationships': 'Relationships', 'life-transitions': 'Life Transitions'
+    };
+
+    function parseFrontMatter(content) {
+      const match = content.match(/^---\n([\s\S]*?)\n---/);
+      if (!match) return {};
+      const data = {};
+      match[1].split('\n').forEach(line => {
+        const [key, ...val] = line.split(': ');
+        if (key && val.length) data[key.trim()] = val.join(': ').trim().replace(/^"|"$/g, '');
+      });
+      return data;
+    }
+
+    function formatDate(d) {
+      return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    async function loadHomepagePosts() {
+      const grid = document.getElementById('homepage-blog-grid');
+      try {
+        const res = await fetch('https://api.github.com/repos/jamieraedouglass/BillReichle/contents/_posts');
+        if (!res.ok) throw new Error();
+        const files = await res.json();
+        const mdFiles = files.filter(f => f.name.endsWith('.md'));
+        const posts = await Promise.all(mdFiles.map(async file => {
+          const r = await fetch(file.download_url);
+          const text = await r.text();
+          return { filename: file.name, data: parseFrontMatter(text) };
+        }));
+        posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+        const recent = posts.slice(0, 6);
+        grid.innerHTML = recent.map(post => {
+          const slug = post.filename.replace('.md', '');
+          const tag = categoryLabels[post.data.category] || post.data.category || 'Insights';
+          const imgHtml = post.data.image
+            ? `<div class="blog-card-img"><img src="${post.data.image}" alt="${post.data.title}" loading="lazy" /></div>`
+            : `<div class="blog-card-img" style="background:var(--green-light);display:flex;align-items:center;justify-content:center;height:200px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg></div>`;
+          return `<div class="blog-card">
+            ${imgHtml}
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span class="blog-card-tag">${tag}</span> ${formatDate(post.data.date)}</div>
+              <div class="blog-card-title">${post.data.title}</div>
+              <a href="blog/post.html?slug=${slug}" class="blog-card-link">Read article <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>`;
+        }).join('');
+      } catch (err) {
+        grid.innerHTML = '<p style="color:var(--text-muted);font-size:14px;grid-column:1/-1">Posts loading...</p>';
+      }
+    }
+
+    loadHomepagePosts();
   </script>
 </body>
 </html>

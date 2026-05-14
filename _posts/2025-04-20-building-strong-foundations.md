@@ -3,6 +3,7 @@ title: "Building Strong Foundations: Why Therapy Can Be a Game-Changer for Child
 date: "2025-04-20"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80"
 summary: "Children navigate a complex world filled with emotions and challenges. Therapy is a powerful tool for fostering emotional well-being and building essential life skills in children."
 ---
 

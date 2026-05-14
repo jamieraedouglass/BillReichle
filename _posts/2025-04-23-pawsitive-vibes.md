@@ -3,6 +3,7 @@ title: "Pawsitive Vibes: How Dogs Lift Spirits and Ease Anxiety & Depression"
 date: "2025-04-23"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80"
 summary: "Dogs are powerful allies in the fight against anxiety and depression, offering a furry dose of happiness and emotional support backed by science."
 ---
 

@@ -3,6 +3,7 @@ title: "Sunshine for Your Soul: The Mental Health Benefits of Vitamin D"
 date: "2025-07-18"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=800&q=80"
 summary: "This 'sunshine vitamin' plays a far more expansive role in our overall health than just bones and immunity — reaching deep into the realm of our mental well-being."
 ---
 

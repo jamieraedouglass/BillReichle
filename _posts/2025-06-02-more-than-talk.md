@@ -3,6 +3,7 @@ title: "More Than Talk: How Occupational Therapy Supercharges Your Counseling Jo
 date: "2025-06-02"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80"
 summary: "Occupational therapy is a powerful ally in mental health that perfectly complements counseling. Together, they create a holistic approach that can lead to profound and lasting change."
 ---
 

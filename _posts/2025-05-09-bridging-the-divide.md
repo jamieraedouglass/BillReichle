@@ -3,6 +3,7 @@ title: "Bridging the Divide: How Therapy Can Help Siblings Strengthen Their Bond
 date: "2025-05-09"
 author: "Bill Reichle"
 category: "relationships"
+image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
 summary: "Sibling relationships are often the longest and most complex connections we have. Therapy can offer a powerful pathway towards healing and strengthening these vital connections."
 ---
 

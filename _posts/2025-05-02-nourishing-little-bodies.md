@@ -3,6 +3,7 @@ title: "Nourishing Little Bodies & Minds: Talking to Kids About Healthy Eating"
 date: "2025-05-02"
 author: "Bill Reichle"
 category: "parenting"
+image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800&q=80"
 summary: "The way we talk about food can have a lasting impact on children. Here are effective, weight-neutral strategies to guide children towards healthy eating habits without focusing on the scale."
 ---
 

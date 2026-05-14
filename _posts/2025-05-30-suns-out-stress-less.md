@@ -3,6 +3,7 @@ title: "Sun's Out, Stress Less: Why Summer is the Perfect Time to Start Therapy"
 date: "2025-05-30"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
 summary: "Summer presents a unique and surprisingly ideal window for starting therapy. From more flexible schedules to the natural 'reset' mindset of the season, here's why summer is perfect for prioritizing your mental well-being."
 ---
 

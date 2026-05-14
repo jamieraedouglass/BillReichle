@@ -3,6 +3,7 @@ title: "The Untapped Power of New Year's Resolutions: Why They Really Work (and 
 date: "2026-01-01"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&q=80"
 summary: "New Year's Resolutions are more than just empty promises — they leverage key psychological principles that can genuinely transform your life when approached correctly."
 ---
 

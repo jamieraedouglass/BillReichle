@@ -3,6 +3,7 @@ title: "Understanding the Mind-Gut Connection in Childhood Anxiety"
 date: "2025-04-10"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80"
 summary: "The connection between the brain and the gut can have a profound impact on childhood anxiety. Understanding the mind-gut axis helps parents nurture both their child's digestive and emotional well-being."
 ---
 

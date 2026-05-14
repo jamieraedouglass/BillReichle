@@ -3,6 +3,7 @@ title: "Beyond the Physical: Why Athletes Need Therapy Too"
 date: "2025-04-18"
 author: "Bill Reichle"
 category: "athletes"
+image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80"
 summary: "We celebrate athletes for their physical prowess, but what about their mental game? Therapy provides a vital support system that goes beyond physical training."
 ---
 

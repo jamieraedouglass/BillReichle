@@ -3,6 +3,7 @@ title: "The Unsung Hero: How Quality Sleep Nurtures Your Mental Well-being"
 date: "2025-07-04"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=800&q=80"
 summary: "Getting a proper amount of quality sleep isn't just about feeling rested — it's a fundamental pillar of strong mental well-being. Think of it as a nightly reset button for your brain."
 ---
 

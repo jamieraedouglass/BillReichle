@@ -3,6 +3,7 @@ title: "Navigating the Whirlwind: How Therapy Can Help Parents Weather the Storm
 date: "2025-05-07"
 author: "Bill Reichle"
 category: "parenting"
+image: "https://images.unsplash.com/photo-1602584386319-fa8eb4361c2c?w=800&q=80"
 summary: "Being a parent brings unparalleled joy, but also a hefty dose of stress. Therapy offers a dedicated space to unpack and process the weight of parental stress so you can truly thrive in your role."
 ---
 

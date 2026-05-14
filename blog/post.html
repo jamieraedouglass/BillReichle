@@ -1,115 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Bill Reichle Counseling</title>
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J238TCV390"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J238TCV390');</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J238TCV390');
+  </script>
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--green:#2C5F4A;--green-light:#e8f0eb;--text:#1a1a1a;--text-secondary:#5a5a5a;--text-muted:#888;--border:rgba(0,0,0,0.1);--bg:#ffffff;--bg-secondary:#f7f6f3;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',sans-serif}
-    body{font-family:var(--sans);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:16px 48px}
-    .nav-logo{font-family:var(--serif);font-size:18px;font-weight:500}
-    .nav-logo span{display:block;font-family:var(--sans);font-size:11px;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;margin-top:1px}
-    .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-    .nav-links a{font-size:13px;color:var(--text-secondary);transition:color .2s}
-    .nav-links a:hover{color:var(--green)}
-    .nav-cta{background:var(--green)!important;color:#fff!important;padding:9px 20px;border-radius:4px;font-size:13px;font-weight:500}
-    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
-    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .25s,opacity .25s}
-    .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-    .nav-hamburger.open span:nth-child(2){opacity:0}
-    .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-    .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:99;flex-direction:column;padding:80px 32px 40px;overflow-y:auto}
-    .mobile-menu.open{display:flex}
-    .mobile-menu a{font-size:22px;font-family:var(--serif);color:var(--text);padding:18px 0;border-bottom:1px solid var(--border);display:block}
-    .mobile-menu .mobile-cta{margin-top:32px;display:block;text-align:center;background:var(--green);color:#fff;padding:16px 24px;border-radius:6px;font-size:15px;font-family:var(--sans);font-weight:500;text-transform:uppercase;border-bottom:none}
-    .article-hero{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:56px 48px 48px}
-    .back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-muted);margin-bottom:28px;transition:color .2s}
-    .back-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
-    .back-link:hover{color:var(--green)}
-    .article-meta{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-    .article-tag{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;background:var(--green-light);color:var(--green)}
-    .article-date{font-size:13px;color:var(--text-muted)}
-    .article-title{font-family:var(--serif);font-size:42px;font-weight:500;line-height:1.2;max-width:760px;margin-bottom:16px}
-    .article-author{font-size:14px;color:var(--text-secondary)}
-    .article-img{width:100%;max-height:460px;object-fit:cover;border-radius:12px;margin-top:32px;display:block}
-    .article-body{max-width:720px;margin:0 auto;padding:56px 48px}
-    .article-content h2{font-family:var(--serif);font-size:26px;font-weight:500;margin:36px 0 14px}
-    .article-content h3{font-size:20px;font-weight:500;margin:28px 0 10px}
-    .article-content p{font-size:16px;line-height:1.85;color:var(--text-secondary);margin-bottom:20px}
-    .article-content ul,.article-content ol{margin:0 0 20px 24px}
-    .article-content li{font-size:16px;line-height:1.8;color:var(--text-secondary);margin-bottom:6px}
-    .article-content blockquote{border-left:3px solid var(--green);padding-left:20px;margin:28px 0;font-style:italic;color:var(--text-secondary)}
-    .article-content a{color:var(--green);text-decoration:underline}
-    .article-content strong{color:var(--text);font-weight:500}
-    .article-cta{background:var(--green);color:#fff;padding:48px;border-radius:12px;text-align:center;margin-top:48px}
-    .article-cta h3{font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:10px}
-    .article-cta p{font-size:14px;color:rgba(255,255,255,.8);margin-bottom:22px}
-    .article-cta a{display:inline-block;background:#fff;color:var(--green);padding:12px 24px;border-radius:4px;font-size:13px;font-weight:500;text-transform:uppercase}
-    .footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:36px 48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
-    .footer-brand{font-family:var(--serif);font-size:16px;font-weight:500;margin-bottom:6px}
-    .footer-info{font-size:13px;color:var(--text-secondary);line-height:1.8}
-    .footer-info a{color:var(--green);text-decoration:underline}
-    .footer-links{display:flex;gap:20px;font-size:12px}
-    .footer-links a{color:var(--text-muted)}
-    .loading{text-align:center;padding:80px;color:var(--text-muted);font-size:14px}
-    @media(max-width:768px){.nav{padding:14px 20px}.nav-links{display:none}.nav-hamburger{display:flex}.article-hero{padding:40px 20px 36px}.article-title{font-size:28px}.article-body{padding:40px 20px}.article-cta{padding:32px 20px}.footer{padding:32px 20px;flex-direction:column}}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #2C5F4A; --green-light: #e8f0eb; --green-mid: #d4e8dd;
+      --text: #1a1a1a; --text-secondary: #5a5a5a; --text-muted: #888;
+      --border: rgba(0,0,0,0.1); --bg: #ffffff; --bg-secondary: #f7f6f3;
+      --serif: 'Playfair Display', Georgia, serif; --sans: 'DM Sans', sans-serif;
+    }
+    body { font-family: var(--sans); color: var(--text); background: var(--bg); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; }
+    .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; }
+    .nav-logo span { display: block; font-family: var(--sans); font-size: 11px; font-weight: 400; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-secondary); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta { background: var(--green) !important; color: #fff !important; padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; flex-direction: column; padding: 80px 32px 40px; overflow-y: auto; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 22px; font-family: var(--serif); font-weight: 400; color: var(--text); padding: 18px 0; border-bottom: 1px solid var(--border); display: block; }
+    .mobile-menu .mobile-cta { margin-top: 32px; display: block; text-align: center; background: var(--green); color: #fff; padding: 16px 24px; border-radius: 6px; font-size: 15px; font-family: var(--sans); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: none; }
+
+    /* ARTICLE */
+    .article-hero { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 56px 48px 48px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); margin-bottom: 28px; transition: color 0.2s; }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .back-link:hover { color: var(--green); }
+    .article-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .article-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; background: var(--green-light); color: var(--green); }
+    .article-date { font-size: 13px; color: var(--text-muted); }
+    .article-title { font-family: var(--serif); font-size: 42px; font-weight: 500; line-height: 1.2; max-width: 760px; margin-bottom: 16px; }
+    .article-author { font-size: 14px; color: var(--text-secondary); }
+    .article-author strong { color: var(--text); }
+    .article-img { width: 100%; max-height: 460px; object-fit: cover; border-radius: 12px; margin-top: 32px; display: block; }
+
+    .article-body { max-width: 720px; margin: 0 auto; padding: 56px 48px; }
+    .article-content h1, .article-content h2 { font-family: var(--serif); font-weight: 500; margin: 36px 0 14px; line-height: 1.25; }
+    .article-content h1 { font-size: 30px; }
+    .article-content h2 { font-size: 24px; }
+    .article-content h3 { font-size: 18px; font-weight: 500; margin: 28px 0 10px; }
+    .article-content p { font-size: 16px; line-height: 1.85; color: var(--text-secondary); margin-bottom: 20px; }
+    .article-content ul, .article-content ol { margin: 0 0 20px 24px; }
+    .article-content li { font-size: 16px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 6px; }
+    .article-content blockquote { border-left: 3px solid var(--green); padding-left: 20px; margin: 28px 0; font-style: italic; color: var(--text-secondary); }
+    .article-content a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+    .article-content strong { color: var(--text); font-weight: 500; }
+    .article-content img { max-width: 100%; border-radius: 8px; margin: 20px 0; }
+    .article-content hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+
+    .article-cta { background: var(--green); color: #fff; padding: 48px; border-radius: 12px; text-align: center; margin-top: 48px; }
+    .article-cta h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; color: #fff; margin-bottom: 10px; }
+    .article-cta p { font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 22px; }
+    .article-cta a { display: inline-block; background: #fff; color: var(--green); padding: 12px 24px; border-radius: 4px; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 36px 48px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; }
+    .footer-brand { font-family: var(--serif); font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+    .footer-info { font-size: 13px; color: var(--text-secondary); line-height: 1.8; }
+    .footer-info a { color: var(--green); text-decoration: underline; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 12px; }
+    .footer-links a { color: var(--text-muted); }
+
+    .loading { text-align: center; padding: 80px; color: var(--text-muted); font-size: 14px; }
+
+    @media (max-width: 768px) {
+      .nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .article-hero { padding: 40px 20px 36px; }
+      .article-title { font-size: 28px; }
+      .article-body { padding: 40px 20px; }
+      .article-cta { padding: 32px 20px; }
+      .footer { padding: 32px 20px; flex-direction: column; }
+    }
   </style>
 </head>
 <body>
+
   <header>
     <nav class="nav">
-      <a href="../index.html" class="nav-logo">Bill Reichle Counseling<span>LPC &middot; NCC &middot; M.S.Ed</span></a>
+      <a href="../index.html" class="nav-logo">
+        Bill Reichle Counseling
+        <span>LPC &middot; NCC &middot; M.S.Ed</span>
+      </a>
       <ul class="nav-links">
         <li><a href="../index.html#services">Services</a></li>
         <li><a href="../index.html#about">About</a></li>
         <li><a href="../reviews.html">Reviews</a></li>
-        <li><a href="index.html" style="color:var(--green);font-weight:500">Blog</a></li>
+        <li><a href="index.html" style="color: var(--green); font-weight: 500;">Blog</a></li>
         <li><a href="../contact.html" class="nav-cta">Book Now &rarr;</a></li>
       </ul>
-      <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
+
   <div class="mobile-menu" id="mobile-menu">
     <a href="../index.html">Home</a>
     <a href="../index.html#services">Services</a>
+    <a href="../index.html#about">About</a>
     <a href="../reviews.html">Reviews</a>
     <a href="index.html">Blog</a>
+    <a href="../index.html#faq">FAQs</a>
+    <a href="../professionals.html">For Professionals</a>
     <a href="../contact.html" class="mobile-cta">Book an appointment</a>
   </div>
-  <div id="post-content"><div class="loading">Loading post...</div></div>
+
+  <div id="post-content">
+    <div class="loading">Loading post...</div>
+  </div>
+
   <footer class="footer">
     <div>
       <div class="footer-brand">Bill Reichle Counseling</div>
-      <div class="footer-info">1390 Birmingham Road, Suite 303 &middot; West Chester, PA 19382<br><a href="mailto:Bill@BillReichle.com">Bill@BillReichle.com</a></div>
+      <div class="footer-info">
+        1390 Birmingham Road, Suite 303 &middot; West Chester, PA 19382<br>
+        <a href="mailto:Bill@BillReichle.com">Bill@BillReichle.com</a> &middot; <a href="tel:6108907951">(610) 890-7951</a>
+      </div>
     </div>
     <div>
-      <div class="footer-links"><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../accessibility.html">Accessibility</a></div>
-      <div style="font-size:12px;color:var(--text-muted);margin-top:8px">&copy; Avanti Consulting LLC 2026</div>
+      <div class="footer-links">
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../accessibility.html">Accessibility</a>
+      </div>
+      <div style="font-size:12px; color: var(--text-muted); margin-top: 8px;">&copy; Avanti Consulting LLC 2026. All rights reserved.</div>
     </div>
   </footer>
+
   <script src="https://unpkg.com/marked@9.1.6/marked.min.js"></script>
   <script>
-    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobile-menu');
-    hamburger.addEventListener('click',()=>{const o=hamburger.classList.toggle('open');mobileMenu.classList.toggle('open',o);hamburger.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
-    const categoryLabels={'adhd':'ADHD','athletes':'Athletes','anxiety':'Anxiety','parenting':'Parenting','youth':'Youth','wellness':'Wellness','relationships':'Relationships','life-transitions':'Life Transitions'};
-    function parseFrontMatter(content){const match=content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);if(!match)return{data:{},content};const data={};match[1].split('\n').forEach(line=>{const[key,...val]=line.split(': ');if(key&&val.length)data[key.trim()]=val.join(': ').trim().replace(/^"|"$/g,'')});return{data,content:match[2]}}
-    function formatDate(d){return new Date(d).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}
-    async function loadPost(){const params=new URLSearchParams(window.location.search);const slug=params.get('slug');if(!slug){window.location.href='index.html';return}
-    try{const res=await fetch(`https://raw.githubusercontent.com/jamieraedouglass/BillReichle/main/_posts/${slug}.md`);if(!res.ok)throw new Error();const text=await res.text();const{data,content}=parseFrontMatter(text);
-    document.title=`${data.title} | Bill Reichle Counseling`;
-    const tag=categoryLabels[data.category]||data.category||'Insights';
-    const imgHtml=data.image?`<img src="../${data.image}" alt="${data.title}" class="article-img"/>`:'';
-    document.getElementById('post-content').innerHTML=`<div class="article-hero"><a href="index.html" class="back-link"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>Back to all posts</a><div class="article-meta"><span class="article-tag">${tag}</span><span class="article-date">${formatDate(data.date)}</span></div><h1 class="article-title">${data.title}</h1><div class="article-author">By <strong>${data.author||'Bill Reichle'}</strong></div>${imgHtml}</div><div class="article-body"><div class="article-content">${marked.parse(content)}</div><div class="article-cta"><h3>Ready to work on this together?</h3><p>Bill works with individuals, families, and athletes across Chester County and virtually.</p><a href="../contact.html">Book an appointment</a></div></div>`
-    }catch(err){document.getElementById('post-content').innerHTML='<div class="loading">Post not found. <a href="index.html" style="color:var(--green)">Back to blog</a></div>'}}
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    const categoryLabels = {
+      'adhd': 'ADHD', 'athletes': 'Athletes', 'anxiety': 'Anxiety',
+      'parenting': 'Parenting', 'youth': 'Youth', 'wellness': 'Wellness',
+      'relationships': 'Relationships', 'life-transitions': 'Life Transitions',
+    };
+
+    function parseFrontMatter(content) {
+      const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+      if (!match) return { data: {}, content };
+      const data = {};
+      match[1].split('\n').forEach(line => {
+        const [key, ...val] = line.split(': ');
+        if (key && val.length) data[key.trim()] = val.join(': ').trim().replace(/^"|"$/g, '');
+      });
+      return { data, content: match[2] };
+    }
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    }
+
+    async function loadPost() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+      if (!slug) { window.location.href = 'index.html'; return; }
+
+      try {
+        const res = await fetch(`https://raw.githubusercontent.com/jamieraedouglass/BillReichle/main/_posts/${slug}.md`);
+        if (!res.ok) throw new Error('Post not found');
+        const text = await res.text();
+        const { data, content } = parseFrontMatter(text);
+
+        document.title = `${data.title} | Bill Reichle Counseling`;
+
+        const tag = categoryLabels[data.category] || data.category || 'Insights';
+        const imgSrc = data.image
+          ? (data.image.startsWith('http') ? data.image : `../${data.image}`)
+          : null;
+        const imgHtml = imgSrc ? `<img src="${imgSrc}" alt="${data.title}" class="article-img" />` : '';
+
+        document.getElementById('post-content').innerHTML = `
+          <div class="article-hero">
+            <a href="index.html" class="back-link">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+              Back to all posts
+            </a>
+            <div class="article-meta">
+              <span class="article-tag">${tag}</span>
+              <span class="article-date">${formatDate(data.date)}</span>
+            </div>
+            <h1 class="article-title">${data.title}</h1>
+            <div class="article-author">By <strong>${data.author || 'Bill Reichle'}</strong></div>
+            ${imgHtml}
+          </div>
+          <div class="article-body">
+            <div class="article-content">${marked.parse(content)}</div>
+            <div class="article-cta">
+              <h3>Ready to work on this together?</h3>
+              <p>Bill works with individuals, families, and athletes across Chester County and virtually.</p>
+              <a href="../contact.html">Book an appointment</a>
+            </div>
+          </div>
+        `;
+      } catch (err) {
+        document.getElementById('post-content').innerHTML = `
+          <div class="loading">
+            <p>Post not found. <a href="index.html" style="color: var(--green);">Back to blog</a></p>
+          </div>
+        `;
+      }
+    }
+
     loadPost();
   </script>
+
 </body>
 </html>

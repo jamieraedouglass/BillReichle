@@ -3,6 +3,7 @@ title: "Beyond the Finish Line: Why Mental Toughness is the Ultimate Competitive
 date: "2026-02-07"
 author: "Bill Reichle"
 category: "athletes"
+image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800&q=80"
 summary: "The difference between a 'good' athlete and a 'great' one isn't always found in the weight room or on the track. It's found in the six inches between their ears."
 ---
 

@@ -3,6 +3,7 @@ title: "Why Mental Health Counseling is a Game Changer for Teenage Guys"
 date: "2025-04-17"
 author: "Bill Reichle"
 category: "youth"
+image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800&q=80"
 summary: "Being a teenage guy comes with unspoken rules and pressures. Mental health counseling isn't a sign of weakness — it's a powerful tool to level up your mind and navigate the unique challenges you face."
 ---
 

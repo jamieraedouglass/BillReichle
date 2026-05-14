@@ -3,6 +3,7 @@ title: "Unraveling the Alphabet Soup: 504 Plans vs. IEPs for Students with Anxie
 date: "2025-05-11"
 author: "Bill Reichle"
 category: "adhd"
+image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80"
 summary: "Understanding the differences between 504 plans and IEPs empowers you to be a more informed advocate for your child's educational needs when anxiety impacts their learning."
 ---
 

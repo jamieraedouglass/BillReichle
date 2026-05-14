@@ -3,6 +3,7 @@ title: "The Drive Home: Why You Should Stop \"Car-Coaching\" Your Child"
 date: "2026-03-04"
 author: "Bill Reichle"
 category: "athletes"
+image: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=800&q=80"
 summary: "In sports psychology, the 20-minute ride home after a game is called 'The Ride Home' — and for many young athletes, it is the most dreaded part of their week."
 ---
 

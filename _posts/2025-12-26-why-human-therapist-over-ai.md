@@ -3,6 +3,7 @@ title: "Why Your Brain (and Heart) Deserve a Human Therapist Over AI"
 date: "2025-12-26"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
 summary: "When it comes to your mental health, the nuance, empathy, and profoundly human connection of a licensed therapist simply cannot be replicated by artificial intelligence."
 ---
 

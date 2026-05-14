@@ -3,6 +3,7 @@ title: "Finding Light in the Darkness: How Therapy Supports the Journey Through 
 date: "2025-05-05"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&q=80"
 summary: "Grief is a deeply personal and often overwhelming experience. Therapy isn't about getting over grief — it's about finding healthy ways to move through the pain and eventually find light in the darkness."
 ---
 

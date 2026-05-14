@@ -3,6 +3,7 @@ title: "The Ocean Cure: How Summer Beach Days Boost Your Mental Health"
 date: "2025-06-27"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
 summary: "There's something undeniably magical about the beach in summer. Beyond the obvious relaxation, spending time at the beach offers a surprising array of profound mental health benefits."
 ---
 

@@ -3,6 +3,7 @@ title: "Back to School, Back to You: Why the Start of the School Year is the Per
 date: "2025-08-25"
 author: "Bill Reichle"
 category: "wellness"
+image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80"
 summary: "The beginning of a new school year presents an ideal opportunity to prioritize your mental well-being and start counseling. Here's why this natural reset is the perfect time to take that step."
 ---
 

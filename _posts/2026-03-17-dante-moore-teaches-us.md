@@ -3,6 +3,7 @@ title: "Strength Beyond the Field: What Dante Moore Teaches Us About Mental Heal
 date: "2026-03-17"
 author: "Bill Reichle"
 category: "athletes"
+image: "https://images.unsplash.com/photo-1519861531473-9200262188bf?w=800&q=80"
 summary: "Oregon QB Dante Moore did something far more courageous than any fourth-quarter drive when he opened up about his battle with depression. His story offers vital lessons about resilience, vulnerability, and the necessity of support."
 ---
 
