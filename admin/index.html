@@ -7,9 +7,7 @@
   <title>Blog Admin | Bill Reichle Counseling</title>
 </head>
 <body>
-  <script>
-    window.CMS_MANUAL_INIT = true;
-  </script>
+  <script>window.CMS_MANUAL_INIT = true;</script>
   <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.1.3/dist/decap-cms.js"></script>
   <script>
     CMS.init({
@@ -20,7 +18,8 @@
           repo: 'jamieraedouglass/BillReichle',
           branch: 'main',
           base_url: 'https://bill-reichle.vercel.app',
-          auth_endpoint: 'api/auth'
+          auth_endpoint: 'api/auth',
+          auth_type: 'pkce'
         },
         media_folder: 'images/blog',
         public_folder: '/images/blog',
