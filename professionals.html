@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For Professionals | Bill Reichle Counseling</title>
   <meta name="description" content="Scale your private practice with Ivy League-trained leadership coaching. Bill Reichle provides strategic business consulting and clinical case consultation for clinicians." />
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -58,16 +58,25 @@
     .why-item-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
     .why-item-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
     .why-right { background: var(--bg-secondary); border-radius: 16px; overflow: hidden; }
-    .why-right img { width: 100%; height: 400px; object-fit: cover; object-position: center 20%; display: block; }
+    .why-right img { width: 100%; height: 400px; object-fit: cover; object-position: center 25%; display: block; }
     .why-creds { padding: 20px 24px; display: flex; gap: 10px; flex-wrap: wrap; }
     .cred-pill { background: var(--green); color: #fff; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; padding: 5px 14px; border-radius: 20px; }
 
-    /* TICKER */
-    .ticker { background: var(--green); padding: 16px 0; overflow: hidden; white-space: nowrap; }
-    .ticker-inner { display: inline-flex; gap: 40px; animation: ticker 30s linear infinite; }
-    .ticker-inner span { font-size: 13px; color: rgba(255,255,255,0.85); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
-    .ticker-dot { color: rgba(255,255,255,0.4); }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .page-hero { background: var(--green); color: #fff; padding: 56px 48px; }
+    .page-hero-inner { max-width: 640px; }
+    .eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 500; margin-bottom: 16px; }
+    .page-hero h1 { font-family: var(--serif); font-size: 42px; line-height: 1.15; font-weight: 500; color: #fff; margin-bottom: 12px; }
+    .page-hero h1 em { font-style: italic; }
+    .page-hero-sub { font-size: 17px; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 8px; font-weight: 400; }
+    .page-hero-body { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.8; max-width: 560px; }
+
+    /* CREDENTIALS BAR */
+    .creds-bar { background: rgba(0,0,0,0.15); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 48px; display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
+    .creds-bar-item { display: flex; align-items: center; gap: 10px; padding: 0 28px 0 0; }
+    .creds-bar-item:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.2); margin-right: 28px; }
+    .creds-bar-item-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); display: block; }
+    .creds-bar-item-value { font-size: 13px; font-weight: 500; color: #fff; display: block; margin-top: 1px; }
+    @media (max-width: 768px) { .creds-bar { padding: 16px 20px; gap: 16px; } .creds-bar-item { border-right: none !important; margin-right: 0 !important; padding-right: 0; } }
 
     /* SERVICES */
     .services-section { padding: 64px 48px; background: var(--bg-secondary); border-top: 1px solid var(--border); }
@@ -133,7 +142,26 @@
       .pro-cta h2 { font-size: 28px; }
       .footer { padding: 32px 20px; flex-direction: column; }
     }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.02em; cursor: pointer; display: flex; align-items: center; gap: 5px; background: none; border: none; font-family: var(--sans); padding: 0; }
+    .nav-dropdown-trigger:hover { color: var(--green); }
+    .nav-dropdown-trigger svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-trigger svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 14px); right: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 8px; min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,0.09); z-index: 200; }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: flex; flex-direction: column; padding: 10px 14px; border-radius: 6px; transition: background 0.15s; text-decoration: none; }
+    .nav-dropdown-menu a:hover { background: var(--bg-secondary); }
+    .nav-dropdown-menu a span { font-size: 13px; color: var(--text); font-weight: 500; }
+    .nav-dropdown-menu a small { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J238TCV390"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J238TCV390');
+  </script>
 </head>
 <body>
 
@@ -146,9 +174,30 @@
       <ul class="nav-links">
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#faq">FAQs</a></li>
         <li><a href="index.html#reviews">Reviews</a></li>
-        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="index.html#blog">Blog</a>
+    <a href="expertise.html">Expertise</a></li>
+        <li><a href="expertise.html">Expertise</a></li>
+        <li class="nav-dropdown" id="nav-dropdown">
+          <button class="nav-dropdown-trigger" id="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            More
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="index.html#faq" role="menuitem">
+              <span>FAQs</span>
+              <small>Common questions answered</small>
+            </a>
+            <a href="professionals.html" role="menuitem">
+              <span>For Professionals</span>
+              <small>Practice consulting &amp; case consultation</small>
+            </a>
+            <a href="community.html" role="menuitem">
+              <span>Community Impact</span>
+              <small>Nonprofits &amp; giving back</small>
+            </a>
+          </div>
+        </li>
         <li><a href="contact.html" class="nav-cta">Book Now &rarr;</a></li>
       </ul>
       <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -161,8 +210,11 @@
     <a href="index.html">Home</a>
     <a href="index.html#services">Services</a>
     <a href="index.html#about">About</a>
-    <a href="index.html#faq">FAQs</a>
     <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#blog">Blog</a>
+    <a href="expertise.html">Expertise</a>
+    <a href="index.html#faq">FAQs</a>
+    <a href="professionals.html">For Professionals</a>
     <a href="contact.html" class="mobile-cta">Book an appointment</a>
   </div>
 
@@ -172,34 +224,35 @@
       <p class="eyebrow">For licensed clinicians &amp; private practice owners</p>
       <h1>Move your practice <em>forward</em></h1>
       <p class="page-hero-sub">You were trained to be a world-class clinician. You weren&rsquo;t trained to be a CEO.</p>
-      <p class="page-hero-body">Therapists graduate with clinical excellence and a PhD-level gap in business acumen. At Avanti Consulting, Bill helps clinicians bridge that gap &mdash; whether you&rsquo;re launching a private practice, scaling a niche, or looking for clinical case consultation on complex presentations.</p>
+      <p class="page-hero-body">Therapists graduate with clinical excellence and a PhD-level gap in business acumen. At Avanti Consulting, Bill helps clinicians bridge that gap. Whether you&rsquo;re launching a private practice, scaling a niche, or looking for clinical case consultation on complex presentations, he can help.</p>
+    </div>
+    <div class="creds-bar">
+      <div class="creds-bar-item">
+        <div>
+          <span class="creds-bar-item-label">Education</span>
+          <span class="creds-bar-item-value">M.S.Ed, University of Pennsylvania</span>
+        </div>
+      </div>
+      <div class="creds-bar-item">
+        <div>
+          <span class="creds-bar-item-label">Certificate</span>
+          <span class="creds-bar-item-value">Leadership & Communication, Harvard</span>
+        </div>
+      </div>
+      <div class="creds-bar-item">
+        <div>
+          <span class="creds-bar-item-label">Licensure</span>
+          <span class="creds-bar-item-value">LPC &middot; NCC &middot; Chester County Schools</span>
+        </div>
+      </div>
+      <div class="creds-bar-item">
+        <div>
+          <span class="creds-bar-item-label">Experience</span>
+          <span class="creds-bar-item-value">5+ years private practice</span>
+        </div>
+      </div>
     </div>
   </section>
-
-  <!-- TICKER -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-inner">
-      <span>Business Mastery</span><span class="ticker-dot">✳</span>
-      <span>Practice Growth</span><span class="ticker-dot">✳</span>
-      <span>Strategic Scaling</span><span class="ticker-dot">✳</span>
-      <span>Systems Optimization</span><span class="ticker-dot">✳</span>
-      <span>Professional Evolution</span><span class="ticker-dot">✳</span>
-      <span>Actionable Steps</span><span class="ticker-dot">✳</span>
-      <span>Revenue Growth</span><span class="ticker-dot">✳</span>
-      <span>Increase Your Impact</span><span class="ticker-dot">✳</span>
-      <span>ROI</span><span class="ticker-dot">✳</span>
-      <!-- duplicate for seamless loop -->
-      <span>Business Mastery</span><span class="ticker-dot">✳</span>
-      <span>Practice Growth</span><span class="ticker-dot">✳</span>
-      <span>Strategic Scaling</span><span class="ticker-dot">✳</span>
-      <span>Systems Optimization</span><span class="ticker-dot">✳</span>
-      <span>Professional Evolution</span><span class="ticker-dot">✳</span>
-      <span>Actionable Steps</span><span class="ticker-dot">✳</span>
-      <span>Revenue Growth</span><span class="ticker-dot">✳</span>
-      <span>Increase Your Impact</span><span class="ticker-dot">✳</span>
-      <span>ROI</span><span class="ticker-dot">✳</span>
-    </div>
-  </div>
 
   <!-- WHY BILL -->
   <section class="why-section">
@@ -221,7 +274,7 @@
           </div>
           <div>
             <div class="why-item-title">The Avanti Philosophy</div>
-            <div class="why-item-body">We don&rsquo;t just talk about problems &mdash; we move forward with solutions. Action-oriented, ROI-focused consulting tailored to your specific goals and timeline.</div>
+            <div class="why-item-body">We don&rsquo;t just talk about problems. We move forward with solutions. Action-oriented, ROI-focused consulting tailored to your specific goals and timeline.</div>
           </div>
         </div>
         <div class="why-item">
@@ -236,10 +289,10 @@
       </div>
     </div>
     <div class="why-right">
-      <img src="images/DSC03282.jpg" alt="Bill Reichle outside his West Chester office" />
+      <img src="images/DSC03354.jpg" alt="Bill Reichle outside his West Chester office" />
       <div class="why-creds">
-        <span class="cred-pill">M.S.Ed &mdash; UPenn</span>
-        <span class="cred-pill">Leadership &mdash; Harvard</span>
+        <span class="cred-pill">M.S.Ed, UPenn</span>
+        <span class="cred-pill">Leadership, Harvard</span>
         <span class="cred-pill">LPC</span>
         <span class="cred-pill">NCC</span>
       </div>
@@ -311,24 +364,12 @@
     <h2 class="section-title" style="margin-bottom: 32px;">Trusted by clinicians across Chester County</h2>
     <div class="testimonial-grid">
       <div class="testimonial-card">
-        <p class="testimonial-text">&ldquo;I spent years feeling like a great therapist but a struggling business owner. Bill helped me get out of my own way. He didn&rsquo;t just give me a roadmap &mdash; he gave me the confidence to finally value my time and build a practice that actually supports my life, not just my clients.&rdquo;</p>
-        <div class="testimonial-author">Former client</div>
-        <div class="testimonial-role">Practice Launchpad</div>
+        <p class="testimonial-text">&ldquo;I spent years feeling like a great therapist but a struggling business owner. Bill helped me get out of my own way. He didn&rsquo;t just give me a roadmap; he gave me the confidence to finally value my time and build a practice that actually supports my life, not just my clients. I finally feel like I&rsquo;m in the driver&rsquo;s seat of my career.&rdquo;</p>
+        <div class="testimonial-author">Former Customer</div>
       </div>
       <div class="testimonial-card">
-        <p class="testimonial-text">&ldquo;Working with Bill felt like finally having someone in my corner who understood both the heart of therapy and the reality of the business. He helped me cut through the overwhelm and focus on the systems that actually matter. I went from hoping for referrals to having a sustainable, high-fee practice I&rsquo;m genuinely proud of.&rdquo;</p>
-        <div class="testimonial-author">Former client</div>
-        <div class="testimonial-role">Practice Launchpad</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-text">&ldquo;Bill is, and has always been, one of the most understanding and compassionate people I have known. He truly found his calling in counseling. His passion and dedication to his clients is evident, and I would be proud to refer him to my friends, family, and community.&rdquo;</p>
-        <div class="testimonial-author">Megan Cromer</div>
-        <div class="testimonial-role">Colleague</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-text">&ldquo;Bill is wonderfully cooperative and skilled. As a psychiatrist I am looking for therapists with expertise to work with complex patients and also who are highly collaborative. I&rsquo;m glad to have the chance to work with him.&rdquo;</p>
-        <div class="testimonial-author">Dr. Marius Popii, MD</div>
-        <div class="testimonial-role">Psychiatrist</div>
+        <p class="testimonial-text">&ldquo;Working with Bill felt like finally having someone in my corner who understood both the heart of therapy and the reality of the business. He helped me cut through the overwhelm and focus on the systems that actually matter. I went from &lsquo;hoping&rsquo; for referrals to having a sustainable, high-fee practice I&rsquo;m genuinely proud of.&rdquo;</p>
+        <div class="testimonial-author">Former Customer</div>
       </div>
     </div>
   </section>
@@ -353,9 +394,9 @@
     </div>
     <div>
       <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Accessibility</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="accessibility.html">Accessibility</a>
       </div>
       <div style="font-size:12px; color: var(--text-muted); margin-top: 8px;">&copy; Avanti Consulting LLC 2026. All rights reserved.</div>
     </div>
@@ -370,12 +411,26 @@
       hamburger.setAttribute('aria-expanded', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
+    const dropdown = document.getElementById('nav-dropdown');
+    const dropdownTrigger = document.getElementById('dropdown-trigger');
+    if (dropdown && dropdownTrigger) {
+      dropdownTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('open');
+        dropdownTrigger.setAttribute('aria-expanded', isOpen);
+      });
+      document.addEventListener('click', () => {
+        dropdown.classList.remove('open');
+        dropdownTrigger.setAttribute('aria-expanded', 'false');
+      });
+    }
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         hamburger.classList.remove('open');
         mobileMenu.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+        if (dropdown) dropdown.classList.remove('open');
       }
     });
   </script>

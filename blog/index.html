@@ -1,967 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Caruso's Cocktail Lounge · Lake Bluff, IL</title>
-<meta name="description" content="Lake Bluff's most exclusive speakeasy. Handcrafted cocktails, curated spirits, and an atmosphere worth dressing up for.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232C1A0E'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='Georgia,serif' font-style='italic' fill='%23C9A84C'>C</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights & Resources | Bill Reichle Counseling</title>
+  <meta name="description" content="Mental health insights, tips, and resources from Bill Reichle, LPC. Topics include ADHD, athlete mental health, anxiety, parenting, and life transitions." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J238TCV390"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J238TCV390');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #2C5F4A; --green-light: #e8f0eb; --green-mid: #d4e8dd;
+      --text: #1a1a1a; --text-secondary: #5a5a5a; --text-muted: #888;
+      --border: rgba(0,0,0,0.1); --bg: #ffffff; --bg-secondary: #f7f6f3;
+      --serif: 'Playfair Display', Georgia, serif; --sans: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--text); background: var(--bg); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
 
-  :root {
-    --walnut: #2C1A0E;
-    --walnut-mid: #4A2C15;
-    --gold: #C9A84C;
-    --gold-light: #E8C97A;
-    --gold-pale: #F5E9C8;
-    --cream: #FAF6EE;
-    --olive: #5C6645;
-    --olive-light: #8A9462;
-    --charcoal: #1A1410;
-    --warm-gray: #9C8E7E;
-    --linen: #EDE5D3;
-  }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; }
+    .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; }
+    .nav-logo span { display: block; font-family: var(--sans); font-size: 11px; font-weight: 400; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.02em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta { background: var(--green) !important; color: #fff !important; padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; transition: opacity 0.2s; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; flex-direction: column; padding: 80px 32px 40px; overflow-y: auto; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 22px; font-family: var(--serif); font-weight: 400; color: var(--text); padding: 18px 0; border-bottom: 1px solid var(--border); display: block; }
+    .mobile-menu .mobile-cta { margin-top: 32px; display: block; text-align: center; background: var(--green); color: #fff; padding: 16px 24px; border-radius: 6px; font-size: 15px; font-family: var(--sans); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: none; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.02em; cursor: pointer; display: flex; align-items: center; gap: 5px; background: none; border: none; font-family: var(--sans); padding: 0; }
+    .nav-dropdown-trigger:hover { color: var(--green); }
+    .nav-dropdown-trigger svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-trigger svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 14px); right: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 8px; min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,0.09); z-index: 200; }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: flex; flex-direction: column; padding: 10px 14px; border-radius: 6px; transition: background 0.15s; }
+    .nav-dropdown-menu a:hover { background: var(--bg-secondary); }
+    .nav-dropdown-menu a span { font-size: 13px; color: var(--text); font-weight: 500; }
+    .nav-dropdown-menu a small { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
 
-  html { scroll-behavior: smooth; }
+    /* PAGE */
+    .page-hero { background: var(--green); color: #fff; padding: 56px 48px; }
+    .eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 500; margin-bottom: 14px; }
+    .page-hero h1 { font-family: var(--serif); font-size: 40px; font-weight: 500; color: #fff; margin-bottom: 12px; line-height: 1.2; }
+    .page-hero p { font-size: 15px; color: rgba(255,255,255,0.8); max-width: 560px; line-height: 1.75; }
 
-  body {
-    background: var(--charcoal);
-    color: var(--cream);
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-  }
+    .blog-section { padding: 64px 48px; }
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-btn { font-size: 12px; font-family: var(--sans); padding: 7px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--text-secondary); cursor: pointer; transition: all 0.15s; font-weight: 400; }
+    .filter-btn:hover, .filter-btn.active { background: var(--green); color: #fff; border-color: var(--green); }
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 4rem;
-    background: transparent;
-    transition: background 0.4s ease;
-  }
-  nav.scrolled {
-    background: rgba(26, 20, 16, 0.96);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-  }
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-style: italic;
-    letter-spacing: 0.04em;
-    color: var(--gold-light);
-    text-decoration: none;
-  }
-  .nav-logo-mark {
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-  }
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-  .nav-links a {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.2em;
-    color: var(--linen);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-reserve {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    color: var(--charcoal);
-    background: var(--gold);
-    padding: 0.5rem 1.4rem;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .nav-reserve:hover { background: var(--gold-light); }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .blog-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg); transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+    .blog-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.07); transform: translateY(-2px); }
+    .blog-card-img { height: 200px; background: var(--green-light); overflow: hidden; }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .blog-card:hover .blog-card-img img { transform: scale(1.04); }
+    .blog-card-img-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, var(--green-light), var(--green-mid)); display: flex; align-items: center; justify-content: center; }
+    .blog-card-img-placeholder svg { width: 32px; height: 32px; stroke: var(--green); fill: none; stroke-width: 1.5; opacity: 0.4; }
+    .blog-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .blog-card-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; background: var(--green-light); color: var(--green); }
+    .blog-card-date { font-size: 11px; color: var(--text-muted); }
+    .blog-card-title { font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.35; margin-bottom: 10px; color: var(--text); }
+    .blog-card-summary { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+    .blog-card-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--green); font-weight: 500; letter-spacing: 0.04em; transition: gap 0.2s; margin-top: auto; }
+    .blog-card-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .blog-card:hover .blog-card-link { gap: 8px; }
 
-  /* HERO */
-  .hero {
-    height: 100vh;
-    min-height: 700px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: var(--walnut);
-  }
+    .empty-state { text-align: center; padding: 80px 40px; color: var(--text-muted); }
+    .empty-state h3 { font-family: var(--serif); font-size: 22px; color: var(--text); margin-bottom: 8px; }
+    .empty-state p { font-size: 14px; }
 
-  /* Geometric mid-century background */
-  .hero-geo {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
-  .hero-geo svg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0;
-  }
+    .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 36px 48px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; }
+    .footer-brand { font-family: var(--serif); font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+    .footer-info { font-size: 13px; color: var(--text-secondary); line-height: 1.8; }
+    .footer-info a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-top: 6px; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .hero-eyebrow {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.4em;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(4rem, 10vw, 8rem);
-    font-weight: 300;
-    line-height: 0.95;
-    color: var(--cream);
-    margin-bottom: 0.2rem;
-  }
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-
-  .hero-subtitle {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
-    letter-spacing: 0.5em;
-    color: var(--warm-gray);
-    margin-top: 1rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-divider {
-    width: 60px;
-    height: 1px;
-    background: var(--gold);
-    margin: 0 auto 2rem;
-  }
-
-  .hero-cta {
-    display: inline-flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .btn-primary {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.25em;
-    font-size: 0.85rem;
-    padding: 0.9rem 2.2rem;
-    background: var(--gold);
-    color: var(--charcoal);
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-  .btn-ghost {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.25em;
-    font-size: 0.85rem;
-    padding: 0.9rem 2.2rem;
-    border: 1px solid rgba(201, 168, 76, 0.5);
-    color: var(--gold-light);
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--warm-gray);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-  }
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
-  }
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-
-  /* INTRO STRIP */
-  .intro-strip {
-    background: var(--gold);
-    padding: 1rem 4rem;
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    overflow: hidden;
-  }
-  .strip-item {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    color: var(--walnut);
-    white-space: nowrap;
-  }
-  .strip-dot {
-    color: var(--walnut-mid);
-  }
-
-  /* SECTION COMMONS */
-  section {
-    padding: 7rem 4rem;
-  }
-  .section-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.4em;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--cream);
-  }
-  .section-title em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-  .gold-rule {
-    width: 50px;
-    height: 2px;
-    background: var(--gold);
-    margin: 1.5rem 0;
-  }
-
-  /* ABOUT */
-  .about {
-    background: var(--walnut);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  .about-text p {
-    font-size: 1.05rem;
-    line-height: 1.85;
-    color: var(--linen);
-    opacity: 0.85;
-    margin-bottom: 1.2rem;
-  }
-  .about-visual {
-    position: relative;
-  }
-  .about-card {
-    background: var(--walnut-mid);
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    padding: 3rem;
-    position: relative;
-  }
-  .about-card::before {
-    content: '';
-    position: absolute;
-    top: -12px;
-    left: -12px;
-    right: 12px;
-    bottom: 12px;
-    border: 1px solid rgba(201, 168, 76, 0.15);
-    pointer-events: none;
-  }
-  .about-stat {
-    margin-bottom: 2rem;
-  }
-  .about-stat:last-child { margin-bottom: 0; }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 300;
-    color: var(--gold-light);
-    line-height: 1;
-  }
-  .stat-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    color: var(--warm-gray);
-    margin-top: 0.25rem;
-  }
-  .stat-rule {
-    width: 100%;
-    height: 1px;
-    background: rgba(201, 168, 76, 0.15);
-    margin: 1.5rem 0;
-  }
-
-  /* COCKTAILS */
-  .cocktails-section {
-    background: var(--charcoal);
-  }
-  .cocktails-header {
-    max-width: 1400px;
-    margin: 0 auto 4rem;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-  .cocktails-grid {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-  .cocktail-card {
-    background: var(--walnut);
-    padding: 2.5rem;
-    position: relative;
-    overflow: hidden;
-    cursor: default;
-    transition: background 0.3s;
-  }
-  .cocktail-card:hover { background: var(--walnut-mid); }
-  .cocktail-card.featured {
-    grid-row: span 2;
-    background: var(--walnut-mid);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  .cocktail-geo {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 120px;
-    height: 120px;
-    opacity: 0.07;
-  }
-  .cocktail-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.85rem;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-  .cocktail-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--cream);
-    margin-bottom: 0.5rem;
-    line-height: 1.1;
-  }
-  .cocktail-desc {
-    font-size: 0.85rem;
-    color: var(--warm-gray);
-    line-height: 1.7;
-    margin-bottom: 1.2rem;
-  }
-  .cocktail-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--gold-light);
-    font-style: italic;
-  }
-  .cocktail-tag {
-    display: inline-block;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.25em;
-    color: var(--charcoal);
-    background: var(--gold);
-    padding: 0.2rem 0.6rem;
-    margin-bottom: 1.5rem;
-  }
-
-  /* FEATURED COCKTAIL */
-  .featured-large {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--gold-light);
-    line-height: 1;
-    margin-bottom: 0.75rem;
-  }
-
-  /* ATMOSPHERE */
-  .atmosphere {
-    background: var(--walnut);
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 600px;
-  }
-  .atmosphere-text {
-    padding: 7rem 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .atmosphere-text p {
-    font-size: 1rem;
-    line-height: 1.9;
-    color: var(--linen);
-    opacity: 0.8;
-    margin-bottom: 1.5rem;
-  }
-  .atmosphere-visual {
-    background: var(--charcoal);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .atm-geo {
-    width: 90%;
-    max-width: 500px;
-  }
-
-  /* HOURS & LOCATION */
-  .info-section {
-    background: var(--charcoal);
-  }
-  .info-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr 1px 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-  .info-divider {
-    background: rgba(201, 168, 76, 0.2);
-    height: 100%;
-    min-height: 200px;
-  }
-  .info-block h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.35em;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-  .info-block p, .info-block address {
-    font-style: normal;
-    font-size: 0.95rem;
-    line-height: 1.9;
-    color: var(--linen);
-    opacity: 0.75;
-  }
-  .hours-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: var(--linen);
-    opacity: 0.75;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(201, 168, 76, 0.08);
-  }
-  .hours-row:last-child { border-bottom: none; }
-  .hours-day { font-weight: 400; }
-  .hours-time { color: var(--warm-gray); }
-
-  /* RESERVATION */
-  .reservation {
-    background: var(--gold);
-    padding: 6rem 4rem;
-    text-align: center;
-  }
-  .reservation .section-label { color: var(--walnut); }
-  .reservation .section-title { color: var(--walnut); }
-  .reservation .section-title em { color: var(--walnut-mid); }
-  .reservation p {
-    font-size: 1rem;
-    color: var(--walnut);
-    opacity: 0.75;
-    max-width: 500px;
-    margin: 1rem auto 2.5rem;
-    line-height: 1.8;
-  }
-  .btn-dark {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.25em;
-    font-size: 0.85rem;
-    padding: 0.9rem 2.5rem;
-    background: var(--walnut);
-    color: var(--gold-light);
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s;
-  }
-  .btn-dark:hover { background: var(--charcoal); }
-
-  /* FOOTER */
-  footer {
-    background: var(--walnut);
-    padding: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid rgba(201, 168, 76, 0.15);
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-style: italic;
-    color: var(--gold-light);
-    display: flex;
-    align-items: center;
-  }
-  .footer-copy {
-    font-size: 0.75rem;
-    color: var(--warm-gray);
-    letter-spacing: 0.1em;
-  }
-  .footer-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-  .footer-links a {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    color: var(--warm-gray);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--gold); }
-
-  /* ANIMATIONS */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (max-width: 900px) {
-    nav { padding: 1.2rem 2rem; }
-    .nav-links { display: none; }
-    section { padding: 5rem 2rem; }
-    .about { grid-template-columns: 1fr; gap: 3rem; }
-    .cocktails-grid { grid-template-columns: 1fr; }
-    .cocktail-card.featured { grid-row: auto; }
-    .atmosphere { grid-template-columns: 1fr; }
-    .atmosphere-visual { min-height: 300px; }
-    .info-inner { grid-template-columns: 1fr; }
-    .info-divider { display: none; }
-    .cocktails-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    footer { flex-direction: column; gap: 2rem; text-align: center; }
-    .intro-strip { gap: 2rem; flex-wrap: wrap; padding: 1rem 2rem; }
-  }
-</style>
+    @media (max-width: 768px) {
+      .nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .page-hero { padding: 44px 20px; }
+      .page-hero h1 { font-size: 28px; }
+      .blog-section { padding: 44px 20px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .footer { padding: 32px 20px; flex-direction: column; }
+    }
+    @media (max-width: 900px) and (min-width: 769px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="mainNav">
-  <a href="#" class="nav-logo">
-    <svg class="nav-logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100" height="100" fill="#2C1A0E"/>
-      <circle cx="50" cy="50" r="44" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
-      <text y="68" x="52" text-anchor="middle" font-size="62" font-family="Georgia,serif" font-style="italic" fill="#C9A84C">C</text>
-    </svg>
-    Caruso's
-  </a>
-  <ul class="nav-links">
-    <li><a href="#cocktails">Cocktails</a></li>
-    <li><a href="#about">Our Story</a></li>
-    <li><a href="#info">Visit</a></li>
-  </ul>
-  <a href="#reservations" class="nav-reserve">Reserve a Table</a>
-</nav>
+  <header>
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">
+        Bill Reichle Counseling
+        <span>LPC &middot; NCC &middot; M.S.Ed</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../reviews.html">Reviews</a></li>
+        <li><a href="../expertise.html">Expertise</a></li>
+        <li><a href="index.html" style="color: var(--green); font-weight: 500;">Blog</a></li>
+        <li><a href="../expertise.html">Expertise</a></li>
+        <li class="nav-dropdown" id="nav-dropdown">
+          <button class="nav-dropdown-trigger" id="dropdown-trigger" aria-expanded="false">
+            More
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="../index.html#faq">
+              <span>FAQs</span>
+              <small>Common questions answered</small>
+            </a>
+            <a href="../professionals.html">
+              <span>For Professionals</span>
+              <small>Practice consulting &amp; case consultation</small>
+            </a>
+            <a href="../community.html">
+              <span>Community Impact</span>
+              <small>Nonprofits &amp; giving back</small>
+            </a>
+          </div>
+        </li>
+        <li><a href="../contact.html" class="nav-cta">Book Now &rarr;</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-geo">
-    <svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <!-- Saul Bass-inspired geometric forms -->
-      <circle cx="1200" cy="200" r="380" fill="#C9A84C" opacity="0.06"/>
-      <circle cx="1200" cy="200" r="240" fill="#C9A84C" opacity="0.06"/>
-      <circle cx="1200" cy="200" r="120" fill="#C9A84C" opacity="0.08"/>
-
-      <!-- Diagonal band -->
-      <polygon points="0,600 400,900 0,900" fill="#3A1F0A" opacity="0.6"/>
-      <polygon points="0,700 600,900 0,900" fill="#2C1A0E" opacity="0.4"/>
-
-      <!-- Top-left corner accent -->
-      <polygon points="0,0 200,0 0,200" fill="#C9A84C" opacity="0.05"/>
-
-      <!-- Martini glass silhouette - centered, subtle -->
-      <g transform="translate(720,320)" opacity="0.07">
-        <polygon points="-80,-80 80,-80 0,80" fill="#C9A84C"/>
-        <rect x="-6" y="80" width="12" height="80" fill="#C9A84C"/>
-        <rect x="-35" y="160" width="70" height="8" fill="#C9A84C"/>
-      </g>
-
-      <!-- Thin ruled lines -->
-      <line x1="0" y1="820" x2="1440" y2="820" stroke="#C9A84C" stroke-width="0.5" opacity="0.15"/>
-      <line x1="0" y1="828" x2="1440" y2="828" stroke="#C9A84C" stroke-width="0.5" opacity="0.08"/>
-
-      <!-- Decorative circles left side -->
-      <circle cx="80" cy="450" r="80" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.1"/>
-      <circle cx="80" cy="450" r="50" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.08"/>
-    </svg>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#about">About</a>
+    <a href="../reviews.html">Reviews</a>
+    <a href="index.html">Blog</a>
+    <a href="../index.html#faq">FAQs</a>
+    <a href="../professionals.html">For Professionals</a>
+    <a href="../contact.html" class="mobile-cta">Book an appointment</a>
   </div>
 
-  <div class="hero-content reveal">
-    <p class="hero-eyebrow">Lake Bluff's Most Exclusive Speakeasy · Est. 2025</p>
-    <h1 class="hero-title">
-      Caruso's<br><em>Cocktail Lounge</em>
-    </h1>
-    <p class="hero-subtitle">Lake Bluff · By Invitation Only</p>
-    <div class="hero-divider"></div>
-    <div class="hero-cta">
-      <a href="#cocktails" class="btn-primary">View the Menu</a>
-      <a href="#reservations" class="btn-ghost">Reserve a Table</a>
+  <section class="page-hero">
+    <p class="eyebrow">Insights &amp; resources</p>
+    <h1>From Bill&rsquo;s desk</h1>
+    <p>Practical mental health guidance for athletes, parents, students, and anyone navigating life&rsquo;s harder chapters.</p>
+  </section>
+
+  <div class="blog-section">
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">All posts</button>
+      <button class="filter-btn" data-filter="adhd">ADHD</button>
+      <button class="filter-btn" data-filter="athletes">Athletes</button>
+      <button class="filter-btn" data-filter="anxiety">Anxiety</button>
+      <button class="filter-btn" data-filter="parenting">Parenting</button>
+      <button class="filter-btn" data-filter="youth">Youth</button>
+      <button class="filter-btn" data-filter="wellness">Wellness</button>
     </div>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
-</section>
-
-<!-- STRIP -->
-<div class="intro-strip">
-  <span class="strip-item">Handcrafted Cocktails</span>
-  <span class="strip-dot">·</span>
-  <span class="strip-item">Curated Spirits</span>
-  <span class="strip-dot">·</span>
-  <span class="strip-item">Intimate Speakeasy</span>
-  <span class="strip-dot">·</span>
-  <span class="strip-item">Private Events</span>
-  <span class="strip-dot">·</span>
-  <span class="strip-item">Lake Bluff, Illinois</span>
-</div>
-
-<!-- ABOUT -->
-<section id="about" style="background: var(--walnut);">
-  <div class="about">
-    <div class="about-text reveal">
-      <p class="section-label">Our Story</p>
-      <h2 class="section-title">A Speakeasy <em>Worth Finding</em></h2>
-      <div class="gold-rule"></div>
-      <p>
-        Caruso's wasn't built — it was collected. Bottle by bottle, glass by glass, over years of hunting for the right spirits, the right atmosphere, and the right crowd. Tucked away in Lake Bluff, it's the kind of place you have to know about to find.
-      </p>
-      <p>
-        This is a home bar in the truest sense: personal, carefully curated, and open to those who appreciate the ritual of a well-made drink in a room that means something. Come as a guest. Leave as a regular.
-      </p>
-      <a href="#cocktails" class="btn-ghost" style="align-self: flex-start; margin-top: 1rem;">Explore Our Menu</a>
-    </div>
-    <div class="about-visual reveal">
-      <div class="about-card">
-        <div class="about-stat">
-          <div class="stat-num">40+</div>
-          <div class="stat-label">Handcrafted Cocktails</div>
-        </div>
-        <div class="stat-rule"></div>
-        <div class="about-stat">
-          <div class="stat-num">12</div>
-          <div class="stat-label">Rotating Seasonal Specials</div>
-        </div>
-        <div class="stat-rule"></div>
-        <div class="about-stat">
-          <div class="stat-num">1</div>
-          <div class="stat-label">Rule — Enjoy Yourself</div>
-        </div>
+    <div class="blog-grid" id="blog-grid">
+      <div class="empty-state">
+        <h3>Posts loading...</h3>
+        <p>If posts don&rsquo;t appear, they may still be publishing.</p>
       </div>
     </div>
   </div>
-</section>
 
-<!-- COCKTAILS -->
-<section class="cocktails-section" id="cocktails">
-  <div class="cocktails-header reveal">
+  <footer class="footer">
     <div>
-      <p class="section-label">The Menu</p>
-      <h2 class="section-title">Signature <em>Cocktails</em></h2>
-    </div>
-    <a href="#reservations" class="btn-ghost">Full Menu on Request</a>
-  </div>
-
-  <div class="cocktails-grid">
-    <!-- Featured -->
-    <div class="cocktail-card featured reveal">
-      <svg class="cocktail-geo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="90" stroke="#C9A84C" stroke-width="1.5"/>
-        <circle cx="100" cy="100" r="60" stroke="#C9A84C" stroke-width="1.5"/>
-        <circle cx="100" cy="100" r="30" fill="#C9A84C"/>
-      </svg>
-      <span class="cocktail-tag">House Signature</span>
-      <div class="featured-large">The<br>Caruso's</div>
-      <p class="cocktail-name" style="font-size: 1.1rem; opacity: 0.6;">Our namesake</p>
-      <p class="cocktail-desc">
-        Aged rye whiskey, house-made walnut bitters, a single perfect cherry, and just enough sweet vermouth to make you ask for another. Served over a single large cube, always.
-      </p>
-    </div>
-
-    <div class="cocktail-card reveal">
-      <svg class="cocktail-geo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="100,10 190,190 10,190" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
-      </svg>
-      <p class="cocktail-number">No. 02</p>
-      <p class="cocktail-name">Midnight Sour</p>
-      <p class="cocktail-desc">Bourbon, fresh lemon, honey syrup, egg white. Silky, bright, and dangerously easy to drink.</p>
-    </div>
-
-    <div class="cocktail-card reveal">
-      <svg class="cocktail-geo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="20" y="20" width="160" height="160" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
-        <rect x="60" y="60" width="80" height="80" stroke="#C9A84C" stroke-width="1" fill="none"/>
-      </svg>
-      <p class="cocktail-number">No. 03</p>
-      <p class="cocktail-name">Olive Street Martini</p>
-      <p class="cocktail-desc">House-infused olive brine, Grey Goose, a whisper of dry vermouth. Stirred until perfectly cold.</p>
-    </div>
-
-    <div class="cocktail-card reveal">
-      <p class="cocktail-number">No. 04</p>
-      <p class="cocktail-name">Lake Bluff Mai Tai</p>
-      <p class="cocktail-desc">Aged Jamaican rum, fresh lime, orgeat, orange curaçao. Our nod to the tropics — done right, no shortcuts.</p>
-    </div>
-
-    <div class="cocktail-card reveal">
-      <p class="cocktail-number">No. 05</p>
-      <p class="cocktail-name">Jungle Bird</p>
-      <p class="cocktail-desc">Blackstrap rum, Campari, fresh pineapple, lime, and simple syrup. Bitter, tropical, and completely addictive.</p>
-    </div>
-
-    <div class="cocktail-card reveal">
-      <p class="cocktail-number">No. 06</p>
-      <p class="cocktail-name">Zombie (House Rules)</p>
-      <p class="cocktail-desc">Three rums, apricot liqueur, falernum, fresh citrus, Angostura. One per guest. No exceptions. You'll understand why.</p>
-    </div>
-
-    <div class="cocktail-card reveal">
-      <p class="cocktail-number">No. 07</p>
-      <p class="cocktail-name">Paper Plane</p>
-      <p class="cocktail-desc">Equal parts Aperol, Amaro Nonino, bourbon, and lemon juice. A modern classic, perfectly balanced.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ATMOSPHERE -->
-<div class="atmosphere" id="atmosphere">
-  <div class="atmosphere-text reveal">
-    <p class="section-label">The Space</p>
-    <h2 class="section-title">Made for the<br><em>Evening Hour</em></h2>
-    <div class="gold-rule"></div>
-    <p>
-      Caruso's is a private home bar built over years of obsession — dark cabinetry lined with carefully sourced bottles, a glowing neon sign that says you're somewhere special, and a carved wooden figure at the bar who's seen everything.
-    </p>
-    <p>
-      It doesn't look like a bar from the outside. That's entirely the point.
-    </p>
-  </div>
-  <div class="atmosphere-visual">
-    <svg class="atm-geo" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-      <!-- Mid-century room vignette illustration -->
-      <rect width="500" height="500" fill="#2C1A0E"/>
-
-      <!-- Floor -->
-      <rect x="0" y="360" width="500" height="140" fill="#1A1410"/>
-
-      <!-- Wall panel lines -->
-      <line x1="0" y1="360" x2="500" y2="360" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
-
-      <!-- Lamp -->
-      <line x1="380" y1="60" x2="380" y2="360" stroke="#9C8E7E" stroke-width="2" opacity="0.4"/>
-      <ellipse cx="380" cy="60" rx="50" ry="20" fill="#C9A84C" opacity="0.15"/>
-      <ellipse cx="380" cy="60" rx="50" ry="20" stroke="#C9A84C" stroke-width="1" opacity="0.4" fill="none"/>
-      <!-- lamp glow -->
-      <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.25"/>
-        <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
-      </radialGradient>
-      <ellipse cx="380" cy="200" rx="160" ry="200" fill="url(#glow)"/>
-
-      <!-- Bar counter -->
-      <rect x="60" y="280" width="320" height="80" rx="4" fill="#4A2C15"/>
-      <rect x="60" y="280" width="320" height="8" rx="2" fill="#C9A84C" opacity="0.4"/>
-
-      <!-- Bottles on bar -->
-      <rect x="100" y="220" width="14" height="60" rx="4" fill="#6B3F1E" opacity="0.8"/>
-      <rect x="120" y="230" width="12" height="50" rx="4" fill="#8B5A2B" opacity="0.7"/>
-      <rect x="140" y="215" width="16" height="65" rx="4" fill="#5C3317" opacity="0.8"/>
-      <rect x="164" y="225" width="12" height="55" rx="4" fill="#7A4520" opacity="0.7"/>
-      <rect x="182" y="235" width="10" height="45" rx="4" fill="#C9A84C" opacity="0.3"/>
-
-      <!-- Glasses on bar -->
-      <polygon points="250,280 260,280 258,260 252,260" fill="#E8C97A" opacity="0.2"/>
-      <ellipse cx="255" cy="260" rx="8" ry="3" fill="#E8C97A" opacity="0.15"/>
-
-      <polygon points="275,280 288,280 285,255 278,255" fill="#E8C97A" opacity="0.2"/>
-
-      <!-- Stool silhouettes -->
-      <ellipse cx="140" cy="365" rx="25" ry="8" fill="#2C1A0E"/>
-      <rect x="137" y="310" width="6" height="55" fill="#3D1F0E" opacity="0.8"/>
-      <ellipse cx="140" cy="310" rx="22" ry="7" fill="#4A2C15"/>
-
-      <ellipse cx="220" cy="365" rx="25" ry="8" fill="#2C1A0E"/>
-      <rect x="217" y="310" width="6" height="55" fill="#3D1F0E" opacity="0.8"/>
-      <ellipse cx="220" cy="310" rx="22" ry="7" fill="#4A2C15"/>
-
-      <ellipse cx="300" cy="365" rx="25" ry="8" fill="#2C1A0E"/>
-      <rect x="297" y="310" width="6" height="55" fill="#3D1F0E" opacity="0.8"/>
-      <ellipse cx="300" cy="310" rx="22" ry="7" fill="#4A2C15"/>
-
-      <!-- Decorative circle element -->
-      <circle cx="80" cy="150" r="60" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.15"/>
-      <circle cx="80" cy="150" r="40" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.1"/>
-
-      <!-- Gold rule bottom -->
-      <rect x="0" y="490" width="500" height="2" fill="#C9A84C" opacity="0.2"/>
-    </svg>
-  </div>
-</div>
-
-<!-- INFO -->
-<section class="info-section" id="info">
-  <div class="info-inner">
-    <div class="info-block reveal">
-      <h3>Hours</h3>
-      <div class="hours-row">
-        <span class="hours-day">Monday – Tuesday</span>
-        <span class="hours-time">Closed</span>
+      <div class="footer-brand">Bill Reichle Counseling</div>
+      <div class="footer-info">
+        1390 Birmingham Road, Suite 303 &middot; West Chester, PA 19382<br>
+        <a href="mailto:Bill@BillReichle.com">Bill@BillReichle.com</a> &middot; <a href="tel:6108907951">(610) 890-7951</a>
       </div>
-      <div class="hours-row">
-        <span class="hours-day">Wednesday – Thursday</span>
-        <span class="hours-time">5pm – 12am</span>
-      </div>
-      <div class="hours-row">
-        <span class="hours-day">Friday – Saturday</span>
-        <span class="hours-time">4pm – 2am</span>
-      </div>
-      <div class="hours-row">
-        <span class="hours-day">Sunday</span>
-        <span class="hours-time">4pm – 11pm</span>
-      </div>
-      <p style="font-size: 0.8rem; color: var(--warm-gray); margin-top: 1.2rem; line-height: 1.6;">
-        Hours subject to change.<br>Follow us on Instagram for updates.
-      </p>
     </div>
-
-    <div class="info-divider"></div>
-
-    <div class="info-block reveal">
-      <h3>Find Us</h3>
-      <p style="font-size: 0.95rem; line-height: 1.85; color: var(--linen); opacity: 0.75;">
-        Caruso's is a private speakeasy in Lake Bluff, Illinois. Location details are shared upon reservation confirmation.
-      </p>
-      <p style="font-size: 0.8rem; color: var(--warm-gray); margin-top: 1.2rem; line-height: 1.6;">
-        Street parking available.<br>
-        <a href="https://www.instagram.com/carusoscocktaillounge/" target="_blank" style="color: var(--gold-light); text-decoration: none;">@carusoscocktaillounge</a>
-      </p>
+    <div>
+      <div class="footer-links">
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../accessibility.html">Accessibility</a>
+      </div>
+      <div style="font-size:12px; color: var(--text-muted); margin-top: 8px;">&copy; Avanti Consulting LLC 2026. All rights reserved.</div>
     </div>
+  </footer>
 
-    <div class="info-divider"></div>
+  <script src="https://unpkg.com/marked@9.1.6/marked.min.js"></script>
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
 
-    <div class="info-block reveal">
-      <h3>Private Events</h3>
-      <p style="font-size: 0.95rem; line-height: 1.85; color: var(--linen); opacity: 0.75;">
-        Caruso's is available for private gatherings and celebrations. Intimate by design — every event gets the full experience.
-      </p>
-      <a href="mailto:reservations@carusoscocktaillounge.com" class="btn-ghost" style="display: inline-block; margin-top: 1.5rem; font-family: 'Bebas Neue'; font-size: 0.75rem; letter-spacing: 0.25em; padding: 0.6rem 1.4rem;">Inquire About Events</a>
-    </div>
-  </div>
-</section>
-
-<!-- RESERVATION -->
-<section class="reservation" id="reservations">
-  <p class="section-label">Join Us</p>
-  <h2 class="section-title">Reserve Your <em>Evening</em></h2>
-  <p>Caruso's is a private experience. Send us a note and we'll take care of the rest — including letting you know where to find us.</p>
-  <a href="mailto:reservations@carusoscocktaillounge.com" class="btn-dark">Send a Reservation Request</a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">
-    <svg style="width:28px;height:28px;vertical-align:middle;margin-right:0.5rem;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100" height="100" fill="#2C1A0E"/>
-      <circle cx="50" cy="50" r="44" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
-      <text y="68" x="52" text-anchor="middle" font-size="62" font-family="Georgia,serif" font-style="italic" fill="#C9A84C">C</text>
-    </svg>
-    Caruso's
-  </div>
-  <ul class="footer-links">
-    <li><a href="#cocktails">Menu</a></li>
-    <li><a href="#about">Story</a></li>
-    <li><a href="#info">Visit</a></li>
-    <li><a href="#reservations">Reserve</a></li>
-    <li><a href="https://www.instagram.com/carusoscocktaillounge/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.35rem;">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      Instagram
-    </a></li>
-  </ul>
-  <p class="footer-copy">© 2026 Caruso's Cocktail Lounge · Lake Bluff, IL</p>
-</footer>
-
-<script>
-  // Nav scroll behavior
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
+    // Dropdown
+    const dropdown = document.getElementById('nav-dropdown');
+    const dropdownTrigger = document.getElementById('dropdown-trigger');
+    dropdownTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.toggle('open');
+      dropdownTrigger.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', () => dropdown.classList.remove('open'));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+        dropdown.classList.remove('open');
       }
     });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
 
-  // Hero immediate reveal
-  document.querySelector('.hero .reveal').classList.add('visible');
-</script>
+    // Category labels
+    const categoryLabels = {
+      'adhd': 'ADHD',
+      'athletes': 'Athletes',
+      'anxiety': 'Anxiety',
+      'parenting': 'Parenting',
+      'youth': 'Youth',
+      'wellness': 'Wellness',
+      'relationships': 'Relationships',
+      'life-transitions': 'Life Transitions',
+    };
+
+    // Parse front matter from markdown
+    function parseFrontMatter(content) {
+      const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+      if (!match) return { data: {}, content };
+      const data = {};
+      match[1].split('\n').forEach(line => {
+        const [key, ...val] = line.split(': ');
+        if (key && val.length) data[key.trim()] = val.join(': ').trim().replace(/^"|"$/g, '');
+      });
+      return { data, content: match[2] };
+    }
+
+    // Format date
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    }
+
+    // Render a blog card
+    function renderCard(post) {
+      const slug = post.filename.replace('.md', '');
+      const tag = categoryLabels[post.data.category] || post.data.category || 'Insights';
+      const imgSrc = post.data.image
+        ? (post.data.image.startsWith('http') ? post.data.image : `../${post.data.image}`)
+        : null;
+      const imgHtml = imgSrc
+        ? `<div class="blog-card-img"><img src="${imgSrc}" alt="${post.data.title}" loading="lazy" /></div>`
+        : `<div class="blog-card-img"><div class="blog-card-img-placeholder"><svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg></div></div>`;
+
+      return `
+        <div class="blog-card" data-category="${post.data.category || 'all'}">
+          ${imgHtml}
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">${tag}</span>
+              <span class="blog-card-date">${formatDate(post.data.date)}</span>
+            </div>
+            <div class="blog-card-title">${post.data.title}</div>
+            <div class="blog-card-summary">${post.data.summary || ''}</div>
+            <a href="post.html?slug=${slug}" class="blog-card-link">
+              Read article
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Load posts from GitHub API
+    async function loadPosts() {
+      const grid = document.getElementById('blog-grid');
+      try {
+        const res = await fetch('https://api.github.com/repos/jamieraedouglass/BillReichle/contents/_posts');
+        if (!res.ok) throw new Error('No posts found');
+        const files = await res.json();
+        const mdFiles = files.filter(f => f.name.endsWith('.md'));
+
+        if (mdFiles.length === 0) {
+          grid.innerHTML = `<div class="empty-state"><h3>No posts yet</h3><p>Bill hasn&rsquo;t published any posts yet. Check back soon!</p></div>`;
+          return;
+        }
+
+        const posts = await Promise.all(mdFiles.map(async file => {
+          const r = await fetch(file.download_url);
+          const text = await r.text();
+          const { data } = parseFrontMatter(text);
+          return { filename: file.name, data };
+        }));
+
+        // Sort by date descending
+        posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+
+        grid.innerHTML = posts.map(renderCard).join('');
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.blog-card').forEach(card => {
+              card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+            });
+          });
+        });
+
+      } catch (err) {
+        grid.innerHTML = `<div class="empty-state"><h3>Coming soon</h3><p>Blog posts will appear here once published.</p></div>`;
+      }
+    }
+
+    loadPosts();
+  </script>
+
 </body>
 </html>
