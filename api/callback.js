@@ -6,8 +6,8 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        client_id: process.env.GITHUB_CLIENT_ID,
-        client_secret: process.env.GITHUB_CLIENT_SECRET,
+        client_id: 'Ov23limvrSgyhDhUhCtk',
+        client_secret: 'b482f3cc3cf92b0fe2499e50577e83beb9cbad14',
         code,
       }),
     });
