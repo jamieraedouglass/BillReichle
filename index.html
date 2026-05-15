@@ -145,8 +145,9 @@
     .about-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 18px; }
     .about-h2 { font-family: var(--serif); font-size: 32px; font-weight: 500; line-height: 1.25; margin-bottom: 22px; color: #fff; }
     .about-body { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 32px; }
-    .creds { display: flex; gap: 10px; flex-wrap: wrap; }
-    .cred-badge { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); padding: 6px 16px; border-radius: 20px; font-size: 12px; color: #fff; letter-spacing: 0.04em; }
+    .creds { display: flex; flex-wrap: wrap; align-items: center; gap: 0; margin-top: 4px; }
+    .cred-badge { font-size: 12px; color: rgba(255,255,255,0.75); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 400; }
+    .cred-badge:not(:last-child)::after { content: "·"; margin: 0 8px; color: rgba(255,255,255,0.35); }
     .about-right { background: rgba(0,0,0,0.12); display: flex; align-items: center; justify-content: center; }
     .about-photo-placeholder { width: 210px; height: 280px; background: rgba(255,255,255,0.08); border-radius: 8px; border: 1px solid rgba(255,255,255,0.18); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: rgba(255,255,255,0.4); font-size: 12px; text-align: center; padding: 0 24px; }
 
@@ -553,11 +554,23 @@
       </div>
     </section>
 
-    <section class="office-strip" aria-label="Office photos">
-      <div class="office-strip-header">
-        <p class="eyebrow">The space</p>
-        <h2 class="section-title">A place you&rsquo;ll actually want to come back to</h2>
+    <!-- VIDEO SECTION — replace FILE_ID with Google Drive file ID when Bill makes it public -->
+    <section style="background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 48px;" id="video">
+      <div style="max-width:800px;margin:0 auto;">
+        <p style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:10px;">Meet Bill</p>
+        <h2 style="font-family:var(--serif);font-size:32px;font-weight:500;margin-bottom:24px;line-height:1.25;">Hear it straight from Bill</h2>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:var(--green-light);">
+          <!-- WHEN VIDEO IS READY: delete the placeholder div below, uncomment the iframe, replace FILE_ID -->
+          <!-- <iframe src="https://drive.google.com/file/d/FILE_ID/preview" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="autoplay" allowfullscreen></iframe> -->
+          <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="var(--green)" stroke="none"/></svg>
+            <p style="font-size:14px;color:var(--text-muted);">Video coming soon</p>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <section class="office-strip" aria-label="Office photos">
       <div class="office-photos">
         <div class="office-photo tall">
           <img src="images/DSC03047.jpg" alt="Bill Reichle's counseling office in West Chester" loading="lazy" />
