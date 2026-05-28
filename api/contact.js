@@ -1,3 +1,18 @@
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+function loadPrices() {
+  try {
+    return JSON.parse(readFileSync(join(process.cwd(), '_data/prices.json'), 'utf8'));
+  } catch {
+    return { individual: 245, family: 245, parent: 245, consultation: 225, esa: 125 };
+  }
+}
+
+function fmt(n) {
+  return '$' + Number(n).toLocaleString('en-US');
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -9,12 +24,13 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
+  const prices = loadPrices();
   const serviceLabels = {
-    'individual': 'Individual counseling ($245)',
-    'family': 'Family counseling ($245)',
-    'parent': 'Parent counseling ($245)',
-    'consultation': 'Case consultation - professionals ($225)',
-    'esa': 'ESA letter ($125)',
+    'individual': `Individual counseling (${fmt(prices.individual)})`,
+    'family': `Family counseling (${fmt(prices.family)})`,
+    'parent': `Parent counseling (${fmt(prices.parent)})`,
+    'consultation': `Case consultation - professionals (${fmt(prices.consultation)})`,
+    'esa': `ESA letter (${fmt(prices.esa)})`,
   };
 
   const timestamp = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' });

@@ -325,7 +325,7 @@
     <div class="pro-services-grid">
 
       <div class="pro-card">
-        <div class="pro-price">$415</div>
+        <div class="pro-price" data-price-key="pro_strategy">$415</div>
         <div class="pro-name">The Strategy Deep-Dive</div>
         <div class="pro-ideal">Perfect for: Solving one specific bottleneck</div>
         <ul class="pro-features">
@@ -340,7 +340,7 @@
       </div>
 
       <div class="pro-card featured">
-        <div class="pro-price">$4,950</div>
+        <div class="pro-price" data-price-key="pro_launchpad">$4,950</div>
         <div class="pro-name">The Practice Launchpad</div>
         <div class="pro-ideal">Perfect for: Clinicians moving from agency to private practice</div>
         <ul class="pro-features">
@@ -356,7 +356,7 @@
       </div>
 
       <div class="pro-card">
-        <div class="pro-price">$275</div>
+        <div class="pro-price" data-price-key="pro_consultation">$275</div>
         <div class="pro-name">Clinical Case Consultation</div>
         <div class="pro-ideal">Perfect for: Deepening your work with high-performance populations</div>
         <ul class="pro-features">
@@ -452,6 +452,18 @@
         if (dropdown) dropdown.classList.remove('open');
       }
     });
+  </script>
+  <script>
+    fetch('/_data/prices.json')
+      .then(r => r.json())
+      .then(prices => {
+        const fmt = n => '$' + Number(n).toLocaleString('en-US');
+        document.querySelectorAll('[data-price-key]').forEach(el => {
+          const val = prices[el.dataset.priceKey];
+          if (val !== undefined) el.textContent = fmt(val);
+        });
+      })
+      .catch(() => {});
   </script>
 
 </body>

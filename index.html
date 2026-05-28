@@ -659,7 +659,7 @@
       </div>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-price">$245</div>
+          <div class="service-price" data-price-key="individual">$245</div>
           <h3 class="service-name">Individual counseling</h3>
           <p class="service-tagline">The most important investment you&rsquo;ll ever make is the one in yourself.</p>
           <div class="service-meta">
@@ -670,7 +670,7 @@
           <a href="contact.html" class="service-btn">Request appointment</a>
         </div>
         <div class="service-card featured">
-          <div class="service-price">$245</div>
+          <div class="service-price" data-price-key="family">$245</div>
           <h3 class="service-name">Family counseling</h3>
           <p class="service-tagline">Family time should be your sanctuary, not your stressor.</p>
           <div class="service-meta">
@@ -681,7 +681,7 @@
           <a href="contact.html" class="service-btn">Request appointment</a>
         </div>
         <div class="service-card">
-          <div class="service-price">$245</div>
+          <div class="service-price" data-price-key="parent">$245</div>
           <h3 class="service-name">Parent counseling</h3>
           <p class="service-tagline">A grounded parent is a child&rsquo;s greatest resource. Let&rsquo;s find your center.</p>
           <div class="service-meta">
@@ -692,7 +692,7 @@
           <a href="contact.html" class="service-btn">Request appointment</a>
         </div>
         <div class="service-card">
-          <div class="service-price">$225</div>
+          <div class="service-price" data-price-key="consultation">$225</div>
           <h3 class="service-name">Case consultation</h3>
           <p class="service-tagline">For licensed mental health professionals seeking expert clinical partnership.</p>
           <div class="service-meta">
@@ -703,7 +703,7 @@
           <a href="contact.html" class="service-btn">Request appointment</a>
         </div>
         <div class="service-card">
-          <div class="service-price">$125</div>
+          <div class="service-price" data-price-key="esa">$125</div>
           <h3 class="service-name">ESA letter</h3>
           <p class="service-tagline">Official support for the companion who supports you most.</p>
           <div class="service-meta">
@@ -983,6 +983,18 @@
     }
 
     loadHomepagePosts();
+  </script>
+  <script>
+    fetch('/_data/prices.json')
+      .then(r => r.json())
+      .then(prices => {
+        const fmt = n => '$' + Number(n).toLocaleString('en-US');
+        document.querySelectorAll('[data-price-key]').forEach(el => {
+          const val = prices[el.dataset.priceKey];
+          if (val !== undefined) el.textContent = fmt(val);
+        });
+      })
+      .catch(() => {});
   </script>
 </body>
 </html>
