@@ -722,7 +722,9 @@
           document.getElementById('form-wrap').style.display = 'none';
           document.getElementById('form-success').style.display = 'block';
         } else {
-          throw new Error('Server error');
+          const body = await res.json().catch(() => ({}));
+          console.error('Contact API error:', body);
+          throw new Error(body.detail || body.error || 'Server error');
         }
       } catch (err) {
         status.textContent = 'Something went wrong. Please try emailing Bill@BillReichle.com directly.';
