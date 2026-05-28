@@ -24,6 +24,27 @@
         public_folder: '/images/blog',
         collections: [
           {
+            name: 'settings',
+            label: 'Settings',
+            files: [
+              {
+                name: 'prices',
+                label: 'Service Prices',
+                file: '_data/prices.json',
+                fields: [
+                  { label: 'Individual Counseling ($)', name: 'individual', widget: 'number', value_type: 'int', min: 0 },
+                  { label: 'Family Counseling ($)', name: 'family', widget: 'number', value_type: 'int', min: 0 },
+                  { label: 'Parent Counseling ($)', name: 'parent', widget: 'number', value_type: 'int', min: 0 },
+                  { label: 'Case Consultation - Professionals ($)', name: 'consultation', widget: 'number', value_type: 'int', min: 0 },
+                  { label: 'ESA Letter ($)', name: 'esa', widget: 'number', value_type: 'int', min: 0 },
+                  { label: 'Strategy Deep-Dive - Professionals page ($)', name: 'pro_strategy', widget: 'number', value_type: 'int', min: 0 },
+                  { label: 'Practice Launchpad - Professionals page ($)', name: 'pro_launchpad', widget: 'number', value_type: 'int', min: 0 },
+                  { label: 'Clinical Case Consultation - Professionals page ($)', name: 'pro_consultation', widget: 'number', value_type: 'int', min: 0 }
+                ]
+              }
+            ]
+          },
+          {
             name: 'posts',
             label: 'Blog Posts',
             folder: '_posts',
