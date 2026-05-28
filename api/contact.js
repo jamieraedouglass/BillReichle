@@ -95,12 +95,12 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const error = await response.json();
-      console.error('Resend error:', error);
-      return res.status(500).json({ error: 'Failed to send email' });
+      console.error('Resend error:', JSON.stringify(error));
+      return res.status(500).json({ error: 'Failed to send email', detail: error.message || error.name });
     }
   } catch (err) {
-    console.error('Resend error:', err);
-    return res.status(500).json({ error: 'Server error sending email' });
+    console.error('Resend exception:', err.message);
+    return res.status(500).json({ error: 'Server error sending email', detail: err.message });
   }
 
   // Log to Google Sheets
