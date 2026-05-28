@@ -1,12 +1,10 @@
 export default async function handler(req, res) {
-  // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const { firstName, lastName, email, phone, service, format, referral, message } = req.body;
 
-  // Basic validation
   if (!firstName || !lastName || !email || !service || !message) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
@@ -19,6 +17,9 @@ export default async function handler(req, res) {
     'esa': 'ESA letter ($125)',
   };
 
+  const timestamp = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' });
+
+  // Send email via Resend
   try {
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -81,11 +82,73 @@ export default async function handler(req, res) {
       console.error('Resend error:', error);
       return res.status(500).json({ error: 'Failed to send email' });
     }
+  } catch (err) {
+    console.error('Resend error:', err);
+    return res.status(500).json({ error: 'Server error sending email' });
+  }
 
-    return res.status(200).json({ success: true });
+  // Log to Google Sheets
+  try {
+    const serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
+    const SHEET_ID = '1jc9DPjmaLeSkrSDtwBWUQmxnMipC0MiOTZfoUF_iV44';
+
+    // Get access token using JWT
+    const header = { alg: 'RS256', typ: 'JWT' };
+    const now = Math.floor(Date.now() / 1000);
+    const claim = {
+      iss: serviceAccount.client_email,
+      scope: 'https://www.googleapis.com/auth/spreadsheets',
+      aud: 'https://oauth2.googleapis.com/token',
+      exp: now + 3600,
+      iat: now,
+    };
+
+    const encode = (obj) => Buffer.from(JSON.stringify(obj)).toString('base64url');
+    const headerB64 = encode(header);
+    const claimB64 = encode(claim);
+    const signingInput = `${headerB64}.${claimB64}`;
+
+    // Sign with private key using crypto
+    const { createSign } = await import('crypto');
+    const sign = createSign('RSA-SHA256');
+    sign.update(signingInput);
+    const signature = sign.sign(serviceAccount.private_key, 'base64url');
+    const jwt = `${signingInput}.${signature}`;
+
+    // Exchange JWT for access token
+    const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`,
+    });
+    const tokenData = await tokenRes.json();
+    const accessToken = tokenData.access_token;
+
+    // Append row to sheet
+    const row = [
+      timestamp,
+      `${firstName} ${lastName}`,
+      email,
+      phone || '',
+      serviceLabels[service] || service,
+      format || '',
+      referral || '',
+      message,
+    ];
+
+    await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A:H:append?valueInputOption=USER_ENTERED`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ values: [row] }),
+    });
 
   } catch (err) {
-    console.error('Server error:', err);
-    return res.status(500).json({ error: 'Server error' });
+    // Don't fail the request if sheets logging fails — email already sent
+    console.error('Google Sheets error:', err);
   }
+
+  return res.status(200).json({ success: true });
 }
