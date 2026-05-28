@@ -2,7 +2,14 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/", "destination": "/index.html" }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/reviews", "destination": "/reviews.html" },
+    { "source": "/expertise", "destination": "/expertise.html" },
+    { "source": "/community", "destination": "/community.html" },
+    { "source": "/professionals", "destination": "/professionals.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/post", "destination": "/blog/post.html" }
   ],
   "headers": [
     {
