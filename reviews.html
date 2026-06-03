@@ -249,7 +249,8 @@
           container.append(label, heading, grid);
         });
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error('Reviews load error:', err);
         const container = document.getElementById('reviews-container');
         container.innerHTML = '<p style="color: var(--text-muted); font-size: 14px;">Reviews could not be loaded. Please try refreshing the page.</p>';
       });
