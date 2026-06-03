@@ -1,0 +1,211 @@
+{
+  "reviews": [
+    {
+      "section": "clients",
+      "quote": "As a parent who has navigated the 'alphabet soup' of IEPs and school stressors for years, finding Bill Reichle was a breath of fresh air. It is rare to find a therapist who is not only a clinical expert but also truly understands the inner workings of the school system and the unique pressure on student-athletes. Our teenager was struggling with significant anxiety and ADHD, and we had reached a point where 'traditional' therapy felt like a chore for him. From the very first session, Bill's approach was different. He used his background as a former coach and athlete to build immediate rapport. My son actually looked forward to their sessions because they felt like a collaborative team working toward a goal rather than a clinical 'evaluation.' He hasn't just helped our son move forward; he has helped our whole family find joy again.",
+      "author": "Current Client",
+      "role": "Parent of student-athlete",
+      "featured": true,
+      "long": true,
+      "homepage": true
+    },
+    {
+      "section": "clients",
+      "quote": "Bill Reichle has an incredible ability to connect with adolescents, making our son feel comfortable and understood from their very first session. His deep understanding of the school system provided our family with invaluable guidance and practical strategies to navigate both academic and personal stress. We are so grateful for Bill's compassionate, professional care and wholeheartedly recommend him to any parent seeking a truly dedicated therapist!",
+      "author": "Current Client",
+      "role": "Family counseling",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "clients",
+      "quote": "Cannot recommend Bill Reichle/Avanti Consulting enough. Bill is top of my list for all my referrals! Office is easy to visit and is in a great location. Bill will go above and beyond to tailor his approach to meet each individual's needs, ensuring that every session feels meaningful and productive. His dedication to both his clients and community is truly inspiring! Whether in person or through virtual sessions, he will provide a safe, welcoming, and compassionate space to work through challenges! If you're looking for a mental health counselor who is professional, empathetic, and fully invested in your well-being, look no further. Bill is a rare gem in the field!",
+      "author": "Summer Pierson",
+      "role": "Google review",
+      "featured": false,
+      "long": true,
+      "homepage": true
+    },
+    {
+      "section": "clients",
+      "quote": "Bill is, and has always been, one of the most understanding and compassionate people I have known. He truly found his calling in counseling. His passion and dedication to his patients is evident, and I would be proud to refer him to my friends, family, and community.",
+      "author": "Megan Cromer",
+      "role": "Client referral",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "As a professional who values quality treatment for children and adolescents, I can confidently say that Bill Reichle is a standout therapist in our community. His extensive knowledge base is apparent in every interaction, providing expert guidance and support tailored to each child's unique needs. Bill has an exceptional ability to connect with his patients, fostering trust and creating a safe space for them to express their feelings and challenges. He is remarkably accessible, always going above and beyond to accommodate busy schedules and ensure timely appointments. The meaningful changes he facilitates in the lives of both the kids and their families are truly transformative. Bill Reichle is a true asset to our community, and I wholeheartedly recommend his services.",
+      "author": "Dr. Mark Novitsky, MD",
+      "role": "Physician referral",
+      "featured": true,
+      "long": true,
+      "homepage": true
+    },
+    {
+      "section": "colleagues",
+      "quote": "Mr. Reichle is a fantastic psychotherapist that can help you navigate conditions like anxiety or depression AND also with the dilemmas of life such as difficult relationships or dissatisfaction with work. As a psychiatrist, I highly recommend him!",
+      "author": "Dr. Jack Castro, MD",
+      "role": "Psychiatrist referral",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "As a psychiatrist in the community, I've had the opportunity and pleasure to collaborate with Bill in some of my case work, and am very impressed. He has a broad knowledge base, does great work, connects well with his clientele, and is compassionate. I highly recommend him.",
+      "author": "Jeffrey Naser",
+      "role": "Psychiatrist, MD",
+      "featured": false,
+      "long": false,
+      "homepage": true
+    },
+    {
+      "section": "colleagues",
+      "quote": "Bill is wonderfully cooperative and skilled. As a psychiatrist I am looking for therapists with expertise to work with complex patients and also who are highly collaborative. I'm glad to have the chance to work with him.",
+      "author": "Dr. Marius Popii, MD",
+      "role": "Psychiatrist",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "Bill is so easy to talk to and very welcoming. He was an athlete himself, so he understands the mental health behind being a student athlete and the needs of navigating anxiety and depression within a sport context. I would recommend him to any of my clients who needed clinical care.",
+      "author": "Theresa Giunta, M.S, CMPC, C-MBSR",
+      "role": "Sports psychology colleague",
+      "featured": false,
+      "long": false,
+      "homepage": true
+    },
+    {
+      "section": "colleagues",
+      "quote": "I am so glad to have found Bill! Not only is he the kind of person who always has time for a quick clinical consultation, he has taken on several of our practice's most complex referrals and worked with them beautifully. He really understands adolescents and has incredible skill in connecting with them.",
+      "author": "Mary Lazar, Psy.D",
+      "role": "Clinical psychologist",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "What a caring and empathic person! Bill Reichle is a consummate professional and it is evident he cares about his clients. As a fellow healthcare provider, I choose to work with individuals who put clients first and commit themselves to excellent care. Bill is that person!",
+      "author": "Kristen Wilson, PT, DPT",
+      "role": "Healthcare provider",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "Bill's natural ability to connect and engage in a warm, genuine way is immediately apparent. His passion for helping people is both evident and inspiring. What truly stands out is his capacity to deeply listen, not just to words, but to meaning and emotion. I'm truly grateful to have him as a trusted referral source.",
+      "author": "Stella Barry",
+      "role": "Google review",
+      "featured": false,
+      "long": false,
+      "homepage": true
+    },
+    {
+      "section": "colleagues",
+      "quote": "I've had the pleasure of connecting and collaborating with Bill. He's a valuable resource for individuals seeking counseling services, as well as for children and families needing academic, emotional, and behavioral support. He creates a warm, supportive space, and consistently demonstrates strong clinical skill and professionalism.",
+      "author": "Mallory Baldo, LPC",
+      "role": "Licensed counselor",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "As a colleague in the field, I've had the opportunity to network and consult with Bill Reichle, and I came away impressed. Bill is a thoughtful, knowledgeable, and highly skilled counselor. His insight, professionalism, and ability to connect make him a trusted and effective clinician in private practice.",
+      "author": "Meghan Morley, LPC",
+      "role": "Licensed counselor",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "Bill is a knowledgeable and skilled counselor. He is adept at working with diverse populations and has generously given his time to mentor emerging professionals in the field. I have referred Bill multiple times to potential clients and have heard nothing but great things.",
+      "author": "Wes Garton",
+      "role": "Colleague referral",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "It is rare to find someone similar in mindset and values when it comes to the helping profession. I have known Bill for several years and have witnessed his unique talents and skill sets in counseling, dedication and commitment to having others, and his genuine compassion and kindness.",
+      "author": "Ashley Ainsworth",
+      "role": "Mental Performance Coach",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "Bill is warm, genuine, and passionate about his work. As a fellow therapist, I've crossed paths with him several times. Families that work with him enjoy his style and appreciate his expertise.",
+      "author": "Jenny Hoving, LPC",
+      "role": "Licensed counselor",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "Bill's experience in schools is an added resource for his clients because he can help teens and families navigate the educational challenges that come up with mental health.",
+      "author": "Keli Laverty, BC-DMT",
+      "role": "Dance/Movement Therapist",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "Bill uses his unique background in education to provide the best support to students and their families. He is also a great resource for young adults navigating the college transition. He is invested in supporting people along their mental health journey.",
+      "author": "Briana Haggerty, LPC",
+      "role": "Licensed counselor",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "Bill is an incredible clinician who I would recommend to anyone looking for someone who has both expertise working with children and families, as well as compassion and empathy! Highly recommend him!",
+      "author": "Ashley Sheff, LCSW",
+      "role": "Licensed social worker",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "I highly recommend Bill Reichle for children and families. He is an incredibly skilled and compassionate clinician. Our community is so fortunate to have him as a resource.",
+      "author": "Cindy Duckworth, MOT, OTR/L, IMC, DIR-FT",
+      "role": "Occupational therapist",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "colleagues",
+      "quote": "I am so appreciative of Bill's guidance, wisdom, and encouragement. In my eyes, Bill is a compassionate therapist and an inspiring mentor. His dedication to his clients and passion for his work is evident in our conversations. I am very fortunate to learn from someone so kindhearted, understanding, and comforting. Thank you, Bill.",
+      "author": "Rielly Ragni",
+      "role": "Colleague referral",
+      "featured": false,
+      "long": false,
+      "homepage": false
+    },
+    {
+      "section": "personal",
+      "quote": "I have known Bill since I was his teacher in first grade. I followed his success as a student and athlete throughout his school years. Once he was in college, Bill volunteered in the Unionville-Chadds Ford School District elementary schools every chance he had. A self-starter, quick learner and compassionate human being, I could assign Bill any task and know that it would be completed efficiently and with humble confidence. Bill is one of those 'old souls in a young body' — cool enough for the students, respectful of the staff's experience and a willingness to learn all he could. I have spoken to parents who feel that what he gave to their children has been life changing. Like any parent, teacher and counselor, his goal is always to 'do himself out of a job' — give the client the skills needed to soar and thrive without him. Therefore, I highly recommend him for anyone who needs counseling services.",
+      "author": "Perk Musacchio",
+      "role": "Former teacher, Unionville-Chadds Ford School District",
+      "featured": true,
+      "long": true,
+      "homepage": false
+    }
+  ]
+}

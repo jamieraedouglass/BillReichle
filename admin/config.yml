@@ -26,6 +26,32 @@ collections:
           - { label: "Practice Launchpad – Professionals page ($)", name: "pro_launchpad", widget: "number", value_type: "int", min: 0 }
           - { label: "Clinical Case Consultation – Professionals page ($)", name: "pro_consultation", widget: "number", value_type: "int", min: 0 }
 
+  - name: "reviews"
+    label: "Reviews"
+    files:
+      - name: "all_reviews"
+        label: "All Reviews"
+        file: "_data/reviews.json"
+        fields:
+          - label: "Reviews"
+            name: "reviews"
+            widget: "list"
+            summary: "{{fields.author}} — {{fields.section}}"
+            fields:
+              - label: "Section"
+                name: "section"
+                widget: "select"
+                options:
+                  - { label: "Client / Family", value: "clients" }
+                  - { label: "Colleague / Medical Professional", value: "colleagues" }
+                  - { label: "Personal Note", value: "personal" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Author Name", name: "author", widget: "string" }
+              - { label: "Role / Title", name: "role", widget: "string", hint: "e.g. Physician referral, Parent of student-athlete, Google review" }
+              - { label: "Featured (green highlight)", name: "featured", widget: "boolean", default: false, required: false }
+              - { label: "Wide card (spans 2 columns)", name: "long", widget: "boolean", default: false, required: false }
+              - { label: "Show on homepage", name: "homepage", widget: "boolean", default: false, required: false }
+
   - name: "posts"
     label: "Blog Posts"
     folder: "_posts"
