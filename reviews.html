@@ -228,7 +228,7 @@
       return card;
     }
 
-    fetch('/data/reviews.json')
+    fetch('/api/reviews')
       .then(res => res.json())
       .then(data => {
         const reviews = (data && data.reviews) || [];
