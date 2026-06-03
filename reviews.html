@@ -231,10 +231,11 @@
     fetch('/_data/reviews.json')
       .then(res => res.json())
       .then(data => {
+        const reviews = (data && data.reviews) || [];
         const container = document.getElementById('reviews-container');
         container.innerHTML = '';
         SECTIONS.forEach(section => {
-          const items = data.reviews.filter(r => r.section === section.key);
+          const items = reviews.filter(r => r.section === section.key);
           if (!items.length) return;
           const label = document.createElement('p');
           label.className = 'section-label';
@@ -247,6 +248,10 @@
           items.forEach(r => grid.appendChild(buildCard(r)));
           container.append(label, heading, grid);
         });
+      })
+      .catch(() => {
+        const container = document.getElementById('reviews-container');
+        container.innerHTML = '<p style=”color: var(--text-muted); font-size: 14px;”>Reviews could not be loaded. Please try refreshing the page.</p>';
       });
   </script>
 

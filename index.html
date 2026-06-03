@@ -740,34 +740,39 @@
         <p class="eyebrow">Client reviews</p>
         <h2 class="section-title" id="reviews-title">What clients are saying</h2>
       </div>
-      <div class="reviews-grid" id="homepage-reviews-grid">
-        <p style="color: var(--text-muted); font-size: 14px;">Loading reviews&hellip;</p>
+      <div class=”reviews-grid” id=”homepage-reviews-grid”>
+        <p style=”color: var(--text-muted); font-size: 14px; grid-column: 1 / -1;”>Loading reviews&hellip;</p>
       </div>
-      <div style="text-align:center; margin-top: 28px;">
-        <a href="reviews.html" class="btn-outline">See all reviews &rarr;</a>
+      <div style=”text-align:center; margin-top: 28px;”>
+        <a href=”reviews.html” class=”btn-outline”>See all reviews &rarr;</a>
       </div>
     </section>
     <script>
       fetch('/_data/reviews.json')
         .then(res => res.json())
         .then(data => {
+          const reviews = (data && data.reviews) || [];
           const grid = document.getElementById('homepage-reviews-grid');
-          const items = data.reviews.filter(r => r.homepage);
+          const items = reviews.filter(r => r.homepage);
           if (!items.length) { grid.innerHTML = ''; return; }
           grid.innerHTML = '';
           items.forEach(r => {
             const card = document.createElement('div');
             card.className = 'review-card';
             card.innerHTML =
-              '<div class="review-stars">5 / 5</div>' +
-              '<p class="review-text" style="display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;"></p>' +
-              '<div class="review-author"></div>' +
-              '<div class="review-type"></div>';
+              '<div class=”review-stars”>5 / 5</div>' +
+              '<p class=”review-text” style=”display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;”></p>' +
+              '<div class=”review-author”></div>' +
+              '<div class=”review-type”></div>';
             card.querySelector('.review-text').textContent = '“' + r.quote + '”';
             card.querySelector('.review-author').textContent = r.author;
             card.querySelector('.review-type').textContent = r.role;
             grid.appendChild(card);
           });
+        })
+        .catch(() => {
+          const grid = document.getElementById('homepage-reviews-grid');
+          grid.innerHTML = '<p style=”color: var(--text-muted); font-size: 14px; grid-column: 1 / -1;”>Reviews could not be loaded.</p>';
         });
     </script>
 
