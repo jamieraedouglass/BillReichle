@@ -209,7 +209,7 @@
     },
     {
       "featured": false,
-      "long": false,
+      "long": true,
       "homepage": true,
       "section": "clients",
       "author": "Former Client's Parent",
