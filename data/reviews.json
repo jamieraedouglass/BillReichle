@@ -206,6 +206,15 @@
       "featured": true,
       "long": true,
       "homepage": false
+    },
+    {
+      "featured": false,
+      "long": false,
+      "homepage": true,
+      "section": "clients",
+      "author": "Former Client's Parent",
+      "quote": "Bill has an exceptional ability to connect with teenagers in a way that feels genuine, respectful, and supportive rather than clinical or distant. My teen felt understood from the very first session, which made a huge difference in their willingness to open up and engage in the process. The balance between emotional support and actionable guidance is incredibly effective.\n\nOver time, we have seen noticeable improvements in our teen’s ability to regulate emotions, manage responsibilities, and approach challenges with more resilience. Bill creates a safe, nonjudgmental space while still encouraging growth and accountability.\n\nIf you are looking for someone who truly understands adolescents and can help them both emotionally and practically, Bill Reichle is an outstanding choice.",
+      "role": "Google Review "
     }
   ]
 }
