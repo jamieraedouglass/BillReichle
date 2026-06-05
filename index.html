@@ -304,11 +304,11 @@
       .faq-q { font-size: 13px; }
       .faq-a { font-size: 13px; }
 
-      .cta-banner { padding: 44px 20px; }
-      .cta-banner .section-title { font-size: 26px; }
-      .cta-body { font-size: 14px; }
-      .cta-actions { flex-direction: column; gap: 14px; }
-      .btn-lg { width: 100%; text-align: center; padding: 15px 20px; }
+      #contact { padding: 48px 24px !important; }
+      #contact > div { flex-direction: column !important; align-items: center !important; gap: 36px !important; text-align: center !important; }
+      #contact > div > div:first-child { flex-shrink: 1 !important; width: 100% !important; display: flex !important; justify-content: center !important; }
+      #contact > div > div:first-child img { width: 100% !important; max-width: 300px !important; }
+      #contact > div > div:last-child > div[style] { justify-content: center !important; }
 
       .footer { padding: 32px 20px; flex-direction: column; gap: 20px; }
       .footer-links { gap: 14px; }
@@ -323,7 +323,8 @@
     .blog-section { background: var(--bg); border-top: 1px solid var(--border); }
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .blog-card-skeleton { border: 1px solid var(--border); border-radius: 12px; height: 340px; background: linear-gradient(90deg, var(--bg-secondary) 25%, #efefef 50%, var(--bg-secondary) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
-    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } } background: var(--bg); transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+    .blog-card { border: 1px solid var(--border); border-radius: 12px; background: var(--bg); transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; overflow: hidden; max-width: 100%; }
     .blog-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.07); transform: translateY(-2px); }
     .blog-card-img { height: 180px; background: var(--green-light); overflow: hidden; }
     .blog-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
@@ -375,6 +376,10 @@
     .hero-left > *:nth-child(3) { animation-delay: 0.25s; }
     .hero-left > *:nth-child(4) { animation-delay: 0.35s; }
     .hero-left > *:nth-child(5) { animation-delay: 0.45s; }
+
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J238TCV390"></script>
@@ -461,7 +466,7 @@
       </div>
       <div class="hero-right" aria-hidden="true">
         <p class="hero-location-chip">West Chester, PA 19382</p>
-        <img src="images/DSC03251.jpg" alt="Bill Reichle, Licensed Professional Counselor" class="hero-photo" />
+        <img src="images/IMG_3835.jpg" alt="Bill Reichle, Licensed Professional Counselor" class="hero-photo" />
       </div>
     </section>
 
@@ -837,13 +842,21 @@
       </div>
     </section>
 
-    <section class="cta-banner" id="contact" aria-labelledby="cta-title">
-      <p class="eyebrow">Ready to start?</p>
-      <h2 class="section-title" id="cta-title">Take the first step today</h2>
-      <p class="cta-body">Reaching out is the hardest part. Bill makes the rest easy. Submit a request and he&rsquo;ll be in touch to find a time that works for you.</p>
-      <div class="cta-actions">
-        <a href="contact.html" class="btn-lg">Request an appointment</a>
-        <span class="cta-phone">or call <a href="tel:6108907951">(610) 890-7951</a></span>
+    <section id="contact" style="background:var(--green-light);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 48px;">
+      <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;gap:112px;">
+        <div style="flex-shrink:0;">
+          <img src="images/IMG_3836.jpg" alt="Bill Reichle, LPC at the waterfront" style="width:280px;border-radius:12px;display:block;" />
+        </div>
+        <div style="flex:1;">
+          <p style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:14px;">Working with Bill</p>
+          <h2 style="font-family:var(--serif);font-size:28px;font-weight:500;line-height:1.3;margin-bottom:16px;color:var(--text);">Straightforward, genuine, goal-oriented</h2>
+          <p style="font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:12px;">Bill brings the same direct, encouraging approach to every session — whether you&rsquo;re an athlete navigating pressure, a parent feeling stretched thin, or a teen figuring things out. No jargon. No judgment. Just real progress.</p>
+          <p style="font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:28px;">Reaching out is the hardest part. Bill makes the rest easy &mdash; submit a request and he&rsquo;ll be in touch to find a time that works for you.</p>
+          <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+            <a href="contact.html" class="btn-primary">Request an appointment</a>
+            <span style="font-size:13px;color:var(--text-secondary);">or call <a href="tel:6108907951" style="color:var(--green);font-weight:500;">(610) 890-7951</a></span>
+          </div>
+        </div>
       </div>
     </section>
   </main>
