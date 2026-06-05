@@ -72,10 +72,10 @@
     .page-hero p { font-size: 15px; color: rgba(255,255,255,0.8); max-width: 620px; line-height: 1.8; }
 
     /* TOPIC NAV */
-    .topic-nav { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 61px; z-index: 50; }
+    .topic-nav { border-bottom: 1px solid var(--border); background: var(--bg); }
     .topic-nav-inner { display: flex; gap: 0; overflow-x: auto; padding: 0 48px; scrollbar-width: none; }
     .topic-nav-inner::-webkit-scrollbar { display: none; }
-    .topic-nav-btn { flex-shrink: 0; padding: 16px 20px; font-size: 13px; color: var(--text-muted); border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; font-family: var(--sans); transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
+    .topic-nav-btn { flex-shrink: 0; padding: 16px 20px; font-size: 13px; color: var(--text-muted); border: none; border-bottom: 2px solid transparent; background: none; cursor: pointer; font-family: var(--sans); text-decoration: none; display: inline-block; transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
     .topic-nav-btn:hover { color: var(--green); }
     .topic-nav-btn.active { color: var(--green); border-bottom-color: var(--green); font-weight: 500; }
 
@@ -99,6 +99,12 @@
     .download-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border: 1px solid var(--green); border-radius: 6px; font-size: 13px; color: var(--green); font-weight: 500; transition: background 0.2s, color 0.2s; }
     .download-btn:hover { background: var(--green); color: #fff; }
     .download-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
+
+    /* CLICKABLE SECTION TITLES */
+    .section-title a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .section-title a:hover { color: var(--green); }
+    .section-title a::after { content: " #"; font-size: 0.6em; opacity: 0; transition: opacity 0.2s; vertical-align: middle; }
+    .section-title a:hover::after { opacity: 0.4; }
 
     /* CTA BAND */
     .cta-band { background: var(--green-light); border-top: 1px solid var(--green-mid); border-bottom: 1px solid var(--green-mid); padding: 48px; text-align: center; }
@@ -135,11 +141,11 @@
     <nav class="nav">
       <a href="index.html" class="nav-logo">
         Bill Reichle Counseling
-        <span>LPC &middot; NCC &middot; M.S.Ed</span>
+        <span>LPC &middot; Nationally Certified &middot; M.S.Ed</span>
       </a>
       <ul class="nav-links">
         <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#about">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="blog/index.html">Blog</a></li>
         <li><a href="expertise.html" style="color: var(--green); font-weight: 500;">Expertise</a></li>
@@ -179,7 +185,7 @@
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
     <a href="index.html#services">Services</a>
-    <a href="index.html#about">About</a>
+    <a href="about.html">About</a>
     <a href="reviews.html">Reviews</a>
     <a href="blog/index.html">Blog</a>
     <a href="index.html#faq">FAQs</a>
@@ -198,45 +204,19 @@
 
   <nav class="topic-nav" aria-label="Topics">
     <div class="topic-nav-inner">
-      <button class="topic-nav-btn active" onclick="scrollTo('school')">School Advocacy &amp; IEP/504</button>
-      <button class="topic-nav-btn" onclick="scrollTo('sports')">Sports Performance</button>
-      <button class="topic-nav-btn" onclick="scrollTo('neurodiversity')">Neurodiversity Transitions</button>
-      <button class="topic-nav-btn" onclick="scrollTo('relationships')">Relationship Resilience</button>
+      <a href="#sports" class="topic-nav-btn active">Sports Performance</a>
+      <a href="#school" class="topic-nav-btn">School Advocacy &amp; IEP/504</a>
+      <a href="#relationships" class="topic-nav-btn">Relationship Resilience</a>
+      <a href="#neurodiversity" class="topic-nav-btn">Neurodiversity Transitions</a>
     </div>
   </nav>
 
   <main>
 
-    <!-- SCHOOL ADVOCACY -->
-    <section class="expertise-section" id="school">
-      <p class="section-eyebrow">School advocacy</p>
-      <h2 class="section-title">IEP &amp; 504 Plan Answers for Parents</h2>
-      <p class="section-intro">Parents in Chester County often search for procedural help. Bill's background as a former school counselor makes him the perfect authority to answer these questions and advocate alongside your family.</p>
-      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80" alt="Students in a classroom" class="section-img" />
-      <div class="cards-grid">
-        <div class="card">
-          <h4>The "10-Day" Rule</h4>
-          <p>Did you know that once you submit a written request for an evaluation, the school district has exactly <strong>10 calendar days</strong> to respond with a "Permission to Evaluate" (PTE) form? Don't wait for a phone call. Always submit your request via email to create a digital paper trail. This starts the legal clock and ensures your child doesn't sit on a waiting list.</p>
-        </div>
-        <div class="card">
-          <h4>IEP vs. 504 Plan</h4>
-          <p>An <strong>IEP</strong> provides specialized instruction (the <em>what</em>), while a <strong>504 Plan</strong> provides accommodations (the <em>how</em>). If your child is struggling with the content of school, they likely need an IEP. If they understand the work but struggle with the environment (anxiety, ADHD, sensory issues), a 504 may be the more efficient tool.</p>
-        </div>
-        <div class="card">
-          <h4>The 60-Day Timeline</h4>
-          <p>In Pennsylvania, the school district has <strong>60 calendar days</strong> to complete the evaluation and provide you with a report once you sign the PTE. This 60-day window excludes summer break. If you sign in May, your report likely won't arrive until October. Planning your request in February or March is the "Pro Move" to ensure support is ready for the new school year.</p>
-        </div>
-        <div class="card">
-          <h4>Executive Function &amp; Accommodations</h4>
-          <p>ADHD-related executive functioning challenges — like task initiation, time blindness, and working memory — are often invisible to teachers. Bill helps parents articulate these deficits in clinical terms so the school team can design accommodations that actually address the root cause, not just the symptom.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SPORTS PERFORMANCE -->
-    <section class="expertise-section" id="sports" style="background: var(--bg-secondary);">
+    <!-- SPORTS PERFORMANCE (moved first) -->
+    <section class="expertise-section" id="sports">
       <p class="section-eyebrow">Sports performance</p>
-      <h2 class="section-title">Sports Performance "Expertise Cards"</h2>
+      <h2 class="section-title"><a href="#sports">Sports Performance &#8220;Expertise Cards&#8221;</a></h2>
       <p class="section-intro">Bill's Sports Performance Expertise Cards provide actionable psychological strategies. From the "24-Hour Rule" to prevent post-game spiraling to techniques for leveraging ADHD-driven hyperfocus as a competitive edge.</p>
       <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1200&q=80" alt="Athletes in motion" class="section-img" />
       <div class="cards-grid">
@@ -269,42 +249,36 @@
       </div>
     </section>
 
-    <!-- NEURODIVERSITY TRANSITIONS -->
-    <section class="expertise-section" id="neurodiversity">
-      <p class="section-eyebrow">Neurodiversity transitions</p>
-      <h2 class="section-title">Young Adult &amp; Neurodiversity Transitions</h2>
-      <p class="section-intro">Bill's guidance on Neurodiversity Transitions prepares students for the shift to higher education by emphasizing self-advocacy and the formal process of securing ADA accommodations through college disability services.</p>
-      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80" alt="Young adult transitioning to college" class="section-img" />
+    <!-- SCHOOL ADVOCACY (moved second) -->
+    <section class="expertise-section" id="school" style="background: var(--bg-secondary);">
+      <p class="section-eyebrow">School advocacy</p>
+      <h2 class="section-title"><a href="#school">IEP &amp; 504 Plan Answers for Parents</a></h2>
+      <p class="section-intro">Parents in Chester County often search for procedural help. Bill's background as a former school counselor makes him the perfect authority to answer these questions and advocate alongside your family.</p>
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80" alt="Students in a classroom" class="section-img" />
       <div class="cards-grid">
         <div class="card">
-          <h4>The "Executive Function" Gap</h4>
-          <p>Many young adults experience a "crash" in college or their first job, even if they were top students in high school. This is often due to the removal of <strong>external scaffolding</strong> (parents and teachers) that compensated for executive functioning delays. We focus on building internal scaffolding — systems for task initiation, time-blindness management, and energy mapping that work with a neurodivergent brain's reward system.</p>
+          <h4>The "10-Day" Rule</h4>
+          <p>Did you know that once you submit a written request for an evaluation, the school district has exactly <strong>10 calendar days</strong> to respond with a "Permission to Evaluate" (PTE) form? Don't wait for a phone call. Always submit your request via email to create a digital paper trail. This starts the legal clock and ensures your child doesn't sit on a waiting list.</p>
         </div>
         <div class="card">
-          <h4>Self-Advocacy in College</h4>
-          <p>In K-12, the school is responsible for finding and supporting the student. In college, the legal framework shifts to the <strong>Americans with Disabilities Act (ADA)</strong>, where the student must self-identify and request support. Your high school 504 or IEP does not automatically follow you. We help young adults compile their documentation and practice "The Pitch" — explaining their needs confidently to the Office of Disability Services.</p>
+          <h4>IEP vs. 504 Plan</h4>
+          <p>An <strong>IEP</strong> provides specialized instruction (the <em>what</em>), while a <strong>504 Plan</strong> provides accommodations (the <em>how</em>). If your child is struggling with the content of school, they likely need an IEP. If they understand the work but struggle with the environment (anxiety, ADHD, sensory issues), a 504 may be the more efficient tool.</p>
         </div>
         <div class="card">
-          <h4>The "10-Minute Launch"</h4>
-          <p>For neurodivergent young adults, the hardest part of any task isn't the work itself — it's the activation energy required to start. We teach the <strong>10-Minute Launch</strong> to break the cycle of procrastination and shame. By committing to only 10 minutes, you lower the brain's threat response to a daunting task. The dopamine hit of starting usually provides the momentum to continue.</p>
+          <h4>The 60-Day Timeline</h4>
+          <p>In Pennsylvania, the school district has <strong>60 calendar days</strong> to complete the evaluation and provide you with a report once you sign the PTE. This 60-day window excludes summer break. If you sign in May, your report likely won't arrive until October. Planning your request in February or March is the "Pro Move" to ensure support is ready for the new school year.</p>
         </div>
         <div class="card">
-          <h4>Beyond the Gown</h4>
-          <p>Graduation is often treated as a finish line, but for many it's the start of an identity crisis. The transition from "Student-Athlete" to "Young Professional" can feel like losing your map in the middle of a forest. We help young adults decouple their self-worth from their GPA or jersey number, focusing on <strong>values-based goal setting</strong> to ensure the next chapter is built on what truly matters.</p>
+          <h4>Executive Function &amp; Accommodations</h4>
+          <p>ADHD-related executive functioning challenges — like task initiation, time blindness, and working memory — are often invisible to teachers. Bill helps parents articulate these deficits in clinical terms so the school team can design accommodations that actually address the root cause, not just the symptom.</p>
         </div>
-      </div>
-      <div class="downloads">
-        <a href="https://www.billreichle.com/s/College_Transition_Readiness.pdf" target="_blank" rel="noopener" class="download-btn">
-          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          College Transition Readiness Checklist
-        </a>
       </div>
     </section>
 
-    <!-- RELATIONSHIP RESILIENCE -->
-    <section class="expertise-section" id="relationships" style="background: var(--bg-secondary);">
+    <!-- RELATIONSHIP RESILIENCE (moved third) -->
+    <section class="expertise-section" id="relationships">
       <p class="section-eyebrow">Relationship resilience</p>
-      <h2 class="section-title">High-Conflict Communication &amp; Relationship Resilience</h2>
+      <h2 class="section-title"><a href="#relationships">High-Conflict Communication &amp; Relationship Resilience</a></h2>
       <p class="section-intro">Couples often search for "how-to" fixes for their communication before they ever search for "therapy." These strategies position Bill as a guide who understands the mechanics of a healthy bond.</p>
       <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80" alt="Couple working through communication" class="section-img" />
       <div class="cards-grid">
@@ -337,6 +311,38 @@
         <a href="https://www.billreichle.com/s/Conflict_DeEscalation_Toolkit.pdf" target="_blank" rel="noopener" class="download-btn">
           <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Conflict De-escalation Toolkit
+        </a>
+      </div>
+    </section>
+
+    <!-- NEURODIVERSITY TRANSITIONS (moved last) -->
+    <section class="expertise-section" id="neurodiversity" style="background: var(--bg-secondary);">
+      <p class="section-eyebrow">Neurodiversity transitions</p>
+      <h2 class="section-title"><a href="#neurodiversity">Young Adult &amp; Neurodiversity Transitions</a></h2>
+      <p class="section-intro">Bill's guidance on Neurodiversity Transitions prepares students for the shift to higher education by emphasizing self-advocacy and the formal process of securing ADA accommodations through college disability services.</p>
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80&crop=entropy&fit=crop&fm=jpg&ixid=neurodiversity" alt="Young adult transitioning to college" class="section-img" onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1200&q=80'" />
+      <div class="cards-grid">
+        <div class="card">
+          <h4>The "Executive Function" Gap</h4>
+          <p>Many young adults experience a "crash" in college or their first job, even if they were top students in high school. This is often due to the removal of <strong>external scaffolding</strong> (parents and teachers) that compensated for executive functioning delays. We focus on building internal scaffolding — systems for task initiation, time-blindness management, and energy mapping that work with a neurodivergent brain's reward system.</p>
+        </div>
+        <div class="card">
+          <h4>Self-Advocacy in College</h4>
+          <p>In K-12, the school is responsible for finding and supporting the student. In college, the legal framework shifts to the <strong>Americans with Disabilities Act (ADA)</strong>, where the student must self-identify and request support. Your high school 504 or IEP does not automatically follow you. We help young adults compile their documentation and practice "The Pitch" — explaining their needs confidently to the Office of Disability Services.</p>
+        </div>
+        <div class="card">
+          <h4>The "10-Minute Launch"</h4>
+          <p>For neurodivergent young adults, the hardest part of any task isn't the work itself — it's the activation energy required to start. We teach the <strong>10-Minute Launch</strong> to break the cycle of procrastination and shame. By committing to only 10 minutes, you lower the brain's threat response to a daunting task. The dopamine hit of starting usually provides the momentum to continue.</p>
+        </div>
+        <div class="card">
+          <h4>Beyond the Gown</h4>
+          <p>Graduation is often treated as a finish line, but for many it's the start of an identity crisis. The transition from "Student-Athlete" to "Young Professional" can feel like losing your map in the middle of a forest. We help young adults decouple their self-worth from their GPA or jersey number, focusing on <strong>values-based goal setting</strong> to ensure the next chapter is built on what truly matters.</p>
+        </div>
+      </div>
+      <div class="downloads">
+        <a href="https://www.billreichle.com/s/College_Transition_Readiness.pdf" target="_blank" rel="noopener" class="download-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          College Transition Readiness Checklist
         </a>
       </div>
     </section>
@@ -399,13 +405,8 @@
       }
     });
 
-    // Topic nav scroll
-    function scrollTo(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-
     // Active topic nav state on scroll
-    const sections = ['school', 'sports', 'neurodiversity', 'relationships'];
+    const sections = ['sports', 'school', 'relationships', 'neurodiversity'];
     const btns = document.querySelectorAll('.topic-nav-btn');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
