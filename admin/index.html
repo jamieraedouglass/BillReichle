@@ -83,6 +83,29 @@
             ]
           },
           {
+            name: 'faq',
+            label: 'FAQ',
+            files: [
+              {
+                name: 'all_faqs',
+                label: 'All FAQs',
+                file: 'data/faq.json',
+                fields: [
+                  {
+                    label: 'FAQs',
+                    name: 'faqs',
+                    widget: 'list',
+                    summary: '{{fields.question}}',
+                    fields: [
+                      { label: 'Question', name: 'question', widget: 'string' },
+                      { label: 'Answer', name: 'answer', widget: 'text' }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
             name: 'posts',
             label: 'Blog Posts',
             folder: '_posts',
