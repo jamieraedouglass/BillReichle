@@ -791,60 +791,48 @@
         <h2 class="section-title" id="faq-title">What you need to know</h2>
         <p class="section-sub">Answers to the questions Bill hears most often before a first appointment.</p>
       </div>
-      <div class="faq-grid">
-
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">How long is a typical session?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">Sessions last 50 to 60 minutes and can be held in person or virtually via Google Meet.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">How often can we meet?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">Bill is extremely flexible. Some clients meet multiple times a week, others weekly, biweekly, or monthly. The goal is finding the frequency that works best for you.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">What does a session typically look like?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">Sessions vary in structure and scope. They consist of exploring thoughts, ideas, feelings, and experiences, along with setting goals and benchmarks to measure your growth.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">Are you in-network with insurance?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">Bill is not in-network with insurance companies. This preserves individualized care, clinical autonomy, your privacy, and allows him to work with clients on personal growth that may not meet a diagnosable threshold. HSA/FSA cards and all major credit cards are accepted.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">How does payment work?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">Bill accepts HSA/FSA cards and all major credit cards. Payments are processed through Square, which is PCI DSS compliant to keep your information secure.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">Do you work with outside providers?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">Yes. Bill collaborates with local psychiatrists, doctors, and school districts. He regularly attends IEP and 504 meetings to advocate on a client&rsquo;s behalf and coordinates with psychiatrists when medication support is needed.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">Why should athletes see a counselor for performance anxiety?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">As a former coach, Bill understands that mental barriers are just as significant as physical ones. Counseling helps athletes identify triggers for &ldquo;choking,&rdquo; build resilience after injury, and develop a positive mindset that enhances focus both on and off the field.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">What does ADHD counseling look like?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">The approach focuses on practical strategies for executive functioning, time management, and emotional regulation. Sessions are action-oriented and build systems that work with your unique brain, whether you&rsquo;re a student struggling with deadlines or an adult navigating workplace challenges.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">Can you help navigate my child&rsquo;s IEP or 504 plan?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">Yes. Drawing on experience as a former school counselor, Bill helps families understand the intricacies of school-based supports, identify necessary accommodations, and request the right assessments. He has worked with families across over a dozen Chester County districts and private schools including Westtown, Salesianum, and The Tatnall School.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">Do you help student-athletes with burnout and recruiting stress?<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="faq-a">Absolutely. The pressure of being a student-athlete is immense. Bill helps students balance academics, intense practice schedules, and the emotional toll of the college recruiting process, keeping sports a source of joy rather than just another stressor.</div>
-        </div>
-
+      <div class="faq-grid" id="faq-grid">
       </div>
     </section>
+    <script>
+      fetch('/api/faq')
+        .then(res => res.json())
+        .then(data => {
+          const faqs = (data && data.faqs) || [];
+          const grid = document.getElementById('faq-grid');
+          grid.innerHTML = '';
+          faqs.forEach(f => {
+            const item = document.createElement('div');
+            item.className = 'faq-item';
+            item.setAttribute('onclick', 'toggleFaq(this)');
+            const q = document.createElement('div');
+            q.className = 'faq-q';
+            q.textContent = f.question;
+            q.insertAdjacentHTML('beforeend', '<svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>');
+            const a = document.createElement('div');
+            a.className = 'faq-a';
+            a.textContent = f.answer;
+            item.appendChild(q);
+            item.appendChild(a);
+            grid.appendChild(item);
+          });
+          if (faqs.length) {
+            const schema = document.createElement('script');
+            schema.type = 'application/ld+json';
+            schema.textContent = JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": faqs.map(f => ({
+                "@type": "Question",
+                "name": f.question,
+                "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+              }))
+            });
+            document.head.appendChild(schema);
+          }
+        })
+        .catch(() => {});
+    </script>
 
     <section id="contact" style="background:var(--green-light);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 48px;">
       <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;gap:112px;">

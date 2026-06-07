@@ -248,6 +248,30 @@
           items.forEach(r => grid.appendChild(buildCard(r)));
           container.append(label, heading, grid);
         });
+        if (reviews.length) {
+          const schema = document.createElement('script');
+          schema.type = 'application/ld+json';
+          schema.textContent = JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalBusiness",
+            "@id": "https://billreichle.com",
+            "name": "Bill Reichle Counseling",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5",
+              "bestRating": "5",
+              "worstRating": "1",
+              "reviewCount": reviews.length
+            },
+            "review": reviews.slice(0, 10).map(r => ({
+              "@type": "Review",
+              "reviewBody": r.quote,
+              "author": { "@type": "Person", "name": r.author },
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+            }))
+          });
+          document.head.appendChild(schema);
+        }
       })
       .catch((err) => {
         console.error('Reviews load error:', err);

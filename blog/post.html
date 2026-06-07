@@ -204,6 +204,27 @@
 
         document.title = `${data.title} | Bill Reichle Counseling`;
 
+        const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+        canonical.rel = 'canonical';
+        canonical.href = `https://billreichle.com/blog/post?slug=${slug}`;
+        document.head.appendChild(canonical);
+
+        const postSchema = document.createElement('script');
+        postSchema.type = 'application/ld+json';
+        postSchema.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": data.title,
+          "description": data.summary || '',
+          "datePublished": data.date || '',
+          "author": { "@type": "Person", "name": data.author || "Bill Reichle", "url": "https://billreichle.com/about" },
+          "publisher": { "@type": "Organization", "name": "Bill Reichle Counseling", "url": "https://billreichle.com" },
+          "image": data.image ? (data.image.startsWith('http') ? data.image : `https://billreichle.com/${data.image}`) : "https://billreichle.com/images/DSC03354.jpg",
+          "url": `https://billreichle.com/blog/post?slug=${slug}`,
+          "mainEntityOfPage": { "@type": "WebPage", "@id": `https://billreichle.com/blog/post?slug=${slug}` }
+        });
+        document.head.appendChild(postSchema);
+
         const tag = categoryLabels[data.category] || data.category || 'Insights';
         const imgSrc = data.image
           ? (data.image.startsWith('http') ? data.image : `../${data.image}`)

@@ -1,0 +1,44 @@
+{
+  "faqs": [
+    {
+      "question": "How long is a typical session?",
+      "answer": "Sessions last 50 to 60 minutes and can be held in person or virtually via Google Meet."
+    },
+    {
+      "question": "How often can we meet?",
+      "answer": "Bill is extremely flexible. Some clients meet multiple times a week, others weekly, biweekly, or monthly. The goal is finding the frequency that works best for you."
+    },
+    {
+      "question": "What does a session typically look like?",
+      "answer": "Sessions vary in structure and scope. They consist of exploring thoughts, ideas, feelings, and experiences, along with setting goals and benchmarks to measure your growth."
+    },
+    {
+      "question": "Are you in-network with insurance?",
+      "answer": "Bill is not in-network with insurance companies. This preserves individualized care, clinical autonomy, your privacy, and allows him to work with clients on personal growth that may not meet a diagnosable threshold. HSA/FSA cards and all major credit cards are accepted."
+    },
+    {
+      "question": "How does payment work?",
+      "answer": "Bill accepts HSA/FSA cards and all major credit cards. Payments are processed through Square, which is PCI DSS compliant to keep your information secure."
+    },
+    {
+      "question": "Do you work with outside providers?",
+      "answer": "Yes. Bill collaborates with local psychiatrists, doctors, and school districts. He regularly attends IEP and 504 meetings to advocate on a client’s behalf and coordinates with psychiatrists when medication support is needed."
+    },
+    {
+      "question": "Why should athletes see a counselor for performance anxiety?",
+      "answer": "As a former coach, Bill understands that mental barriers are just as significant as physical ones. Counseling helps athletes identify triggers for “choking,” build resilience after injury, and develop a positive mindset that enhances focus both on and off the field."
+    },
+    {
+      "question": "What does ADHD counseling look like?",
+      "answer": "The approach focuses on practical strategies for executive functioning, time management, and emotional regulation. Sessions are action-oriented and build systems that work with your unique brain, whether you’re a student struggling with deadlines or an adult navigating workplace challenges."
+    },
+    {
+      "question": "Can you help navigate my child’s IEP or 504 plan?",
+      "answer": "Yes. Drawing on experience as a former school counselor, Bill helps families understand the intricacies of school-based supports, identify necessary accommodations, and request the right assessments. He has worked with families across over a dozen Chester County districts and private schools including Westtown, Salesianum, and The Tatnall School."
+    },
+    {
+      "question": "Do you help student-athletes with burnout and recruiting stress?",
+      "answer": "Absolutely. The pressure of being a student-athlete is immense. Bill helps students balance academics, intense practice schedules, and the emotional toll of the college recruiting process, keeping sports a source of joy rather than just another stressor."
+    }
+  ]
+}

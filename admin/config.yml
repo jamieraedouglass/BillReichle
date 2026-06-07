@@ -52,6 +52,21 @@ collections:
               - { label: "Wide card (spans 2 columns)", name: "long", widget: "boolean", default: false, required: false }
               - { label: "Show on homepage", name: "homepage", widget: "boolean", default: false, required: false }
 
+  - name: "faq"
+    label: "FAQ"
+    files:
+      - name: "all_faqs"
+        label: "All FAQs"
+        file: "data/faq.json"
+        fields:
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
   - name: "posts"
     label: "Blog Posts"
     folder: "_posts"
