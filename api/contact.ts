@@ -1,5 +1,8 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { createSign } from 'crypto';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { esc, fmt, isValidEmail } from './_lib.ts';
 
 function loadPrices() {
   try {
@@ -9,39 +12,45 @@ function loadPrices() {
   }
 }
 
-function fmt(n) {
-  return '$' + Number(n).toLocaleString('en-US');
-}
-
-export default async function handler(req, res) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { firstName, lastName, email, phone, service, format, referral, message } = req.body;
+  const body = req.body ?? {};
+  const firstName = String(body.firstName ?? '').trim();
+  const lastName  = String(body.lastName ?? '').trim();
+  const email     = String(body.email ?? '').trim();
+  const phone     = String(body.phone ?? '').trim();
+  const service   = String(body.service ?? '').trim();
+  const format    = String(body.format ?? '').trim();
+  const referral  = String(body.referral ?? '').trim();
+  const message   = String(body.message ?? '').trim().slice(0, 5000);
 
   if (!firstName || !lastName || !email || !service || !message) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
+  if (!isValidEmail(email)) {
+    return res.status(400).json({ error: 'Please enter a valid email address' });
+  }
 
   const prices = loadPrices();
-  const serviceLabels = {
-    'individual': `Individual counseling (${fmt(prices.individual)})`,
-    'family': `Family counseling (${fmt(prices.family)})`,
-    'parent': `Parent counseling (${fmt(prices.parent)})`,
-    'consultation': `Case consultation - professionals (${fmt(prices.consultation)})`,
-    'esa': `ESA letter (${fmt(prices.esa)})`,
+  const serviceLabels: Record<string, string> = {
+    individual: `Individual counseling (${fmt(prices.individual)})`,
+    family: `Family counseling (${fmt(prices.family)})`,
+    parent: `Parent counseling (${fmt(prices.parent)})`,
+    consultation: `Case consultation - professionals (${fmt(prices.consultation)})`,
+    esa: `ESA letter (${fmt(prices.esa)})`,
   };
-
+  const serviceLabel = serviceLabels[service] || service;
   const timestamp = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' });
 
-  // Send email via Resend
   try {
-    const response = await fetch('https://api.resend.com/emails', {
+    const resend = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
         from: 'onboarding@resend.dev',
@@ -57,31 +66,31 @@ export default async function handler(req, res) {
               <table style="width: 100%; border-collapse: collapse;">
                 <tr>
                   <td style="padding: 8px 0; font-size: 13px; color: #888; width: 140px;">Name</td>
-                  <td style="padding: 8px 0; font-size: 14px; font-weight: 500;">${firstName} ${lastName}</td>
+                  <td style="padding: 8px 0; font-size: 14px; font-weight: 500;">${esc(firstName)} ${esc(lastName)}</td>
                 </tr>
                 <tr style="border-top: 1px solid #f0f0f0;">
                   <td style="padding: 8px 0; font-size: 13px; color: #888;">Email</td>
-                  <td style="padding: 8px 0; font-size: 14px;"><a href="mailto:${email}" style="color: #2C5F4A;">${email}</a></td>
+                  <td style="padding: 8px 0; font-size: 14px;"><a href="mailto:${esc(email)}" style="color: #2C5F4A;">${esc(email)}</a></td>
                 </tr>
                 <tr style="border-top: 1px solid #f0f0f0;">
                   <td style="padding: 8px 0; font-size: 13px; color: #888;">Phone</td>
-                  <td style="padding: 8px 0; font-size: 14px;">${phone || 'Not provided'}</td>
+                  <td style="padding: 8px 0; font-size: 14px;">${esc(phone) || 'Not provided'}</td>
                 </tr>
                 <tr style="border-top: 1px solid #f0f0f0;">
                   <td style="padding: 8px 0; font-size: 13px; color: #888;">Service</td>
-                  <td style="padding: 8px 0; font-size: 14px;">${serviceLabels[service] || service}</td>
+                  <td style="padding: 8px 0; font-size: 14px;">${esc(serviceLabel)}</td>
                 </tr>
                 <tr style="border-top: 1px solid #f0f0f0;">
                   <td style="padding: 8px 0; font-size: 13px; color: #888;">Format</td>
-                  <td style="padding: 8px 0; font-size: 14px;">${format || 'Not specified'}</td>
+                  <td style="padding: 8px 0; font-size: 14px;">${esc(format) || 'Not specified'}</td>
                 </tr>
                 <tr style="border-top: 1px solid #f0f0f0;">
                   <td style="padding: 8px 0; font-size: 13px; color: #888;">Referral source</td>
-                  <td style="padding: 8px 0; font-size: 14px;">${referral || 'Not specified'}</td>
+                  <td style="padding: 8px 0; font-size: 14px;">${esc(referral) || 'Not specified'}</td>
                 </tr>
                 <tr style="border-top: 1px solid #f0f0f0;">
                   <td style="padding: 8px 0; font-size: 13px; color: #888; vertical-align: top;">Message</td>
-                  <td style="padding: 8px 0; font-size: 14px; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</td>
+                  <td style="padding: 8px 0; font-size: 14px; line-height: 1.6;">${esc(message).replace(/\n/g, '<br>')}</td>
                 </tr>
               </table>
               <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #f0f0f0; font-size: 12px; color: #888;">
@@ -93,23 +102,20 @@ export default async function handler(req, res) {
       }),
     });
 
-    if (!response.ok) {
-      const error = await response.json();
-      console.error('Resend error:', JSON.stringify(error));
-      return res.status(500).json({ error: 'Failed to send email', detail: error.message || error.name });
+    if (!resend.ok) {
+      console.error('Resend error:', await resend.text());
+      return res.status(502).json({ error: 'Failed to send email' });
     }
   } catch (err) {
-    console.error('Resend exception:', err.message);
-    return res.status(500).json({ error: 'Server error sending email', detail: err.message });
+    console.error('Resend exception:', err);
+    return res.status(502).json({ error: 'Failed to send email' });
   }
 
-  // Log to Google Sheets
+  // log it to the sheet too. email already sent, so don't fail the request if this breaks
   try {
-    const serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
+    const serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT!);
     const SHEET_ID = '1jc9DPjmaLeSkrSDtwBWUQmxnMipC0MiOTZfoUF_iV44';
 
-    // Get access token using JWT
-    const header = { alg: 'RS256', typ: 'JWT' };
     const now = Math.floor(Date.now() / 1000);
     const claim = {
       iss: serviceAccount.client_email,
@@ -119,50 +125,26 @@ export default async function handler(req, res) {
       iat: now,
     };
 
-    const encode = (obj) => Buffer.from(JSON.stringify(obj)).toString('base64url');
-    const headerB64 = encode(header);
-    const claimB64 = encode(claim);
-    const signingInput = `${headerB64}.${claimB64}`;
-
-    // Sign with private key using crypto
-    const { createSign } = await import('crypto');
+    const b64 = (obj: unknown) => Buffer.from(JSON.stringify(obj)).toString('base64url');
+    const signingInput = `${b64({ alg: 'RS256', typ: 'JWT' })}.${b64(claim)}`;
     const sign = createSign('RSA-SHA256');
     sign.update(signingInput);
-    const signature = sign.sign(serviceAccount.private_key, 'base64url');
-    const jwt = `${signingInput}.${signature}`;
+    const jwt = `${signingInput}.${sign.sign(serviceAccount.private_key, 'base64url')}`;
 
-    // Exchange JWT for access token
     const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`,
     });
-    const tokenData = await tokenRes.json();
-    const accessToken = tokenData.access_token;
+    const { access_token } = (await tokenRes.json()) as { access_token?: string };
 
-    // Append row to sheet
-    const row = [
-      timestamp,
-      `${firstName} ${lastName}`,
-      email,
-      phone || '',
-      serviceLabels[service] || service,
-      format || '',
-      referral || '',
-      message,
-    ];
-
+    const row = [timestamp, `${firstName} ${lastName}`, email, phone, serviceLabel, format, referral, message];
     await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A:H:append?valueInputOption=USER_ENTERED`, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'Content-Type': 'application/json',
-      },
+      headers: { Authorization: `Bearer ${access_token}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ values: [row] }),
     });
-
   } catch (err) {
-    // Don't fail the request if sheets logging fails — email already sent
     console.error('Google Sheets error:', err);
   }
 

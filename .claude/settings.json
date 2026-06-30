@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm test *)",
+      "Bash(./node_modules/.bin/tsc --noEmit)",
+      "Bash(git commit -q -m 'move api over to typescript + tighten up contact form and security *)"
+    ]
+  }
+}

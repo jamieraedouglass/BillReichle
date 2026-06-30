@@ -54,7 +54,6 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* NAV */
     .nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(255,255,255,0.96);
@@ -85,14 +84,12 @@
     .nav-dropdown-menu a span { font-size: 13px; color: var(--text); font-weight: 500; }
     .nav-dropdown-menu a small { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
 
-    /* PAGE LAYOUT */
     .page-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
       min-height: calc(100vh - 60px);
     }
 
-    /* LEFT PANEL */
     .contact-left {
       background: var(--green);
       padding: 64px 56px;
@@ -166,7 +163,6 @@
       line-height: 1.6;
     }
 
-    /* RIGHT PANEL / FORM */
     .contact-right {
       padding: 64px 56px;
       background: var(--bg);
@@ -318,7 +314,6 @@
       text-align: center;
     }
 
-    /* SUCCESS STATE */
     .form-success {
       display: none;
       text-align: center;
@@ -338,19 +333,16 @@
     .success-h { font-family: var(--serif); font-size: 24px; font-weight: 500; margin-bottom: 10px; }
     .success-p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; max-width: 340px; margin: 0 auto; }
 
-    /* ERROR */
     .field-error { font-size: 12px; color: var(--error); margin-top: 5px; display: none; }
     .field-error.visible { display: block; }
     input.invalid, select.invalid, textarea.invalid { border-color: var(--error); }
 
-    /* FORM STATUS */
     .form-status { font-size: 13px; margin-top: 12px; text-align: center; min-height: 20px; }
     .form-status.error { color: var(--error); }
 
     .contact-photo { margin-top: 28px; border-radius: 10px; overflow: hidden; height: 220px; }
     .contact-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
 
-    /* HAMBURGER */
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
     .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -361,7 +353,6 @@
     .mobile-menu a { font-size: 22px; font-family: var(--serif); font-weight: 400; color: var(--text); padding: 18px 0; border-bottom: 1px solid var(--border); display: block; text-decoration: none; }
     .mobile-menu .mobile-cta { margin-top: 32px; display: block; text-align: center; background: var(--green); color: #fff; padding: 16px 24px; border-radius: 6px; font-size: 15px; font-family: var(--sans); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: none; }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav { padding: 14px 20px; }
       .nav-links { display: none; }
@@ -379,7 +370,7 @@
       .submit-btn { padding: 15px 20px; font-size: 14px; }
     }
   </style>
-  <!-- Google tag (gtag.js) -->
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J238TCV390"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -452,7 +443,6 @@
 
   <div class="page-wrap">
 
-    <!-- LEFT: Info panel -->
     <div class="contact-left">
       <div>
         <p class="contact-eyebrow">Get in touch</p>
@@ -499,7 +489,6 @@
       </div>
     </div>
 
-    <!-- RIGHT: Form -->
     <div class="contact-right">
       <div id="form-wrap">
         <h2 class="form-heading">Request an appointment</h2>
@@ -596,7 +585,6 @@
         </form>
       </div>
 
-      <!-- Success state (shown after submission) -->
       <div class="form-success" id="form-success">
         <div class="success-icon">
           <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
@@ -609,7 +597,6 @@
   </div>
 
   <script>
-    // Radio button selection
     function selectRadio(el, name) {
       document.querySelectorAll(`.radio-option`).forEach(opt => {
         if (opt.querySelector(`input[name="${name}"]`)) opt.classList.remove('selected');
@@ -618,7 +605,6 @@
       el.querySelector('input[type="radio"]').checked = true;
     }
 
-    // Validation helpers
     function setError(fieldId, errorId, show) {
       const field = document.getElementById(fieldId);
       const error = document.getElementById(errorId);
@@ -635,7 +621,6 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    // Clear errors on input
     ['first-name','last-name','email','service','message'].forEach(id => {
       document.getElementById(id).addEventListener('input', function() {
         this.classList.remove('invalid');
@@ -645,7 +630,6 @@
       });
     });
 
-    // Form submission
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
 
@@ -675,32 +659,6 @@
       btn.textContent = 'Sending...';
       status.textContent = '';
       status.className = 'form-status';
-
-      // ── RESEND INTEGRATION ──────────────────────────────────────────────
-      // To connect Resend:
-      // 1. Create a free account at https://resend.com
-      // 2. Verify your domain (billreichle.com) in Resend dashboard
-      // 3. Create an API key under API Keys
-      // 4. Deploy a small backend endpoint (Vercel serverless fn, Express, etc.)
-      //    that accepts POST { firstName, lastName, email, phone, service,
-      //    format, referral, message } and calls the Resend API like:
-      //
-      //    const resend = new Resend(process.env.RESEND_API_KEY);
-      //    await resend.emails.send({
-      //      from: 'website@billreichle.com',
-      //      to:   'Bill@BillReichle.com',
-      //      subject: `New appointment request from ${firstName} ${lastName}`,
-      //      html: `<p><b>Name:</b> ${firstName} ${lastName}</p>
-      //             <p><b>Email:</b> ${email}</p>
-      //             <p><b>Phone:</b> ${phone}</p>
-      //             <p><b>Service:</b> ${service}</p>
-      //             <p><b>Format:</b> ${format}</p>
-      //             <p><b>Referral:</b> ${referral}</p>
-      //             <p><b>Message:</b><br>${message}</p>`
-      //    });
-      //
-      // 5. Replace the fetch URL below with your deployed endpoint URL.
-      // ────────────────────────────────────────────────────────────────────
 
       const phone    = document.getElementById('phone').value.trim();
       const format   = document.querySelector('input[name="format"]:checked')?.value || 'not specified';

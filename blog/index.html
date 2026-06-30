@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <!-- Google tag (gtag.js) -->
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J238TCV390"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -69,7 +69,6 @@
     .nav-dropdown-menu a span { font-size: 13px; color: var(--text); font-weight: 500; }
     .nav-dropdown-menu a small { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
 
-    /* PAGE */
     .page-hero { background: var(--green); color: #fff; padding: 56px 48px; }
     .eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 500; margin-bottom: 14px; }
     .page-hero h1 { font-family: var(--serif); font-size: 40px; font-weight: 500; color: #fff; margin-bottom: 12px; line-height: 1.2; }
@@ -230,7 +229,6 @@
 
   <script src="https://unpkg.com/marked@9.1.6/marked.min.js"></script>
   <script>
-    // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => {
@@ -240,7 +238,6 @@
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Dropdown
     const dropdown = document.getElementById('nav-dropdown');
     const dropdownTrigger = document.getElementById('dropdown-trigger');
     dropdownTrigger.addEventListener('click', (e) => {
@@ -258,7 +255,6 @@
       }
     });
 
-    // Category labels
     const categoryLabels = {
       'adhd': 'ADHD',
       'athletes': 'Athletes',
@@ -270,7 +266,6 @@
       'life-transitions': 'Life Transitions',
     };
 
-    // Parse front matter from markdown
     function parseFrontMatter(content) {
       const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
       if (!match) return { data: {}, content };
@@ -282,13 +277,11 @@
       return { data, content: match[2] };
     }
 
-    // Format date
     function formatDate(dateStr) {
       const d = new Date(dateStr);
       return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
     }
 
-    // Render a blog card
     function renderCard(post) {
       const slug = post.filename.replace('.md', '');
       const tag = categoryLabels[post.data.category] || post.data.category || 'Insights';
@@ -318,7 +311,6 @@
       `;
     }
 
-    // Load posts from GitHub API
     async function loadPosts() {
       const grid = document.getElementById('blog-grid');
       try {
@@ -339,12 +331,10 @@
           return { filename: file.name, data };
         }));
 
-        // Sort by date descending
         posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
 
         grid.innerHTML = posts.map(renderCard).join('');
 
-        // Filter buttons
         document.querySelectorAll('.filter-btn').forEach(btn => {
           btn.addEventListener('click', () => {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
