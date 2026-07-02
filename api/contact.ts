@@ -34,6 +34,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Please enter a valid email address' });
   }
 
+  // Cloudflare Turnstile — verify the challenge token before doing any work.
+  // Enforced only when TURNSTILE_SECRET_KEY is configured, so the form keeps
+  // working if the secret hasn't been added to the environment yet.
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (secret) {
+    const turnstileToken = String(body.turnstileToken ?? '');
+    if (!turnstileToken) {
+      return res.status(403).json({ error: 'Verification required. Please try again.' });
+    }
+    try {
+      const ip = String(req.headers['x-forwarded-for'] ?? '').split(',')[0].trim();
+      const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          secret,
+          response: turnstileToken,
+          ...(ip ? { remoteip: ip } : {}),
+        }),
+      });
+      const outcome = (await verify.json()) as { success?: boolean };
+      if (!outcome.success) {
+        return res.status(403).json({ error: 'Verification failed. Please try again.' });
+      }
+    } catch (err) {
+      console.error('Turnstile verification error:', err);
+      return res.status(502).json({ error: 'Could not verify request. Please try again.' });
+    }
+  }
+
   const prices = loadPrices();
   const serviceLabels: Record<string, string> = {
     individual: `Individual counseling (${fmt(prices.individual)})`,

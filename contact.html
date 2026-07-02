@@ -371,6 +371,7 @@
     }
   </style>
   
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J238TCV390"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -578,6 +579,14 @@
             <div class="field-error" id="message-error">Please share a brief message.</div>
           </div>
 
+          <div class="form-group">
+            <!-- Cloudflare Turnstile. Replace data-sitekey with the site key from your
+                 Cloudflare Turnstile widget (dash.cloudflare.com > Turnstile). The value
+                 below is Cloudflare's always-passes TEST key, safe until you swap it. -->
+            <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light" data-callback="onTurnstileSuccess"></div>
+            <div class="field-error" id="turnstile-error">Please complete the verification.</div>
+          </div>
+
           <button type="submit" class="submit-btn" id="submit-btn">Send appointment request</button>
           <div class="form-status" id="form-status"></div>
           <p class="form-disclaimer">Your information is kept strictly confidential and will only be used to respond to your request. Bill does not sell or share personal information.</p>
@@ -651,6 +660,16 @@
       setError('message', 'message-error', !message);
       if (!message) valid = false;
 
+      const turnstileToken = (window.turnstile && typeof turnstile.getResponse === 'function')
+        ? turnstile.getResponse() : '';
+      const tsError = document.getElementById('turnstile-error');
+      if (!turnstileToken) {
+        tsError.classList.add('visible');
+        valid = false;
+      } else {
+        tsError.classList.remove('visible');
+      }
+
       if (!valid) return;
 
       const btn = document.getElementById('submit-btn');
@@ -664,7 +683,7 @@
       const format   = document.querySelector('input[name="format"]:checked')?.value || 'not specified';
       const referral = document.getElementById('referral').value || 'not specified';
 
-      const payload = { firstName, lastName, email, phone, service, format, referral, message };
+      const payload = { firstName, lastName, email, phone, service, format, referral, message, turnstileToken };
 
       try {
         const ENDPOINT = '/api/contact';
@@ -688,8 +707,15 @@
         status.className = 'form-status error';
         btn.disabled = false;
         btn.textContent = 'Send appointment request';
+        if (window.turnstile) turnstile.reset();
       }
     });
+
+    // Clears the verification error as soon as the challenge is solved
+    function onTurnstileSuccess() {
+      const tsError = document.getElementById('turnstile-error');
+      if (tsError) tsError.classList.remove('visible');
+    }
   </script>
 
   <script>
