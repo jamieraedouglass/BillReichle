@@ -4,6 +4,8 @@ title: "The Fall Freefall: Turning Down the Volume on Anxiety and Partnering
 date: 2026-09-02T15:15:10.230Z
 author: Bill Reichle
 category: adhd
+image: "Photo by John Sullivan from Pexels:
+  https://www.pexels.com/photo/football-players-playing-at-field-15203/"
 summary: Since we are in early September, this post taps into the highly
   relevant "back-to-school/fall sports" season.
 ---
